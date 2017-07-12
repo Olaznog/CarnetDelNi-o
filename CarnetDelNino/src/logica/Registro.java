@@ -1,6 +1,6 @@
 package logica;
 
-public class Registro {
+public abstract class Registro {
 	
 	private Fecha fecha;
 	private String comentario;
