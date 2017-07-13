@@ -1,17 +1,19 @@
 package logica;
 
+import java.util.Calendar;
+
 public class Niño {
 	
 	private String nombre;
 	private int documento;
-	private Fecha fechaNacimiento;
+	private Calendar fechaNacimiento;
 	private String servicioMedico;
 	private String medicoCabecera;
 	private boolean tieneFonasa;
 	private Registro[] registros;
 	private int cantRegistrosIngresados;
 	
-	public Niño(String nombre, int documento, Fecha fechaNacimiento, String servicioMedico, String medicoCabecera,
+	public Niño(String nombre, int documento, Calendar fechaNacimiento, String servicioMedico, String medicoCabecera,
 			boolean tieneFonasa, Registro[] registros, int cantRegistrosIngresados) {
 		super();
 		this.nombre = nombre;
@@ -24,7 +26,7 @@ public class Niño {
 		this.cantRegistrosIngresados = cantRegistrosIngresados;
 	}
 	
-	public Niño(String nombre, int documento, Fecha fechaNacimiento, String servicioMedico, String medicoCabecera,
+	public Niño(String nombre, int documento, Calendar fechaNacimiento, String servicioMedico, String medicoCabecera,
 			boolean tieneFonasa) {
 		super();
 		this.nombre = nombre;
@@ -53,11 +55,11 @@ public class Niño {
 		this.documento = documento;
 	}
 
-	public Fecha getFechaNacimiento() {
+	public Calendar getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Fecha fechaNacimiento) {
+	public void setFechaNacimiento(Calendar fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
@@ -100,6 +102,7 @@ public class Niño {
 	public void setCantRegistrosIngresados(int cantRegistrosIngresados) {
 		this.cantRegistrosIngresados = cantRegistrosIngresados;
 	}
+
 	
 	
 	

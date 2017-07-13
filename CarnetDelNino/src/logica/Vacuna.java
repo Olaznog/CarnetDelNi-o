@@ -1,12 +1,14 @@
 package logica;
 
+import java.util.Calendar;
+
 public class Vacuna extends Registro {
 	
 	private String nombre;
 	private int dosis;
 	private boolean obligatoria;
 	
-	public Vacuna(Fecha fecha, String comentario, String nombre, int dosis, boolean obligatoria) {
+	public Vacuna(Calendar fecha, String comentario, String nombre, int dosis, boolean obligatoria) {
 		super(fecha, comentario);
 		this.nombre = nombre;
 		this.dosis = dosis;

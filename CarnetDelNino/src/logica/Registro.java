@@ -1,21 +1,25 @@
 package logica;
 
+import java.util.Calendar;
+
 public abstract class Registro {
 	
-	private Fecha fecha;
+	private Calendar fecha;
 	private String comentario;
 	
-	public Registro(Fecha fecha, String comentario) {
+	public Registro(Calendar fecha, String comentario) {
 		super();
 		this.fecha = fecha;
 		this.comentario = comentario;
 	}
+	
+	//public abstract void mostrar();
 
-	public Fecha getFecha() {
+	public Calendar getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Fecha fecha) {
+	public void setFecha(Calendar fecha) {
 		this.fecha = fecha;
 	}
 
@@ -26,6 +30,9 @@ public abstract class Registro {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
+	
+
+	
 	
 	
 

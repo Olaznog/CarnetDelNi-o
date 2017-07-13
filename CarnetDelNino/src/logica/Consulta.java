@@ -1,12 +1,14 @@
 package logica;
 
+import java.util.Calendar;
+
 public class Consulta extends Registro {
 	
 	private String medico;
 	private String diagnostico;
 	private String recomendaciones;
 	
-	public Consulta(Fecha fecha, String comentario, String medico, String diagnostico, String recomendaciones) {
+	public Consulta(Calendar fecha, String comentario, String medico, String diagnostico, String recomendaciones) {
 		super(fecha, comentario);
 		this.medico = medico;
 		this.diagnostico = diagnostico;
