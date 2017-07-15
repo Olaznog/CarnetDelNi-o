@@ -107,5 +107,6 @@ public class Niño {
 		String retorno = "Nombre:" + nombre + "Documento: " +documento +"Fecha Nacimiento: " +fechaNacimiento +"Servicio: " +servicioMedico + "Medico Cabecera: " +medicoCabecera + "Tiene Fonasa: " +tieneFonasa + "Registros: " + "Cantidad Registros: ";
 		return retorno;
 	}
+	//no me deja hacer el push
 	
 }
