@@ -23,20 +23,31 @@ public class ColeccionNiños {
 		this.maximoRegistros = maximoRegistros;
 		niños = new Niño[maximoNiños];
 	}
+	
 
 	public void altaNiño(Niño n) {
 		
 		//si el ni;o no esta ingresado ya en el arreglo = if(existeNinio(n)
 		//---------------
 		//n.existeNinio(int doc);
-		//crear el arreglo de registros del ninio, de tamanio maximoRegistro
+		//crear el arreglo de registros del ninio, de tamanio maximoRegistros
 		//se lo setean pasandolo como parametro al metodo setRegistros
-		//if(existeNinio() == false)
-			if(hayLugar() == true)
-		//n.setRegistros(getRegistros()[maximoRegistros]);	
+		if(existeNinio(n.getDocumento()) == false)
+			if(hayLugar() == true){
+				Registro[]registro = new Registro[maximoRegistros];
+				//Registro[]registro = new Registro(n.setRegistros(registros));
 		niños[tope] = n;
 		tope++;
+		}
 	}
+	public int getMaximoRegistros() {
+		return maximoRegistros;
+	}
+
+	public void setMaximoRegistros(int maximoRegistros) {
+		this.maximoRegistros = maximoRegistros;
+	}
+
 	public boolean existeNinio(int doc){
 	boolean existe = false;
 	int i = 0;
@@ -44,7 +55,6 @@ public class ColeccionNiños {
 	while (!existe && i < tope) {
 		if (niños[i].getDocumento() == doc) {
 			existe = true;
-			System.out.println("Error: El niño ya esta ingresado");
 		}
 		i++;
 	}
@@ -57,15 +67,28 @@ public class ColeccionNiños {
 		return hayLugar;
 	}
 	
-	//public String[] listarNiños() {
-	//	for(int i = 0; i < niños.length; i++)
+	/*public String[] listarNiños() {
+		String lista = "";
+		for(int i = 0; i < niños.length; i++)
+		{
 			
-	//	return null;
+			lista = lista + niños[i].toString() + "\n";
+		}
+		return lista;
 		
-	//}
+	}*/
 	
 	public void altaRegistro(Registro r, int cedulaNiño) {
-		
+		while(existeNinio(cedulaNiño) == false)
+			System.out.println("Error: El ninio no existe");
+		 
+			if(hayLugar() != true)
+				System.out.println("Error: Ya no hay lugar");
+			/*else
+				registro[] = r;
+		Si se encuentra el niño, se invoca el método de la clase niño que agrega el registro
+		en la lista de registros del mismo. SI ya no hay lugar para más registros de ese niño, se
+		emite otro mensaje.*/
 	}
 	
 	public Niño getDatosNiño(int cedula) {
@@ -78,10 +101,6 @@ public class ColeccionNiños {
 			
 	}
 	
-	public boolean existeNiño(int cedula) {
-		return false;
-		
-	}
 	
 	
 	
@@ -89,6 +108,6 @@ public class ColeccionNiños {
 		return false;
 		
 	}
-	//comentario
+	
 	
 }
