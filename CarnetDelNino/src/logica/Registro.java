@@ -31,7 +31,10 @@ public abstract class Registro {
 		this.comentario = comentario;
 	}
 	
-
+	public String toString() {
+		String retorno = "Fecha:" + fecha + "Comentario: " +comentario;
+		return retorno;
+	}
 	
 	
 	

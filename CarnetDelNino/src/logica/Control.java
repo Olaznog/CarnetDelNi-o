@@ -33,6 +33,9 @@ public class Control extends Registro {
 		this.altura = altura;
 	}
 	
-	
+	public String toString() {
+		String retorno = "Peso:" + peso + "Altura: " +altura;
+		return retorno;
+	}
 
 }

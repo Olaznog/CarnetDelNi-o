@@ -39,6 +39,10 @@ public class Consulta extends Registro {
 		this.recomendaciones = recomendaciones;
 	}
 	
+	public String toString() {
+		String retorno = "Medico:" + medico + "Diagnostico: " +diagnostico+ "Recomendaciones: " + recomendaciones;
+		return retorno;
+	}
 	
 	
 	
