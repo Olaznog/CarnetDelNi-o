@@ -31,9 +31,9 @@ public class ColeccionNiños {
 		//n.existeNinio(int doc);
 		//crear el arreglo de registros del ninio, de tamanio maximoRegistro
 		//se lo setean pasandolo como parametro al metodo setRegistros
-		if(existeNinio() == false)
+		//if(existeNinio() == false)
 			if(hayLugar() == true)
-		n.setRegistros(getRegistros()[maximoRegistros]);	
+		//n.setRegistros(getRegistros()[maximoRegistros]);	
 		niños[tope] = n;
 		tope++;
 	}
@@ -57,12 +57,12 @@ public class ColeccionNiños {
 		return hayLugar;
 	}
 	
-	public String[] listarNiños() {
-		for(int i = o; i < niños.length; i++)
+	//public String[] listarNiños() {
+	//	for(int i = 0; i < niños.length; i++)
 			
-		return null;
+	//	return null;
 		
-	}
+	//}
 	
 	public void altaRegistro(Registro r, int cedulaNiño) {
 		
