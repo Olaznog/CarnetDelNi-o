@@ -38,6 +38,7 @@ public class Niño {
 		this.registros = null;
 		this.cantRegistrosIngresados = 0;
 	}
+	
 
 	public String getNombre() {
 		return nombre;
@@ -102,8 +103,9 @@ public class Niño {
 	public void setCantRegistrosIngresados(int cantRegistrosIngresados) {
 		this.cantRegistrosIngresados = cantRegistrosIngresados;
 	}
-
-	
-	
+	public String toString() {
+		String retorno = "Nombre:" + nombre + "Documento: " +documento +"Fecha Nacimiento: " +fechaNacimiento +"Servicio: " +servicioMedico + "Medico Cabecera: " +medicoCabecera + "Tiene Fonasa: " +tieneFonasa + "Registros: " + "Cantidad Registros: ";
+		return retorno;
+	}
 	
 }
