@@ -1,5 +1,5 @@
 package logica;
-/*Comentario*/
+
 import java.util.Calendar;
 
 public class Niño {
@@ -122,7 +122,7 @@ public class Niño {
 	}
 	
 	public String toString() {
-		String retorno = "Nombre:" + nombre + "Documento: " +documento +"Fecha Nacimiento: " +fechaNacimiento +"Servicio: " +servicioMedico + "Medico Cabecera: " +medicoCabecera + "Tiene Fonasa: " +tieneFonasa + "Registros: " +registros.toString() + "Cantidad Registros: ";
+		String retorno = "Nombre:" + nombre + "Documento: " +documento +"Fecha Nacimiento: " +fechaNacimiento +"Servicio: " +servicioMedico + "Medico Cabecera: " +medicoCabecera + "Tiene Fonasa: " +tieneFonasa + "Registros: " +registros.toString() + "Cantidad Registros: " +cantRegistrosIngresados;
 		return retorno;
 	}
 

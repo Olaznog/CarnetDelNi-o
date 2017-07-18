@@ -34,21 +34,14 @@ public class ColeccionNiños {
 		//se lo setean pasandolo como parametro al metodo setRegistros
 		if(existeNinio(n.getDocumento()) == false)
 			if(hayLugar() == true){
-				Registro[]registro = new Registro[maximoRegistros];
+				Registro[]registros = new Registro[maximoRegistros];
 				//Registro[]registro = new Registro(n.setRegistros(registros));
 		niños[tope] = n;
 		tope++;
 		}
 	}
 	
-	public int getMaximoRegistros() {
-		return maximoRegistros;
-	}
-
-	public void setMaximoRegistros(int maximoRegistros) {
-		this.maximoRegistros = maximoRegistros;
-	}
-
+	
 	public boolean existeNinio(int doc){
 	boolean existe = false;
 	int i = 0;
@@ -69,25 +62,26 @@ public class ColeccionNiños {
 		return hayLugar;
 	}
 	
-	/*public String[] listarNiños() {
+	public String[] listarNiños() {
 		String lista = "";
+		String[]Lista = new String[maximoRegistros];
 		for(int i = 0; i < niños.length; i++)
 		{
 			
 			lista = lista + niños[i].toString() + "\n";
 		}
-		return lista;
+		Lista[maximoRegistros] = lista; 
+		return Lista;
 		
-	}*/
+	}
 	
 	public void altaRegistro(Registro r, int cedulaNiño) {
+		//Niño ninio1 = new Niño();
 		while(existeNinio(cedulaNiño) == false)
 			System.out.println("Error: El ninio no existe");
 		 
-			if(hayLugar() != true)
-				System.out.println("Error: Ya no hay lugar");
 			/*else
-				registro[] = r;
+			    Niño ninio1 = 
 		Si se encuentra el niño, se invoca el método de la clase niño que agrega el registro
 		en la lista de registros del mismo. SI ya no hay lugar para más registros de ese niño, se
 		emite otro mensaje.*/
