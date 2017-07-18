@@ -103,9 +103,20 @@ public class Niño {
 	public void setCantRegistrosIngresados(int cantRegistrosIngresados) {
 		this.cantRegistrosIngresados = cantRegistrosIngresados;
 	}
-	public void agregarRegistroEnRegistro()
-	{
-		
+	public int getEdadNiño() {
+        Calendar hoy = Calendar.getInstance();
+        int edad = 0;
+        
+        fechaNacimiento.add(Calendar.YEAR, 1);
+        while(fechaNacimiento.before(hoy)) {
+            edad++;
+                fechaNacimiento.add(Calendar.YEAR, 1);                        
+        }
+        return edad;
+    }
+	public void agregarRegistroNiño(Registro nuevoRegistro) {
+		this.registros[cantRegistrosIngresados] = nuevoRegistro;
+        cantRegistrosIngresados++;
 	}
 	public String toString() {
 		String retorno = "Nombre:" + nombre + "Documento: " +documento +"Fecha Nacimiento: " +fechaNacimiento +"Servicio: " +servicioMedico + "Medico Cabecera: " +medicoCabecera + "Tiene Fonasa: " +tieneFonasa + "Registros: " +registros.toString() + "Cantidad Registros: ";
