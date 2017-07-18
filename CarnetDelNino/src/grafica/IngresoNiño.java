@@ -19,8 +19,8 @@ public class IngresoNiño extends JFrame {
 	private JTextField textNombre;
 	private JTextField textDocumento;
 	private JTextField textMedCabecera;
-	private JTextField textRegistros;
 	private JTextField textCantRegistros;
+	private JTextField textFechaNac;
 
 	/**
 	 * Launch the application.
@@ -50,15 +50,15 @@ public class IngresoNiño extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 52, 70, 20);
+		lblNombre.setBounds(10, 70, 70, 20);
 		contentPane.add(lblNombre);
 		
 		JLabel lblDocumento = new JLabel("Documento:");
-		lblDocumento.setBounds(10, 83, 70, 20);
+		lblDocumento.setBounds(10, 101, 70, 20);
 		contentPane.add(lblDocumento);
 		
 		JLabel lblFechaNac = new JLabel("Fecha de Nacimiento:");
-		lblFechaNac.setBounds(10, 114, 116, 14);
+		lblFechaNac.setBounds(10, 135, 116, 14);
 		contentPane.add(lblFechaNac);
 		
 		JLabel lblSerMed = new JLabel("Servicio M\u00E9dico:");
@@ -73,21 +73,17 @@ public class IngresoNiño extends JFrame {
 		lblTieneFonasa.setBounds(10, 222, 103, 20);
 		contentPane.add(lblTieneFonasa);
 		
-		JLabel lblRegistros = new JLabel("Registros:");
-		lblRegistros.setBounds(10, 253, 103, 20);
-		contentPane.add(lblRegistros);
-		
 		JLabel lblCantRegistros = new JLabel("Cantidad de Registros Ingresados:");
 		lblCantRegistros.setBounds(10, 284, 177, 20);
 		contentPane.add(lblCantRegistros);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(186, 52, 86, 20);
+		textNombre.setBounds(186, 70, 86, 20);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
 		textDocumento = new JTextField();
-		textDocumento.setBounds(186, 83, 86, 20);
+		textDocumento.setBounds(186, 101, 86, 20);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
 		
@@ -96,11 +92,6 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(textMedCabecera);
 		textMedCabecera.setColumns(10);
 		
-		textRegistros = new JTextField();
-		textRegistros.setBounds(186, 253, 86, 20);
-		contentPane.add(textRegistros);
-		textRegistros.setColumns(10);
-		
 		textCantRegistros = new JTextField();
 		textCantRegistros.setBounds(186, 284, 86, 20);
 		contentPane.add(textCantRegistros);
@@ -108,7 +99,7 @@ public class IngresoNiño extends JFrame {
 		
 		JCheckBox chckbxSiSerMed = new JCheckBox("SI");
 		chckbxSiSerMed.setSelected(true);
-		chckbxSiSerMed.setBounds(180, 159, 41, 23);
+		chckbxSiSerMed.setBounds(186, 159, 41, 23);
 		contentPane.add(chckbxSiSerMed);
 		
 		JCheckBox chckbxNoSerMed = new JCheckBox("NO");
@@ -139,5 +130,14 @@ public class IngresoNiño extends JFrame {
 		JLabel lblIngresoNio = new JLabel("INGRESO NI\u00D1O");
 		lblIngresoNio.setBounds(161, 0, 74, 44);
 		contentPane.add(lblIngresoNio);
+		
+		textFechaNac = new JTextField();
+		textFechaNac.setBounds(186, 132, 86, 20);
+		contentPane.add(textFechaNac);
+		textFechaNac.setColumns(10);
+		
+		JLabel lblFechaNacFormato = new JLabel("Ej: dd/mm/yyyy");
+		lblFechaNacFormato.setBounds(292, 135, 86, 14);
+		contentPane.add(lblFechaNacFormato);
 	}
 }
