@@ -40,6 +40,7 @@ public class ColeccionNiños {
 		tope++;
 		}
 	}
+	
 	public int getMaximoRegistros() {
 		return maximoRegistros;
 	}
@@ -60,6 +61,7 @@ public class ColeccionNiños {
 	}
 	return existe;
 	}
+	
 	public boolean hayLugar() {
 		boolean hayLugar  = false;
 		if(tope != niños.length)
@@ -92,6 +94,7 @@ public class ColeccionNiños {
 	}
 	
 	public Niño getDatosNiño(int cedula) {
+		//Aca se debería invocar al metodo toString de la clase Niño que retorna los datos del niño?
 		return null;
 			
 	}
@@ -100,9 +103,6 @@ public class ColeccionNiños {
 		return maximoRegistros;
 			
 	}
-	
-	
-	
 	
 	public boolean estaConfigurado() {
 		return false;
