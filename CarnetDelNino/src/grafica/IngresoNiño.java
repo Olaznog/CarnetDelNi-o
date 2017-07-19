@@ -74,7 +74,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(lblTieneFonasa);
 		
 		JLabel lblCantRegistros = new JLabel("Cantidad de Registros Ingresados:");
-		lblCantRegistros.setBounds(10, 284, 177, 20);
+		lblCantRegistros.setBounds(10, 253, 177, 20);
 		contentPane.add(lblCantRegistros);
 		
 		textNombre = new JTextField();
@@ -93,7 +93,7 @@ public class IngresoNiño extends JFrame {
 		textMedCabecera.setColumns(10);
 		
 		textCantRegistros = new JTextField();
-		textCantRegistros.setBounds(186, 284, 86, 20);
+		textCantRegistros.setBounds(186, 253, 86, 20);
 		contentPane.add(textCantRegistros);
 		textCantRegistros.setColumns(10);
 		
@@ -123,9 +123,9 @@ public class IngresoNiño extends JFrame {
 		btnIngresar.setBounds(114, 315, 89, 23);
 		contentPane.add(btnIngresar);
 		
-		JButton btnCancelar = new JButton("CANCELAR");
-		btnCancelar.setBounds(245, 315, 89, 23);
-		contentPane.add(btnCancelar);
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setBounds(245, 315, 89, 23);
+		contentPane.add(btnVolver);
 		
 		JLabel lblIngresoNio = new JLabel("INGRESO NI\u00D1O");
 		lblIngresoNio.setBounds(161, 0, 74, 44);

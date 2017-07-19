@@ -53,6 +53,15 @@ public class VentanaMenu extends JFrame {
 		JMenu mnNuevoRegistro = new JMenu("Nuevo Registro");
 		mnIngresar.add(mnNuevoRegistro);
 		
+		JMenu mnConsulta = new JMenu("Consulta");
+		mnNuevoRegistro.add(mnConsulta);
+		
+		JMenu mnControl = new JMenu("Control");
+		mnNuevoRegistro.add(mnControl);
+		
+		JMenu mnVacuna = new JMenu("Vacuna");
+		mnNuevoRegistro.add(mnVacuna);
+		
 		JMenu mnConsultar = new JMenu("Consultar");
 		menuBar.add(mnConsultar);
 		

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JButton;
 
 public class VentanaConfiguracion extends JFrame {
 
@@ -36,7 +37,7 @@ public class VentanaConfiguracion extends JFrame {
 	 */
 	public VentanaConfiguracion() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 225);
+		setBounds(100, 100, 450, 237);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -63,5 +64,13 @@ public class VentanaConfiguracion extends JFrame {
 		JLabel lblConfiguracinDeSistema = new JLabel("CONFIGURACI\u00D3N DE SISTEMA");
 		lblConfiguracinDeSistema.setBounds(120, 11, 148, 44);
 		contentPane.add(lblConfiguracinDeSistema);
+		
+		JButton btnIngresar = new JButton("INGRESAR");
+		btnIngresar.setBounds(145, 164, 89, 23);
+		contentPane.add(btnIngresar);
+		
+		JButton btnSalir = new JButton("SALIR");
+		btnSalir.setBounds(244, 164, 89, 23);
+		contentPane.add(btnSalir);
 	}
 }
