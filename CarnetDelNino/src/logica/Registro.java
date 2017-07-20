@@ -12,8 +12,6 @@ public abstract class Registro {
 		this.fecha = fecha;
 		this.comentario = comentario;
 	}
-	
-	//public abstract void mostrar();
 
 	public Calendar getFecha() {
 		return fecha;

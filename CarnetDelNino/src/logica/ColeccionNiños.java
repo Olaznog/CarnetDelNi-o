@@ -2,6 +2,8 @@ package logica;
 
 import java.util.Calendar;
 
+import excepciones.ExisteNinioException;
+
 public class ColeccionNiños {
 	
 	private Niño[] niños;
@@ -25,12 +27,12 @@ public class ColeccionNiños {
 	}
 	
 
-	public void altaNiño(Niño n) {
+	public void altaNiño(Niño n) throws ExisteNinioException{
 		
 		//si el ni;o no esta ingresado ya en el arreglo = if(existeNinio(n)
 		//crear el arreglo de registros del ninio, de tamanio maximoRegistros
 		//se lo setean pasandolo como parametro al metodo setRegistros
-		if(existeNinio(n.getDocumento()) == false)
+		if(existeNinio(n.getDocumento()) == false){
 			if(hayLugar() == true){
 				Registro[]registros = new Registro[maximoRegistros];
 				n.setRegistros(registros);
@@ -38,6 +40,8 @@ public class ColeccionNiños {
 		niños[tope] = n;
 		tope++;
 		}
+		}else
+			throw new ExisteNinioException("Ya esta ingresado un ninio con ese documento");
 	}
 	
 	
@@ -69,7 +73,6 @@ public class ColeccionNiños {
 			Lista[i] = niños[i].toString() + "\n";
 		}
 		return Lista;
-		
 	}
 	
 	public void altaRegistro(Registro r, int cedulaNiño) {
@@ -107,7 +110,8 @@ public class ColeccionNiños {
 
 	
 	public int cuantasConsultasAntesDe(Calendar fecha) {
-		return maximoRegistros;
+		int cuantas = 0;
+		return cuantas;
 			
 	}
 	

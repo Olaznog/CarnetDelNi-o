@@ -125,8 +125,19 @@ public class Niño {
 		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
 		int mes = fechaNacimiento.get(Calendar.MONTH);
 		int año = fechaNacimiento.get(Calendar.YEAR);
-		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Fecha Nacimiento: "+dia+"/"+mes+"/"+año +" Servicio: " +servicioMedico + " Medico Cabecera: " +medicoCabecera + " Tiene Fonasa: " +tieneFonasa + " Registros: " +registros.toString() + " Cantidad Registros: " +cantRegistrosIngresados;
+		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Fecha Nacimiento: "+dia+"/"+mes+"/"+año +" Servicio: " +servicioMedico + " Medico Cabecera: " +medicoCabecera + " Tiene Fonasa: " +tieneFonasa  + " Cantidad Registros: " +cantRegistrosIngresados;
 		return retorno;
+	}
+	public int cuantasConsultasAntesDe(Calendar fecha) {
+		int cuantas = 0;
+		for(int i = 0; i < cantRegistrosIngresados; i++)
+		{
+			if(registros[i] instanceof Consulta)
+			if(registros[i].getFecha().before(fecha))
+				cuantas++;
+		}
+		return cuantas;
+			
 	}
 	
 }
