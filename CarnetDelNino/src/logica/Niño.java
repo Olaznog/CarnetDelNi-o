@@ -122,8 +122,11 @@ public class Niño {
 	}
 	
 	public String toString() {
-		String retorno = "Nombre:" + nombre + "Documento: " +documento +"Fecha Nacimiento: " +fechaNacimiento +"Servicio: " +servicioMedico + "Medico Cabecera: " +medicoCabecera + "Tiene Fonasa: " +tieneFonasa + "Registros: " +registros.toString() + "Cantidad Registros: " +cantRegistrosIngresados;
+		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
+		int mes = fechaNacimiento.get(Calendar.MONTH);
+		int año = fechaNacimiento.get(Calendar.YEAR);
+		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Fecha Nacimiento: "+dia+"/"+mes+"/"+año +" Servicio: " +servicioMedico + " Medico Cabecera: " +medicoCabecera + " Tiene Fonasa: " +tieneFonasa + " Registros: " +registros.toString() + " Cantidad Registros: " +cantRegistrosIngresados;
 		return retorno;
 	}
-
+	
 }

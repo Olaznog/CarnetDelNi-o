@@ -28,14 +28,13 @@ public class ColeccionNiños {
 	public void altaNiño(Niño n) {
 		
 		//si el ni;o no esta ingresado ya en el arreglo = if(existeNinio(n)
-		//---------------
-		//n.existeNinio(int doc);
 		//crear el arreglo de registros del ninio, de tamanio maximoRegistros
 		//se lo setean pasandolo como parametro al metodo setRegistros
 		if(existeNinio(n.getDocumento()) == false)
 			if(hayLugar() == true){
 				Registro[]registros = new Registro[maximoRegistros];
-				//Registro[]registro = new Registro(n.setRegistros(registros));
+				n.setRegistros(registros);
+				
 		niños[tope] = n;
 		tope++;
 		}
@@ -63,35 +62,49 @@ public class ColeccionNiños {
 	}
 	
 	public String[] listarNiños() {
-		String lista = "";
-		String[]Lista = new String[maximoRegistros];
-		for(int i = 0; i < niños.length; i++)
+		String[]Lista = new String[tope];
+		for(int i = 0; i < tope; i++)
 		{
-			
-			lista = lista + niños[i].toString() + "\n";
+			if(niños[i]!= null)
+			Lista[i] = niños[i].toString() + "\n";
 		}
-		Lista[maximoRegistros] = lista; 
 		return Lista;
 		
 	}
 	
 	public void altaRegistro(Registro r, int cedulaNiño) {
-		//Niño ninio1 = new Niño();
-		while(existeNinio(cedulaNiño) == false)
+	    if(existeNinio(cedulaNiño) == false)
 			System.out.println("Error: El ninio no existe");
-		 
-			/*else
-			    Niño ninio1 = 
-		Si se encuentra el niño, se invoca el método de la clase niño que agrega el registro
+	    else
+	    {
+	    	Niño n = getNiño(cedulaNiño);
+	    	n.agregarRegistroNiño(r);
+	    }	    
+		/*Si se encuentra el niño, se invoca el método de la clase niño que agrega el registro
 		en la lista de registros del mismo. SI ya no hay lugar para más registros de ese niño, se
 		emite otro mensaje.*/
+		
+		//se busca el ni;o con esa cedula
+		//si el ni;o no existe, aviso error
+		//sino
+		//invoco el metodo de ni;o que le agrega un registro a su coleccion de registros por ej n.agregarregistroni;o(reg)
 	}
 	
-	public Niño getDatosNiño(int cedula) {
-		//Aca se debería invocar al metodo toString de la clase Niño que retorna los datos del niño?
-		return null;
-			
+	public Niño getNiño (int cedula){
+		boolean existe = false;
+		int i = 0;
+		Niño n = null;
+
+		while (!existe && i < tope) {
+			if (niños[i].getDocumento() == cedula) {
+				existe = true;
+				n = niños[i];
+			}
+			i++;
+		}
+		return n;
 	}
+
 	
 	public int cuantasConsultasAntesDe(Calendar fecha) {
 		return maximoRegistros;
