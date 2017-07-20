@@ -27,10 +27,9 @@ public class ColeccionNiños {
 	}
 	
 
-	public void altaNiño(Niño n) throws ExisteNinioException{
-		
-		//si el ni;o no esta ingresado ya en el arreglo = if(existeNinio(n)
-		//crear el arreglo de registros del ninio, de tamanio maximoRegistros
+	public void altaNiño(Niño n) throws ExisteNinioException { //hay que lanzar la excepcion hayLugarException		
+		//si el niño no esta ingresado ya en el arreglo = if(existeNinio(n)
+		//crear el arreglo de registros del niño, de tamaño maximoRegistros
 		//se lo setean pasandolo como parametro al metodo setRegistros
 		if(existeNinio(n.getDocumento()) == false){
 			if(hayLugar() == true){
@@ -42,6 +41,7 @@ public class ColeccionNiños {
 		}
 		}else
 			throw new ExisteNinioException("Ya esta ingresado un ninio con ese documento");
+		    //throw new hayLugarException("Ya no hay lugar en el arreglo de niños");
 	}
 	
 	
@@ -87,10 +87,10 @@ public class ColeccionNiños {
 		en la lista de registros del mismo. SI ya no hay lugar para más registros de ese niño, se
 		emite otro mensaje.*/
 		
-		//se busca el ni;o con esa cedula
-		//si el ni;o no existe, aviso error
+		//se busca el niño con esa cedula
+		//si el niño no existe, aviso error
 		//sino
-		//invoco el metodo de ni;o que le agrega un registro a su coleccion de registros por ej n.agregarregistroni;o(reg)
+		//invoco el metodo de niño que le agrega un registro a su coleccion de registros : n.agregarRegistroNiño(r);
 	}
 	
 	public Niño getNiño (int cedula){
@@ -111,12 +111,20 @@ public class ColeccionNiños {
 	
 	public int cuantasConsultasAntesDe(Calendar fecha) {
 		int cuantas = 0;
+		for(int i = 0; i < tope; i++)
+		{
+			niños[i].cuantasConsultasAntesDe(fecha);
+			cuantas++;
+		}
 		return cuantas;
 			
 	}
 	
 	public boolean estaConfigurado() {
-		return false;
+		boolean resultado = false;
+		if(niños == null)
+			resultado = true;
+		return resultado;
 		
 	}
 	

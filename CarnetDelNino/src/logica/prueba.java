@@ -23,14 +23,17 @@ public class prueba {
    }
    Registro r = new Vacuna(fnac, "prueba primer registro","antitetanica",1,true);
    col.altaRegistro(r, 12345678);
+   
  //  n.agregarRegistroNiño(r);
    System.out.println(n.toString());
    col.altaNiño(n);
 		}catch(ExisteNinioException e)
 		{
 			JOptionPane.showMessageDialog(null, e.getMensaje());
-		}
-		
+		}/*catch(hayLugarException e)
+		{
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}*/
 	
  
    }
