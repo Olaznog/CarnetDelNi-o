@@ -1,7 +1,7 @@
 package logica;
 
 import java.util.Calendar;
-
+import excepciones.hayLugarException;
 import excepciones.ExisteNinioException;
 
 public class ColeccionNiños {
@@ -27,7 +27,7 @@ public class ColeccionNiños {
 	}
 	
 
-	public void altaNiño(Niño n) throws ExisteNinioException { //hay que lanzar la excepcion hayLugarException		
+	public void altaNiño(Niño n) throws ExisteNinioException, hayLugarException { //hay que lanzar la excepcion hayLugarException		
 		//si el niño no esta ingresado ya en el arreglo = if(existeNinio(n)
 		//crear el arreglo de registros del niño, de tamaño maximoRegistros
 		//se lo setean pasandolo como parametro al metodo setRegistros
@@ -38,10 +38,10 @@ public class ColeccionNiños {
 				
 		niños[tope] = n;
 		tope++;
-		}
 		}else
 			throw new ExisteNinioException("Ya esta ingresado un ninio con ese documento");
-		    //throw new hayLugarException("Ya no hay lugar en el arreglo de niños");
+		}else
+		    throw new hayLugarException("Ya no hay lugar en el arreglo de niños");
 	}
 	
 	
