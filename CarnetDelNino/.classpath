@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Extras"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_131"/>
-	<classpathentry kind="lib" path="C:/Users/alvar/Repositorio Git/CarnetDelNino/CarnetDelNino/CarnetDelNino/src/extra/jcalendar-1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
