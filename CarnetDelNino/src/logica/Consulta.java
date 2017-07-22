@@ -1,5 +1,5 @@
 package logica;
-//Comentario prueba
+
 import java.util.Calendar;
 
 public class Consulta extends Registro {
