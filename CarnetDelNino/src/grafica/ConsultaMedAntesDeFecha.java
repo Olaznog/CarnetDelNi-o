@@ -10,12 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.JButton;
+import com.toedter.calendar.JCalendar;
 
 public class ConsultaMedAntesDeFecha extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTable table;
+	private JTextField textCantConsultas;
 
 	/**
 	 * Launch the application.
@@ -38,7 +38,7 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 	 */
 	public ConsultaMedAntesDeFecha() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 355);
+		setBounds(100, 100, 411, 361);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,26 +52,25 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		lblIngreseFecha.setBounds(10, 49, 87, 14);
 		contentPane.add(lblIngreseFecha);
 		
-		textField = new JTextField();
-		textField.setBounds(114, 46, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblEjddmmyyyy = new JLabel("Ej:dd/mm/yyyy");
-		lblEjddmmyyyy.setBounds(223, 49, 88, 14);
-		contentPane.add(lblEjddmmyyyy);
-		
-		table = new JTable();
-		table.setBounds(10, 103, 403, 152);
-		contentPane.add(table);
-		
 		JButton btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setBounds(321, 45, 89, 23);
+		btnBuscar.setBounds(195, 273, 89, 23);
 		contentPane.add(btnBuscar);
 		
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(324, 282, 89, 23);
+		btnVolver.setBounds(294, 273, 89, 23);
 		contentPane.add(btnVolver);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(94, 47, 184, 153);
+		contentPane.add(calendar);
+		
+		JLabel lblNewLabel = new JLabel("Cantidad de Consultas:");
+		lblNewLabel.setBounds(10, 228, 117, 14);
+		contentPane.add(lblNewLabel);
+		
+		textCantConsultas = new JTextField();
+		textCantConsultas.setBounds(149, 225, 86, 20);
+		contentPane.add(textCantConsultas);
+		textCantConsultas.setColumns(10);
 	}
-
 }

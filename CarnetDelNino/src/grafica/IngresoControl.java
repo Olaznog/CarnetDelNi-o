@@ -9,13 +9,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import com.toedter.calendar.JCalendar;
 
 public class IngresoControl extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 
 	/**
@@ -39,7 +39,7 @@ public class IngresoControl extends JFrame {
 	 */
 	public IngresoControl() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 319);
+		setBounds(100, 100, 450, 429);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -67,18 +67,12 @@ public class IngresoControl extends JFrame {
 		lblFecha.setBounds(10, 143, 46, 14);
 		contentPane.add(lblFecha);
 		
-		textField_2 = new JTextField();
-		textField_2.setText("");
-		textField_2.setBounds(98, 140, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
 		JLabel lblComentario = new JLabel("Comentario:");
-		lblComentario.setBounds(10, 187, 71, 14);
+		lblComentario.setBounds(21, 316, 71, 14);
 		contentPane.add(lblComentario);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(98, 184, 261, 43);
+		textField_3.setBounds(102, 302, 261, 43);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -86,17 +80,16 @@ public class IngresoControl extends JFrame {
 		lblIngresoControl.setBounds(151, 11, 134, 14);
 		contentPane.add(lblIngresoControl);
 		
-		JLabel lblEjDdmmyyyy = new JLabel("Ej: dd/mm/yyyy");
-		lblEjDdmmyyyy.setBounds(194, 143, 91, 14);
-		contentPane.add(lblEjDdmmyyyy);
-		
 		JButton btnIngresar = new JButton("INGRESAR");
-		btnIngresar.setBounds(166, 246, 89, 23);
+		btnIngresar.setBounds(196, 356, 89, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(270, 246, 89, 23);
+		btnVolver.setBounds(314, 356, 89, 23);
 		contentPane.add(btnVolver);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(101, 138, 184, 153);
+		contentPane.add(calendar);
 	}
-
 }
