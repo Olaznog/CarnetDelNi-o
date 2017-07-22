@@ -10,13 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import com.toedter.calendar.JCalendar;
 
 public class IngresoVacuna extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 	private JTextField textField_3;
 
 	/**
@@ -40,7 +40,7 @@ public class IngresoVacuna extends JFrame {
 	 */
 	public IngresoVacuna() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 331);
+		setBounds(100, 100, 450, 487);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -85,30 +85,25 @@ public class IngresoVacuna extends JFrame {
 		lblFecha.setBounds(10, 178, 46, 14);
 		contentPane.add(lblFecha);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(112, 175, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
-		
 		JLabel lblNewLabel = new JLabel("Comentario:");
-		lblNewLabel.setBounds(10, 210, 78, 14);
+		lblNewLabel.setBounds(10, 359, 78, 14);
 		contentPane.add(lblNewLabel);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(112, 206, 218, 44);
+		textField_3.setBounds(112, 359, 218, 44);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
-		JLabel lblEjDdmmyyyy = new JLabel("Ej: dd/mm/yyyy");
-		lblEjDdmmyyyy.setBounds(216, 178, 78, 14);
-		contentPane.add(lblEjDdmmyyyy);
-		
 		JButton btnIngresar = new JButton("INGRESAR");
-		btnIngresar.setBounds(146, 261, 89, 23);
+		btnIngresar.setBounds(241, 414, 89, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(241, 261, 89, 23);
+		btnVolver.setBounds(335, 414, 89, 23);
 		contentPane.add(btnVolver);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(112, 178, 184, 153);
+		contentPane.add(calendar);
 	}
 }
