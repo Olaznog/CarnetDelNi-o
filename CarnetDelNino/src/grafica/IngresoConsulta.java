@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class IngresoConsulta extends JFrame {
 
@@ -100,6 +102,10 @@ public class IngresoConsulta extends JFrame {
 		contentPane.add(lblIngresoConsulta);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnIngresar.setBounds(158, 244, 89, 23);
 		contentPane.add(btnIngresar);
 		

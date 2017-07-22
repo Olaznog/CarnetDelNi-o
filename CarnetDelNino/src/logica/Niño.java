@@ -117,15 +117,17 @@ public class Niño {
     }
 	
 	public void agregarRegistroNiño(Registro nuevoRegistro) {
+		//No sabemos como controlar si hay espacio en el arreglo de registros del niño
 		this.registros[cantRegistrosIngresados] = nuevoRegistro;
         cantRegistrosIngresados++;
 	}
 	
 	public String toString() {
+		//No sabemos como mostrar los registros en este metodo
 		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
 		int mes = fechaNacimiento.get(Calendar.MONTH);
 		int año = fechaNacimiento.get(Calendar.YEAR);
-		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Fecha Nacimiento: "+dia+"/"+mes+"/"+año +" Servicio: " +servicioMedico + " Medico Cabecera: " +medicoCabecera + " Tiene Fonasa: " +tieneFonasa  + " Cantidad Registros: " +cantRegistrosIngresados;
+		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Fecha Nacimiento: "+dia+"/"+mes+"/"+año +" Servicio: " +servicioMedico + " Medico Cabecera: " +medicoCabecera + " Tiene Fonasa: " +tieneFonasa  + " Registros: " +registros + " Cantidad Registros: " +cantRegistrosIngresados;
 		return retorno;
 	}
 	public int cuantasConsultasAntesDe(Calendar fecha) {
