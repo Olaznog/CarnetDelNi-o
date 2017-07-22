@@ -15,7 +15,7 @@ import com.toedter.calendar.JCalendar;
 public class ConsultaMedAntesDeFecha extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTextField textCantConsultas;
 
 	/**
 	 * Launch the application.
@@ -38,7 +38,7 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 	 */
 	public ConsultaMedAntesDeFecha() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 471);
+		setBounds(100, 100, 411, 361);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,20 +52,25 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		lblIngreseFecha.setBounds(10, 49, 87, 14);
 		contentPane.add(lblIngreseFecha);
 		
-		table = new JTable();
-		table.setBounds(21, 211, 403, 164);
-		contentPane.add(table);
-		
 		JButton btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setBounds(236, 398, 89, 23);
+		btnBuscar.setBounds(195, 273, 89, 23);
 		contentPane.add(btnBuscar);
 		
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(335, 398, 89, 23);
+		btnVolver.setBounds(294, 273, 89, 23);
 		contentPane.add(btnVolver);
 		
 		JCalendar calendar = new JCalendar();
 		calendar.setBounds(94, 47, 184, 153);
 		contentPane.add(calendar);
+		
+		JLabel lblNewLabel = new JLabel("Cantidad de Consultas:");
+		lblNewLabel.setBounds(10, 228, 117, 14);
+		contentPane.add(lblNewLabel);
+		
+		textCantConsultas = new JTextField();
+		textCantConsultas.setBounds(149, 225, 86, 20);
+		contentPane.add(textCantConsultas);
+		textCantConsultas.setColumns(10);
 	}
 }
