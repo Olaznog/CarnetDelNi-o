@@ -2,6 +2,8 @@ package logica;
 
 import java.util.Calendar;
 
+import excepciones.hayLugarException;
+
 public class Niño {
 	
 	private String nombre;
@@ -116,10 +118,21 @@ public class Niño {
         return año;
     }
 	
-	public void agregarRegistroNiño(Registro nuevoRegistro) {
-		//No sabemos como controlar si hay espacio en el arreglo de registros del niño
+	public void agregarRegistroNiño(Registro nuevoRegistro)throws hayLugarException {
+		if(hayLugarRegistros() == true){
 		this.registros[cantRegistrosIngresados] = nuevoRegistro;
         cantRegistrosIngresados++;
+		}else
+			throw new hayLugarException("Ya no hay lugar en el arreglo de registros de este niño");
+	}
+	public boolean hayLugarRegistros() {
+		boolean hayLugar  = false;
+		
+		if(cantRegistrosIngresados == registros.length)
+			hayLugar = false;
+		else 
+			hayLugar = true;
+		return hayLugar;
 	}
 	
 	public String toString() {

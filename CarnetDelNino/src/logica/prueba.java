@@ -24,21 +24,32 @@ public class prueba {
 	   System.out.println(datos[i]);
    }
    Registro r = new Vacuna(fnac, "prueba primer registro","antitetanica",1,true);
-   col.altaRegistro(r, 12345678);
+  // col.altaRegistro(r, 12345678);
    Niño ninio = col.getNiño(12345678);
    System.out.println(ninio);
+   /*n.agregarRegistroNiño(r);
    n.agregarRegistroNiño(r);
+   n.agregarRegistroNiño(r);
+   n.agregarRegistroNiño(r);
+   n.agregarRegistroNiño(r);*/
+   col.altaRegistro(r, 12345678);
+   col.altaRegistro(r, 12345678);
+   col.altaRegistro(r, 12345678);
+   col.altaRegistro(r, 12345678);
+   col.altaRegistro(r, 1234567);
+   
    System.out.println(n.toString());
    //col.altaNiño(n);
    col.altaNiño(n2);
    col.altaNiño(n3);
+   
    //No despliega el mensaje de hayLugarException
 		}catch(ExisteNinioException e)
 		{
 			JOptionPane.showMessageDialog(null, e.getMensaje());
 		}catch(hayLugarException e)
 		{
-			JOptionPane.showMessageDialog(null, e.getMessage());
+			JOptionPane.showMessageDialog(null, e.getMensaje());
 		}
 	
  

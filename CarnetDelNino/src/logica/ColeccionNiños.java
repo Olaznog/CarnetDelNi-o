@@ -66,14 +66,6 @@ public class ColeccionNiños {
 		return hayLugar;
 	}
 	
-	/*public boolean hayLugarRegistros() {
-		boolean hayLugar  = false;
-		if(cantRegistrosIngresados= maximoRegistros)
-			hayLugar = true;
-		return hayLugar;
-	}*/
-	//Como llamar cantRegistrosIngresados?
-	
 	
 	public String[] listarNiños() {
 		String[]Lista = new String[tope];
@@ -85,13 +77,18 @@ public class ColeccionNiños {
 		return Lista;
 	}
 	
-	public void altaRegistro(Registro r, int cedulaNiño)throws ExisteNinioException {
+	public void altaRegistro(Registro r, int cedulaNiño)throws ExisteNinioException, hayLugarException {
 	    if(existeNinio(cedulaNiño) == false)
 	    	throw new ExisteNinioException("No existe un niño con ese documento");
 	    else
 	    {
 	    	Niño n = getNiño(cedulaNiño);
+	    	try{
 	    	n.agregarRegistroNiño(r);
+	    	}catch(hayLugarException e)
+	    	{
+	    		throw new hayLugarException(e.getMensaje());
+	    	}
 	    }
 	    
 		/*Si se encuentra el niño, se invoca el método de la clase niño que agrega el registro
