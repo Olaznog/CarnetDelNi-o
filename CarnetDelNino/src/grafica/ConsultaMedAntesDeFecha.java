@@ -12,31 +12,17 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
 
+import logica.ColeccionNiños;
+
 public class ConsultaMedAntesDeFecha extends JFrame {
+	private ColeccionNiños niños;
 
 	private JPanel contentPane;
 	private JTextField textCantConsultas;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultaMedAntesDeFecha frame = new ConsultaMedAntesDeFecha();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public ConsultaMedAntesDeFecha() {
+	
+	public ConsultaMedAntesDeFecha(ColeccionNiños n) {
+		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 411, 361);
 		contentPane = new JPanel();

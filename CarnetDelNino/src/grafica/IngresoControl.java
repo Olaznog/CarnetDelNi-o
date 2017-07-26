@@ -22,6 +22,7 @@ import java.util.Calendar;
 import java.awt.event.ActionEvent;
 
 public class IngresoControl extends JFrame {
+	private ColeccionNiños niños;
 
 	private JPanel contentPane;
 	private JTextField textPeso;
@@ -32,23 +33,13 @@ public class IngresoControl extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IngresoControl frame = new IngresoControl();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public IngresoControl() {
+	public IngresoControl(ColeccionNiños n) {
+		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 429);
 		contentPane = new JPanel();

@@ -25,6 +25,7 @@ import logica.Registro;
 
 
 public class IngresoConsulta extends JFrame {
+	private ColeccionNiños niños;
 
 	private JPanel contentPane;
 	private JTextField textNombreMed;
@@ -33,26 +34,9 @@ public class IngresoConsulta extends JFrame {
 	private JTextField textComentario;
 	private JCalendar  fechaCon;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IngresoConsulta frame = new IngresoConsulta();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public IngresoConsulta() {
+	
+	public IngresoConsulta(ColeccionNiños n) {
+		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 462);
 		contentPane = new JPanel();
@@ -115,7 +99,7 @@ public class IngresoConsulta extends JFrame {
 				Calendar fechaCon = Calendar.getInstance();
 				String comentario = textComentario.getText();
 				Consulta c = new Consulta(fechaCon,comentario,nomMed,diagnostico,recomendaciones);
-				Registro registros = new Registro();
+				
 			}
 		});
 		btnIngresar.setBounds(158, 244, 89, 23);

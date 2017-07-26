@@ -6,37 +6,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logica.ColeccionNiños;
+
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
 public class DatosNiñoPorCedula extends JFrame {
+	private ColeccionNiños niños;
 
 	private JPanel contentPane;
 	private JTable table;
 	private JTextField textField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DatosNiñoPorCedula frame = new DatosNiñoPorCedula();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public DatosNiñoPorCedula() {
+	
+	public DatosNiñoPorCedula(ColeccionNiños n) {
+		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 356);
 		contentPane = new JPanel();

@@ -11,9 +11,13 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
+
+import logica.ColeccionNiños;
+
 import javax.swing.JRadioButton;
 
 public class IngresoVacuna extends JFrame {
+	private ColeccionNiños niños;
 
 	private JPanel contentPane;
 	private JTextField textNombreVac;
@@ -24,23 +28,13 @@ public class IngresoVacuna extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IngresoVacuna frame = new IngresoVacuna();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public IngresoVacuna() {
+	public IngresoVacuna(ColeccionNiños n) {
+		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 487);
 		contentPane = new JPanel();

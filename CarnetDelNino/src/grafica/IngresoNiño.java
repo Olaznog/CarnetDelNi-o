@@ -21,6 +21,7 @@ import logica.Niño;
 import javax.swing.JRadioButton;
 
 public class IngresoNiño extends JFrame {
+	private ColeccionNiños niños;
 
 	private JPanel contentPane;
 	private JTextField textNombre;
@@ -34,23 +35,13 @@ public class IngresoNiño extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IngresoNiño frame = new IngresoNiño();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public IngresoNiño() {
+	public IngresoNiño(ColeccionNiños n) {
+		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 523);
 		contentPane = new JPanel();

@@ -6,11 +6,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import logica.ColeccionNiños;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaMenu extends JFrame {
+	private ColeccionNiños niños;
 
 	/**
 	 * Launch the application.
@@ -38,16 +48,14 @@ public class VentanaMenu extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnConfigurarPrograma = new JMenu("Configurar");
-		menuBar.add(mnConfigurarPrograma);
-		
-		JMenu mnIngresarParametrosIniciales = new JMenu("Ingresar Parametros Iniciales");
-		mnConfigurarPrograma.add(mnIngresarParametrosIniciales);
-		
 		JMenu mnIngresar = new JMenu("Ingresar");
 		menuBar.add(mnIngresar);
 		
 		JMenu mnIngresarDatosNiño = new JMenu("Datos del Ni\u00F1o");
+		mnIngresarDatosNiño.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		mnIngresar.add(mnIngresarDatosNiño);
 		
 		JMenu mnNuevoRegistro = new JMenu("Nuevo Registro");
@@ -73,8 +81,6 @@ public class VentanaMenu extends JFrame {
 		
 		JMenu mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
 		mnConsultar.add(mnConsultaMedicaPor);
-		
-		JMenu mnModificar = new JMenu("Modificar");
-		menuBar.add(mnModificar);
+		ColeccionNiños niños = new ColeccionNiños();//Este objeto es el sistema?
 	}
 }
