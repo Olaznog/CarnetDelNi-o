@@ -11,12 +11,23 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
 
+import excepciones.ExisteNinioException;
+import excepciones.hayLugarException;
+import logica.ColeccionNiños;
+import logica.Control;
+import logica.Niño;
+
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.awt.event.ActionEvent;
+
 public class IngresoControl extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_3;
+	private JTextField textPeso;
+	private JTextField textAltura;
+	private JTextField textComentario;
+	private JCalendar  fechaControl;
 
 	/**
 	 * Launch the application.
@@ -49,38 +60,56 @@ public class IngresoControl extends JFrame {
 		lblPeso.setBounds(10, 58, 46, 14);
 		contentPane.add(lblPeso);
 		
-		textField = new JTextField();
-		textField.setBounds(98, 55, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textPeso = new JTextField();
+		textPeso.setBounds(98, 55, 86, 20);
+		contentPane.add(textPeso);
+		textPeso.setColumns(10);
 		
 		JLabel lblAltura = new JLabel("Altura:");
 		lblAltura.setBounds(10, 99, 46, 14);
 		contentPane.add(lblAltura);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(98, 96, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textAltura = new JTextField();
+		textAltura.setBounds(98, 96, 86, 20);
+		contentPane.add(textAltura);
+		textAltura.setColumns(10);
 		
-		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setBounds(10, 143, 46, 14);
-		contentPane.add(lblFecha);
+		JLabel lblFechaControl = new JLabel("Fecha:");
+		lblFechaControl.setBounds(10, 143, 46, 14);
+		contentPane.add(lblFechaControl);
 		
 		JLabel lblComentario = new JLabel("Comentario:");
 		lblComentario.setBounds(21, 316, 71, 14);
 		contentPane.add(lblComentario);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(102, 302, 261, 43);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textComentario = new JTextField();
+		textComentario.setBounds(102, 302, 261, 43);
+		contentPane.add(textComentario);
+		textComentario.setColumns(10);
 		
 		JLabel lblIngresoControl = new JLabel("INGRESO CONTROL");
 		lblIngresoControl.setBounds(151, 11, 134, 14);
 		contentPane.add(lblIngresoControl);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//Tomar datos ingresados por el usuario
+                int peso = Integer.parseInt(textPeso.getText());
+				int altura = Integer.parseInt(textAltura.getText());
+				Calendar fechaCon = Calendar.getInstance();
+				String comentario = textComentario.getText();
+				Control c = new Control(fechaCon,comentario,peso, altura);
+				/*ColeccionNiños coleccion = new ColeccionNiños();
+				try {
+					coleccion.altaNiño(n);
+				} catch (ExisteNinioException e) {
+					e.printStackTrace();
+				} catch (hayLugarException e) {
+					e.printStackTrace();
+				}*/
+			}
+		});
 		btnIngresar.setBounds(196, 356, 89, 23);
 		contentPane.add(btnIngresar);
 		

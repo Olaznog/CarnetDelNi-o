@@ -62,7 +62,7 @@ public class DatosNiñoPorCedula extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnBuscar = new JButton("BUSCAR");
-		btnBuscar.setBounds(292, 57, 89, 23);
+		btnBuscar.setBounds(198, 283, 89, 23);
 		contentPane.add(btnBuscar);
 		
 		JButton btnVolver = new JButton("VOLVER");

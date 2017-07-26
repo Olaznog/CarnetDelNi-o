@@ -2,7 +2,6 @@ package grafica;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,16 +10,26 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JCalendar;
+import excepciones.ExisteNinioException;
+import excepciones.hayLugarException;
+import logica.ColeccionNiños;
+import logica.Niño;
+
+import javax.swing.JRadioButton;
 
 public class IngresoNiño extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textDocumento;
+	private JCalendar  fechaNac;
 	private JTextField textMedCabecera;
-	private JTextField textCantRegistros;
+	private JRadioButton rdbtnTieneFSi;
+	private JRadioButton rdbtnTieneFNo;
+	private JTextField textServicioMedico;
 
 	/**
 	 * Launch the application.
@@ -73,10 +82,6 @@ public class IngresoNiño extends JFrame {
 		lblTieneFonasa.setBounds(10, 373, 103, 20);
 		contentPane.add(lblTieneFonasa);
 		
-		JLabel lblCantRegistros = new JLabel("Cantidad de Registros Ingresados:");
-		lblCantRegistros.setBounds(10, 404, 177, 20);
-		contentPane.add(lblCantRegistros);
-		
 		textNombre = new JTextField();
 		textNombre.setBounds(186, 70, 86, 20);
 		contentPane.add(textNombre);
@@ -92,47 +97,61 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(textMedCabecera);
 		textMedCabecera.setColumns(10);
 		
-		textCantRegistros = new JTextField();
-		textCantRegistros.setBounds(186, 404, 86, 20);
-		contentPane.add(textCantRegistros);
-		textCantRegistros.setColumns(10);
-		
-		JCheckBox chckbxSiSerMed = new JCheckBox("SI");
-		chckbxSiSerMed.setSelected(true);
-		chckbxSiSerMed.setBounds(186, 310, 41, 23);
-		contentPane.add(chckbxSiSerMed);
-		
-		JCheckBox chckbxNoSerMed = new JCheckBox("NO");
-		chckbxNoSerMed.setBounds(251, 310, 41, 23);
-		contentPane.add(chckbxNoSerMed);
-		
-		JCheckBox chckbxSiTieneFon = new JCheckBox("SI");
-		chckbxSiTieneFon.setSelected(true);
-		chckbxSiTieneFon.setBounds(186, 372, 35, 23);
-		contentPane.add(chckbxSiTieneFon);
-		
-		JCheckBox chckbxNoTieneFon = new JCheckBox("NO");
-		chckbxNoTieneFon.setBounds(251, 372, 41, 23);
-		contentPane.add(chckbxNoTieneFon);
-		
 		JButton btnIngresar = new JButton("INGRESAR");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//Tomar datos ingresados por el usuario
+				String nombre = textNombre.getText();
+				int documento = Integer.parseInt(textDocumento.getText());
+				Calendar fechaNac = Calendar.getInstance();
+				String servicioMedico = textServicioMedico.getText();
+				String medicoCabecera = textMedCabecera.getText();
+				char tieneFonasa;
+				if(rdbtnTieneFSi.isSelected())
+					tieneFonasa = 'S';
+				else
+					tieneFonasa = 'N';
+				Niño n = new Niño(nombre, documento, fechaNac, servicioMedico, medicoCabecera, tieneFonasa);
+				ColeccionNiños coleccion = new ColeccionNiños();
+				try {
+					coleccion.altaNiño(n);
+				} catch (ExisteNinioException e) {
+					e.printStackTrace();
+				} catch (hayLugarException e) {
+					e.printStackTrace();
+				}
 			}
 		});
-		btnIngresar.setBounds(229, 450, 89, 23);
+		btnIngresar.setBounds(186, 450, 110, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(335, 450, 89, 23);
+		btnVolver.setBounds(316, 450, 108, 23);
 		contentPane.add(btnVolver);
 		
 		JLabel lblIngresoNio = new JLabel("INGRESO NI\u00D1O");
-		lblIngresoNio.setBounds(161, 0, 74, 44);
+		lblIngresoNio.setBounds(161, 0, 123, 44);
 		contentPane.add(lblIngresoNio);
 		
-		JCalendar calendar = new JCalendar();
-		calendar.setBounds(181, 135, 184, 153);
-		contentPane.add(calendar);
+		JCalendar fechaNac = new JCalendar();
+		fechaNac.setBounds(181, 135, 184, 153);
+		contentPane.add(fechaNac);
+		
+		JRadioButton rdbtnTieneFSi = new JRadioButton("Si");
+		rdbtnTieneFSi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		rdbtnTieneFSi.setBounds(186, 372, 49, 23);
+		contentPane.add(rdbtnTieneFSi);
+		
+		JRadioButton rdbtnTieneFNo = new JRadioButton("No");
+		rdbtnTieneFNo.setBounds(251, 372, 67, 23);
+		contentPane.add(rdbtnTieneFNo);
+		
+		textServicioMedico = new JTextField();
+		textServicioMedico.setBounds(186, 311, 86, 20);
+		contentPane.add(textServicioMedico);
+		textServicioMedico.setColumns(10);
 	}
 }

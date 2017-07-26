@@ -11,12 +11,12 @@ public class Niño {
 	private Calendar fechaNacimiento;
 	private String servicioMedico;
 	private String medicoCabecera;
-	private boolean tieneFonasa;
+	private char tieneFonasa;
 	private Registro[] registros;
 	private int cantRegistrosIngresados;
 	
 	public Niño(String nombre, int documento, Calendar fechaNacimiento, String servicioMedico, String medicoCabecera,
-			boolean tieneFonasa, Registro[] registros, int cantRegistrosIngresados) {
+			char tieneFonasa, Registro[] registros, int cantRegistrosIngresados) {
 		super();
 		this.nombre = nombre;
 		this.documento = documento;
@@ -29,7 +29,7 @@ public class Niño {
 	}
 	
 	public Niño(String nombre, int documento, Calendar fechaNacimiento, String servicioMedico, String medicoCabecera,
-			boolean tieneFonasa) {
+			char tieneFonasa) {
 		super();
 		this.nombre = nombre;
 		this.documento = documento;
@@ -81,11 +81,11 @@ public class Niño {
 		this.medicoCabecera = medicoCabecera;
 	}
 
-	public boolean isTieneFonasa() {
+	public char isTieneFonasa() {
 		return tieneFonasa;
 	}
 
-	public void setTieneFonasa(boolean tieneFonasa) {
+	public void setTieneFonasa(char tieneFonasa) {
 		this.tieneFonasa = tieneFonasa;
 	}
 

@@ -12,18 +12,26 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 
 import com.toedter.calendar.JCalendar;
+
+import logica.ColeccionNiños;
+import logica.Consulta;
+import logica.Control;
+import logica.Niño;
+import logica.Registro;
 
 
 public class IngresoConsulta extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_4;
+	private JTextField textNombreMed;
+	private JTextField textDiagnostico;
+	private JTextField textRecomenda;
+	private JTextField textComentario;
+	private JCalendar  fechaCon;
 
 	/**
 	 * Launch the application.
@@ -52,45 +60,45 @@ public class IngresoConsulta extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(158, 42, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNombreMed = new JTextField();
+		textNombreMed.setBounds(158, 42, 86, 20);
+		contentPane.add(textNombreMed);
+		textNombreMed.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Nombre del M\u00E9dico:");
-		lblNewLabel.setBounds(23, 45, 109, 14);
-		contentPane.add(lblNewLabel);
+		JLabel lblNomMed = new JLabel("Nombre del M\u00E9dico:");
+		lblNomMed.setBounds(23, 45, 109, 14);
+		contentPane.add(lblNomMed);
 		
 		JLabel lblDiagnstico = new JLabel("Diagn\u00F3stico:");
 		lblDiagnstico.setBounds(23, 80, 91, 14);
 		contentPane.add(lblDiagnstico);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(158, 77, 203, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textDiagnostico = new JTextField();
+		textDiagnostico.setBounds(158, 77, 203, 20);
+		contentPane.add(textDiagnostico);
+		textDiagnostico.setColumns(10);
 		
 		JLabel lblReomendaciones = new JLabel("Recomendaciones:");
 		lblReomendaciones.setBounds(23, 123, 109, 14);
 		contentPane.add(lblReomendaciones);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(158, 120, 203, 28);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textRecomenda = new JTextField();
+		textRecomenda.setBounds(158, 120, 203, 28);
+		contentPane.add(textRecomenda);
+		textRecomenda.setColumns(10);
 		
-		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setBounds(23, 162, 46, 14);
-		contentPane.add(lblFecha);
+		JLabel lblFechaCons = new JLabel("Fecha:");
+		lblFechaCons.setBounds(23, 162, 46, 14);
+		contentPane.add(lblFechaCons);
 		
 		JLabel lblComentario = new JLabel("Comentario:");
 		lblComentario.setBounds(23, 349, 91, 14);
 		contentPane.add(lblComentario);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(158, 342, 203, 28);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textComentario = new JTextField();
+		textComentario.setBounds(158, 342, 203, 28);
+		contentPane.add(textComentario);
+		textComentario.setColumns(10);
 		
 		JLabel lblIngresoConsulta = new JLabel("INGRESO CONSULTA");
 		lblIngresoConsulta.setBounds(146, 11, 109, 14);
@@ -100,6 +108,14 @@ public class IngresoConsulta extends JFrame {
 
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Tomar datos ingresados por el usuario
+				String nomMed = textNombreMed.getText();
+				String diagnostico = textDiagnostico.getText();
+				String recomendaciones = textRecomenda.getText();
+				Calendar fechaCon = Calendar.getInstance();
+				String comentario = textComentario.getText();
+				Consulta c = new Consulta(fechaCon,comentario,nomMed,diagnostico,recomendaciones);
+				Registro registros = new Registro();
 			}
 		});
 		btnIngresar.setBounds(158, 244, 89, 23);
