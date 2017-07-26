@@ -11,13 +11,15 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
+import javax.swing.JRadioButton;
 
 public class IngresoVacuna extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_3;
+	private JTextField textNombreVac;
+	private JTextField textDosis;
+	private JTextField textComentario;
+	private JCalendar  fechaVac;
 
 	/**
 	 * Launch the application.
@@ -54,32 +56,23 @@ public class IngresoVacuna extends JFrame {
 		lblNombre.setBounds(10, 52, 46, 14);
 		contentPane.add(lblNombre);
 		
-		textField = new JTextField();
-		textField.setBounds(112, 49, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textNombreVac = new JTextField();
+		textNombreVac.setBounds(112, 49, 86, 20);
+		contentPane.add(textNombreVac);
+		textNombreVac.setColumns(10);
 		
 		JLabel lblDsis = new JLabel("Dosis:");
 		lblDsis.setBounds(10, 95, 46, 14);
 		contentPane.add(lblDsis);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(112, 92, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textDosis = new JTextField();
+		textDosis.setBounds(112, 92, 86, 20);
+		contentPane.add(textDosis);
+		textDosis.setColumns(10);
 		
 		JLabel lblObligatoria = new JLabel("Obligatoria:");
 		lblObligatoria.setBounds(10, 138, 78, 14);
 		contentPane.add(lblObligatoria);
-		
-		JCheckBox chckbxSi = new JCheckBox("Si");
-		chckbxSi.setSelected(true);
-		chckbxSi.setBounds(112, 134, 33, 23);
-		contentPane.add(chckbxSi);
-		
-		JCheckBox chckbxNo = new JCheckBox("No");
-		chckbxNo.setBounds(151, 134, 46, 23);
-		contentPane.add(chckbxNo);
 		
 		JLabel lblFecha = new JLabel("Fecha:");
 		lblFecha.setBounds(10, 178, 46, 14);
@@ -89,10 +82,10 @@ public class IngresoVacuna extends JFrame {
 		lblNewLabel.setBounds(10, 359, 78, 14);
 		contentPane.add(lblNewLabel);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(112, 359, 218, 44);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textComentario = new JTextField();
+		textComentario.setBounds(112, 359, 218, 44);
+		contentPane.add(textComentario);
+		textComentario.setColumns(10);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
 		btnIngresar.setBounds(241, 414, 89, 23);
@@ -105,5 +98,13 @@ public class IngresoVacuna extends JFrame {
 		JCalendar calendar = new JCalendar();
 		calendar.setBounds(112, 178, 184, 153);
 		contentPane.add(calendar);
+		
+		JRadioButton rdbtnSi = new JRadioButton("Si");
+		rdbtnSi.setBounds(112, 134, 38, 23);
+		contentPane.add(rdbtnSi);
+		
+		JRadioButton rdbtnNo = new JRadioButton("No");
+		rdbtnNo.setBounds(152, 134, 46, 23);
+		contentPane.add(rdbtnNo);
 	}
 }
