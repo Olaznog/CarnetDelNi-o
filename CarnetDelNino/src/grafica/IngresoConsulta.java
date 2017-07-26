@@ -93,7 +93,7 @@ public class IngresoConsulta extends JFrame {
 		textField_4.setColumns(10);
 		
 		JLabel lblIngresoConsulta = new JLabel("INGRESO CONSULTA");
-		lblIngresoConsulta.setBounds(146, 11, 109, 14);
+		lblIngresoConsulta.setBounds(146, 11, 151, 14);
 		contentPane.add(lblIngresoConsulta);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
