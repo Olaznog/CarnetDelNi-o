@@ -1,10 +1,11 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 import excepciones.hayLugarException;
 
-public class Niño {
+public class Niño implements Serializable {
 	
 	private String nombre;
 	private int documento;

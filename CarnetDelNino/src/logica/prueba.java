@@ -32,11 +32,11 @@ public class prueba {
    n.agregarRegistroNiño(r);
    n.agregarRegistroNiño(r);
    n.agregarRegistroNiño(r);*/
-   col.altaRegistro(r, 12345678);
-   col.altaRegistro(r, 12345678);
-   col.altaRegistro(r, 12345678);
-   col.altaRegistro(r, 12345678);
-   col.altaRegistro(r, 1234567);
+   //col.altaRegistro(r, 12345678);
+   //col.altaRegistro(r, 12345678);
+   //col.altaRegistro(r, 12345678);
+   //col.altaRegistro(r, 12345678);
+   //col.altaRegistro(r, 1234567);
    
    System.out.println(n.toString());
    //col.altaNiño(n);

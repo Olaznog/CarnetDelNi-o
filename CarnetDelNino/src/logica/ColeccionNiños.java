@@ -1,10 +1,11 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import excepciones.hayLugarException;
 import excepciones.ExisteNinioException;
 
-public class ColeccionNiños {
+public class ColeccionNiños implements Serializable {
 	
 	private Niño[] niños;
 	private int tope;
