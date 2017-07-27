@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
@@ -16,6 +17,7 @@ import excepciones.hayLugarException;
 import logica.ColeccionNiños;
 import logica.Control;
 import logica.Niño;
+import logica.Registro;
 
 import java.awt.event.ActionListener;
 import java.util.Calendar;
@@ -29,6 +31,7 @@ public class IngresoControl extends JFrame {
 	private JTextField textAltura;
 	private JTextField textComentario;
 	private JCalendar  fechaControl;
+	private JTextField textDocumento;
 
 	/**
 	 * Launch the application.
@@ -86,19 +89,27 @@ public class IngresoControl extends JFrame {
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Tomar datos ingresados por el usuario
+				int documento = Integer.parseInt(textDocumento.getText());
                 int peso = Integer.parseInt(textPeso.getText());
 				int altura = Integer.parseInt(textAltura.getText());
 				Calendar fechaCon = Calendar.getInstance();
 				String comentario = textComentario.getText();
-				Control c = new Control(fechaCon,comentario,peso, altura);
-				/*ColeccionNiños coleccion = new ColeccionNiños();
-				try {
-					coleccion.altaNiño(n);
-				} catch (ExisteNinioException e) {
-					e.printStackTrace();
-				} catch (hayLugarException e) {
-					e.printStackTrace();
-				}*/
+				Registro c = new Control(fechaCon,comentario,peso, altura);
+				
+				
+				
+			
+					try {
+						niños.altaRegistro(c, documento);
+						JOptionPane.showMessageDialog(null, "Se ingreso el Control del niño");
+						dispose();
+					} catch (ExisteNinioException e) {
+						JOptionPane.showMessageDialog(null, e.getMensaje());
+					} catch (hayLugarException e) {
+						JOptionPane.showMessageDialog(null, e.getMensaje());
+					}
+				
+				
 			}
 		});
 		btnIngresar.setBounds(196, 356, 89, 23);
@@ -111,5 +122,14 @@ public class IngresoControl extends JFrame {
 		JCalendar calendar = new JCalendar();
 		calendar.setBounds(101, 138, 184, 153);
 		contentPane.add(calendar);
+		
+		JLabel lblCedula = new JLabel("Cedula:");
+		lblCedula.setBounds(0, 29, 56, 16);
+		contentPane.add(lblCedula);
+		
+		textDocumento = new JTextField();
+		textDocumento.setBounds(98, 26, 86, 22);
+		contentPane.add(textDocumento);
+		textDocumento.setColumns(10);
 	}
 }

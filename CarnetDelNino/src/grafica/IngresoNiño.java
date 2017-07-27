@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
@@ -29,10 +30,12 @@ public class IngresoNiño extends JFrame {
 	private JTextField textDocumento;
 	private JCalendar  fechaNac;
 	private JTextField textMedCabecera;
-	private JRadioButton rdbtnTieneFSi;
-	private JRadioButton rdbtnTieneFNo;
+/*	private JRadioButton rdbtnTieneFSi;
+	private JRadioButton rdbtnTieneFNo;*/
 	private JTextField textServicioMedico;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JRadioButton rdbtnTieneFSi_1;
+	private JRadioButton rdbtnTieneFNo_1;
 
 	/**
 	 * Launch the application.
@@ -99,19 +102,21 @@ public class IngresoNiño extends JFrame {
 				Calendar fechaNac = Calendar.getInstance();
 				String servicioMedico = textServicioMedico.getText();
 				String medicoCabecera = textMedCabecera.getText();
-				char tieneFonasa;
-				if(rdbtnTieneFSi.isSelected())
-					tieneFonasa = 'S';
+				boolean tieneFonasa;
+				if(rdbtnTieneFSi_1.isSelected())
+					tieneFonasa = true;
 				else
-					tieneFonasa = 'N';
+					tieneFonasa = false;
 				Niño n = new Niño(nombre, documento, fechaNac, servicioMedico, medicoCabecera, tieneFonasa);
-				ColeccionNiños coleccion = new ColeccionNiños();
+				//ColeccionNiños coleccion = new ColeccionNiños();
 				try {
-					coleccion.altaNiño(n);
+					niños.altaNiño(n);
+					JOptionPane.showMessageDialog(null, "Se ingreso el niño ");
+					dispose();
 				} catch (ExisteNinioException e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, e.getMensaje());
 				} catch (hayLugarException e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, e.getMensaje());
 				}
 			}
 		});
@@ -130,19 +135,19 @@ public class IngresoNiño extends JFrame {
 		fechaNac.setBounds(181, 135, 184, 153);
 		contentPane.add(fechaNac);
 		
-		JRadioButton rdbtnTieneFSi = new JRadioButton("Si");
-		buttonGroup.add(rdbtnTieneFSi);
-		rdbtnTieneFSi.addActionListener(new ActionListener() {
+		rdbtnTieneFSi_1 = new JRadioButton("Si");
+		buttonGroup.add(rdbtnTieneFSi_1);
+		rdbtnTieneFSi_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		rdbtnTieneFSi.setBounds(186, 372, 49, 23);
-		contentPane.add(rdbtnTieneFSi);
+		rdbtnTieneFSi_1.setBounds(186, 372, 49, 23);
+		contentPane.add(rdbtnTieneFSi_1);
 		
-		JRadioButton rdbtnTieneFNo = new JRadioButton("No");
-		buttonGroup.add(rdbtnTieneFNo);
-		rdbtnTieneFNo.setBounds(251, 372, 67, 23);
-		contentPane.add(rdbtnTieneFNo);
+		rdbtnTieneFNo_1 = new JRadioButton("No");
+		buttonGroup.add(rdbtnTieneFNo_1);
+		rdbtnTieneFNo_1.setBounds(251, 372, 67, 23);
+		contentPane.add(rdbtnTieneFNo_1);
 		
 		textServicioMedico = new JTextField();
 		textServicioMedico.setBounds(186, 311, 86, 20);

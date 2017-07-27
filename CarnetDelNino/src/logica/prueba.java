@@ -13,9 +13,9 @@ public class prueba {
    col.configurar(2, 4);
    Calendar fnac = Calendar.getInstance();
    fnac.set(2010, 2, 12);
-   Niño n = new Niño("Juan", 12345678, fnac, "medica uruguaya", "Lopez", 'S');
-   Niño n2 = new Niño("Juan", 1522477, fnac, "medica uruguaya", "Lopez", 'S');
-   Niño n3 = new Niño("Juan", 4523998, fnac, "medica uruguaya", "Lopez", 'N');
+   Niño n = new Niño("Juan", 12345678, fnac, "medica uruguaya", "Lopez", true);
+   Niño n2 = new Niño("Juan", 1522477, fnac, "medica uruguaya", "Lopez", true);
+   Niño n3 = new Niño("Juan", 4523998, fnac, "medica uruguaya", "Lopez", false);
    col.altaNiño(n);
    
    String [] datos = col.listarNiños();

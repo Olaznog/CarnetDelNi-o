@@ -32,7 +32,7 @@ public class PersistirNiño {
 		ColeccionNiños nuevo = new ColeccionNiños();
 		Calendar fnac = Calendar.getInstance();
 		fnac.set(2010, 2, 12);
-		Niño n = new Niño("Juan", 12345678, fnac, "medica uruguaya", "Lopez", 'S');
+		Niño n = new Niño("Juan", 12345678, fnac, "medica uruguaya", "Lopez", true);
 		nuevo.altaNiño(n);
 		//a los efectos de probar la persistencia se crean a mano 3 personas. 
 		// para hacerlo en el proyecto, basta unicamente con pasar a un método que persista, la colección que se desea guardar

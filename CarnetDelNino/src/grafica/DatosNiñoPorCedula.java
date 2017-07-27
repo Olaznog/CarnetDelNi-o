@@ -40,11 +40,11 @@ public class DatosNiñoPorCedula extends JFrame {
 		contentPane.add(lblDatosDelNio);
 		
 		JLabel lblNewLabel = new JLabel("Ingrese c\u00E9dula del ni\u00F1o:");
-		lblNewLabel.setBounds(10, 61, 132, 14);
+		lblNewLabel.setBounds(10, 61, 158, 14);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
-		textField.setBounds(152, 58, 100, 20);
+		textField.setBounds(164, 56, 100, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		

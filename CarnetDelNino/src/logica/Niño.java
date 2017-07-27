@@ -12,12 +12,12 @@ public class Niño implements Serializable {
 	private Calendar fechaNacimiento;
 	private String servicioMedico;
 	private String medicoCabecera;
-	private char tieneFonasa;
+	private boolean tieneFonasa;
 	private Registro[] registros;
 	private int cantRegistrosIngresados;
 	
 	public Niño(String nombre, int documento, Calendar fechaNacimiento, String servicioMedico, String medicoCabecera,
-			char tieneFonasa, Registro[] registros, int cantRegistrosIngresados) {
+			boolean tieneFonasa, Registro[] registros, int cantRegistrosIngresados) {
 		super();
 		this.nombre = nombre;
 		this.documento = documento;
@@ -30,7 +30,7 @@ public class Niño implements Serializable {
 	}
 	
 	public Niño(String nombre, int documento, Calendar fechaNacimiento, String servicioMedico, String medicoCabecera,
-			char tieneFonasa) {
+			boolean tieneFonasa) {
 		super();
 		this.nombre = nombre;
 		this.documento = documento;
@@ -82,11 +82,11 @@ public class Niño implements Serializable {
 		this.medicoCabecera = medicoCabecera;
 	}
 
-	public char isTieneFonasa() {
+	public boolean isTieneFonasa() {
 		return tieneFonasa;
 	}
 
-	public void setTieneFonasa(char tieneFonasa) {
+	public void setTieneFonasa(boolean tieneFonasa) {
 		this.tieneFonasa = tieneFonasa;
 	}
 

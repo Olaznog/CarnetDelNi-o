@@ -33,19 +33,18 @@ public class VentanaMenu extends JFrame {
 		JMenu mnIngresar = new JMenu("Ingresar");
 		menuBar.add(mnIngresar);
 		
-		JMenu mnIngresarDatosNiño = new JMenu("Datos del Ni\u00F1o");
+		JMenuItem mnIngresarDatosNiño = new JMenuItem("Datos del Ni\u00F1o");
 		mnIngresarDatosNiño.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IngresoNiño Niño = new IngresoNiño(n);
 	            Niño.setVisible(true);
 			}
 		});
-		mnIngresar.add(mnIngresarDatosNiño);
 		
 		JMenu mnNuevoRegistro = new JMenu("Nuevo Registro");
 		mnIngresar.add(mnNuevoRegistro);
 		
-		JMenu mnConsulta = new JMenu("Consulta");
+		JMenuItem mnConsulta = new JMenuItem("Consulta");
 		mnConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IngresoConsulta Consulta = new IngresoConsulta(n);
@@ -54,7 +53,7 @@ public class VentanaMenu extends JFrame {
 		});
 		mnNuevoRegistro.add(mnConsulta);
 		
-		JMenu mnControl = new JMenu("Control");
+		JMenuItem mnControl = new JMenuItem("Control");
 		mnControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IngresoControl Control = new IngresoControl(n);
@@ -63,7 +62,7 @@ public class VentanaMenu extends JFrame {
 		});
 		mnNuevoRegistro.add(mnControl);
 		
-		JMenu mnVacuna = new JMenu("Vacuna");
+		JMenuItem mnVacuna = new JMenuItem("Vacuna");
 		mnVacuna.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IngresoVacuna Vacuna = new IngresoVacuna(n);
@@ -71,6 +70,7 @@ public class VentanaMenu extends JFrame {
 			}
 		});
 		mnNuevoRegistro.add(mnVacuna);
+		mnIngresar.add(mnIngresarDatosNiño);
 		
 		JMenu mnConsultar = new JMenu("Consultar");
 		menuBar.add(mnConsultar);

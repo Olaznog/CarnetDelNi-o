@@ -96,11 +96,11 @@ public class IngresoVacuna extends JFrame {
 				//Tomar datos ingresados por el usuario
 				String nomVac = textNombreVac.getText();
 				 int dosis = Integer.parseInt(textDosis.getText()); 
-				 char obligatoria;
+				 boolean obligatoria;
 					if(rdbtnObliSi.isSelected())
-						obligatoria = 'S';
+						obligatoria = true;
 					else
-						obligatoria = 'N';
+						obligatoria = false;
 				Calendar fechaVac = Calendar.getInstance();
 				String comentarioVac = textComentario.getText();
 				Vacuna v = new Vacuna(fechaVac,comentarioVac,nomVac,dosis,obligatoria); 

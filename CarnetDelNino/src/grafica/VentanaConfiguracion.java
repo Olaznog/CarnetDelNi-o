@@ -33,25 +33,25 @@ public class VentanaConfiguracion extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCantMaxNiños = new JLabel("Ingrese la cantidad m\u00E1xima de ni\u00F1os:");
-		lblCantMaxNiños.setBounds(10, 91, 186, 22);
+		lblCantMaxNiños.setBounds(10, 91, 237, 22);
 		contentPane.add(lblCantMaxNiños);
 		
 		JLabel lblCantMaxRegNiños = new JLabel("Ingrese la cantidad m\u00E1xima de registros por ni\u00F1o:");
-		lblCantMaxRegNiños.setBounds(10, 124, 237, 22);
+		lblCantMaxRegNiños.setBounds(10, 124, 299, 22);
 		contentPane.add(lblCantMaxRegNiños);
 		
 		textCantMaxNiños = new JTextField();
-		textCantMaxNiños.setBounds(247, 92, 86, 20);
+		textCantMaxNiños.setBounds(334, 92, 86, 20);
 		contentPane.add(textCantMaxNiños);
 		textCantMaxNiños.setColumns(10);
 		
 		textCantMaxRegNiños = new JTextField();
-		textCantMaxRegNiños.setBounds(247, 125, 86, 20);
+		textCantMaxRegNiños.setBounds(334, 125, 86, 20);
 		contentPane.add(textCantMaxRegNiños);
 		textCantMaxRegNiños.setColumns(10);
 		
 		JLabel lblConfiguracinDeSistema = new JLabel("CONFIGURACI\u00D3N DE SISTEMA");
-		lblConfiguracinDeSistema.setBounds(120, 11, 148, 44);
+		lblConfiguracinDeSistema.setBounds(120, 11, 194, 44);
 		contentPane.add(lblConfiguracinDeSistema);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
@@ -64,13 +64,14 @@ public class VentanaConfiguracion extends JFrame {
 				n.configurar(cantMaximaNiños, cantMaximaRegistros);
 				VentanaMenu Menu = new VentanaMenu(n);
 	            Menu.setVisible(true);
+	            dispose();
 			}
 		});
-		btnIngresar.setBounds(145, 164, 89, 23);
+		btnIngresar.setBounds(145, 164, 102, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnSalir = new JButton("SALIR");
-		btnSalir.setBounds(244, 164, 89, 23);
+		btnSalir.setBounds(282, 164, 89, 23);
 		contentPane.add(btnSalir);
 	}
 	
