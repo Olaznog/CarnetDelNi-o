@@ -33,14 +33,6 @@ public class IngresoControl extends JFrame {
 	private JCalendar  fechaControl;
 	private JTextField textDocumento;
 
-	/**
-	 * Launch the application.
-	 */
-	
-
-	/**
-	 * Create the frame.
-	 */
 	public IngresoControl(ColeccionNiños n) {
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,14 +86,10 @@ public class IngresoControl extends JFrame {
 				int altura = Integer.parseInt(textAltura.getText());
 				Calendar fechaCon = Calendar.getInstance();
 				String comentario = textComentario.getText();
-				Registro c = new Control(fechaCon,comentario,peso, altura);
-				
-				
-				
-			
-					try {
-						niños.altaRegistro(c, documento);
-						JOptionPane.showMessageDialog(null, "Se ingreso el Control del niño");
+				Registro cont = new Control(fechaCon,comentario,peso, altura);
+				try{
+					  niños.altaRegistro(cont, documento);
+						JOptionPane.showMessageDialog(null, "Se ingreso el control del niño");
 						dispose();
 					} catch (ExisteNinioException e) {
 						JOptionPane.showMessageDialog(null, e.getMensaje());
@@ -116,6 +104,13 @@ public class IngresoControl extends JFrame {
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaMenu Menu = new VentanaMenu(n);
+				Menu.setVisible(true);
+				dispose();
+			}
+		});
 		btnVolver.setBounds(314, 356, 89, 23);
 		contentPane.add(btnVolver);
 		

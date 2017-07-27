@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
@@ -17,6 +18,8 @@ import java.awt.event.ActionEvent;
 
 import com.toedter.calendar.JCalendar;
 
+import excepciones.ExisteNinioException;
+import excepciones.hayLugarException;
 import logica.ColeccionNiños;
 import logica.Consulta;
 import logica.Control;
@@ -33,12 +36,13 @@ public class IngresoConsulta extends JFrame {
 	private JTextField textRecomenda;
 	private JTextField textComentario;
 	private JCalendar  fechaCon;
+	private JTextField textDocumento;
 
 	
 	public IngresoConsulta(ColeccionNiños n) {
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 462);
+		setBounds(100, 100, 450, 498);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -50,7 +54,7 @@ public class IngresoConsulta extends JFrame {
 		textNombreMed.setColumns(10);
 		
 		JLabel lblNomMed = new JLabel("Nombre del M\u00E9dico:");
-		lblNomMed.setBounds(23, 45, 109, 14);
+		lblNomMed.setBounds(23, 45, 131, 14);
 		contentPane.add(lblNomMed);
 		
 		JLabel lblDiagnstico = new JLabel("Diagn\u00F3stico:");
@@ -76,11 +80,11 @@ public class IngresoConsulta extends JFrame {
 		contentPane.add(lblFechaCons);
 		
 		JLabel lblComentario = new JLabel("Comentario:");
-		lblComentario.setBounds(23, 349, 91, 14);
+		lblComentario.setBounds(23, 367, 91, 14);
 		contentPane.add(lblComentario);
 		
 		textComentario = new JTextField();
-		textComentario.setBounds(158, 342, 203, 28);
+		textComentario.setBounds(158, 360, 203, 28);
 		contentPane.add(textComentario);
 		textComentario.setColumns(10);
 		
@@ -93,27 +97,53 @@ public class IngresoConsulta extends JFrame {
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Tomar datos ingresados por el usuario
+				int documento = Integer.parseInt(textDocumento.getText());
 				String nomMed = textNombreMed.getText();
 				String diagnostico = textDiagnostico.getText();
 				String recomendaciones = textRecomenda.getText();
 				Calendar fechaCon = Calendar.getInstance();
 				String comentario = textComentario.getText();
-				Consulta c = new Consulta(fechaCon,comentario,nomMed,diagnostico,recomendaciones);
+				Registro cons = new Consulta(fechaCon,comentario,nomMed,diagnostico,recomendaciones);
+				try {
+					niños.altaRegistro(cons, documento);
+					JOptionPane.showMessageDialog(null, "Se ingreso la vacuna del niño");
+					dispose();
+				} catch (ExisteNinioException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMensaje());
+				} catch (hayLugarException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMensaje());
+				}
 				
 			}
 		});
-		btnIngresar.setBounds(158, 244, 89, 23);
+		btnIngresar.setBounds(158, 389, 89, 28);
 
 		btnIngresar.setBounds(227, 389, 89, 23);
 
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(335, 389, 89, 23);
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaMenu Menu = new VentanaMenu(n);
+				Menu.setVisible(true);
+				dispose();
+			}
+		});
+		btnVolver.setBounds(313, 389, 89, 23);
 		contentPane.add(btnVolver);
 		
 		JCalendar calendar = new JCalendar();
 		calendar.setBounds(158, 159, 184, 153);
 		contentPane.add(calendar);
+		
+		JLabel lblCedula = new JLabel("Cedula:");
+		lblCedula.setBounds(23, 331, 56, 16);
+		contentPane.add(lblCedula);
+		
+		textDocumento = new JTextField();
+		textDocumento.setBounds(158, 325, 116, 22);
+		contentPane.add(textDocumento);
+		textDocumento.setColumns(10);
 	}
 }

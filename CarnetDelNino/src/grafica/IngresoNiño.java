@@ -37,14 +37,6 @@ public class IngresoNiño extends JFrame {
 	private JRadioButton rdbtnTieneFSi_1;
 	private JRadioButton rdbtnTieneFNo_1;
 
-	/**
-	 * Launch the application.
-	 */
-	
-
-	/**
-	 * Create the frame.
-	 */
 	public IngresoNiño(ColeccionNiños n) {
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,6 +116,13 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaMenu Menu = new VentanaMenu(n);
+				Menu.setVisible(true);
+				dispose();
+			}
+		});
 		btnVolver.setBounds(316, 450, 108, 23);
 		contentPane.add(btnVolver);
 		
