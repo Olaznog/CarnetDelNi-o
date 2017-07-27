@@ -13,8 +13,14 @@ import javax.swing.JButton;
 import com.toedter.calendar.JCalendar;
 
 import logica.ColeccionNiños;
+import logica.Consulta;
+import logica.Vacuna;
 
 import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.awt.event.ActionEvent;
 
 public class IngresoVacuna extends JFrame {
 	private ColeccionNiños niños;
@@ -23,7 +29,10 @@ public class IngresoVacuna extends JFrame {
 	private JTextField textNombreVac;
 	private JTextField textDosis;
 	private JTextField textComentario;
+	private JRadioButton rdbtnObliSi;
+	private JRadioButton rdbtnObliNo;
 	private JCalendar  fechaVac;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -82,6 +91,21 @@ public class IngresoVacuna extends JFrame {
 		textComentario.setColumns(10);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//Tomar datos ingresados por el usuario
+				String nomVac = textNombreVac.getText();
+				 int dosis = Integer.parseInt(textDosis.getText()); 
+				 char obligatoria;
+					if(rdbtnObliSi.isSelected())
+						obligatoria = 'S';
+					else
+						obligatoria = 'N';
+				Calendar fechaVac = Calendar.getInstance();
+				String comentarioVac = textComentario.getText();
+				Vacuna v = new Vacuna(fechaVac,comentarioVac,nomVac,dosis,obligatoria); 
+			}
+		});
 		btnIngresar.setBounds(241, 414, 89, 23);
 		contentPane.add(btnIngresar);
 		
@@ -93,12 +117,14 @@ public class IngresoVacuna extends JFrame {
 		calendar.setBounds(112, 178, 184, 153);
 		contentPane.add(calendar);
 		
-		JRadioButton rdbtnSi = new JRadioButton("Si");
-		rdbtnSi.setBounds(112, 134, 38, 23);
-		contentPane.add(rdbtnSi);
+		JRadioButton rdbtnObliSi = new JRadioButton("Si");
+		buttonGroup.add(rdbtnObliSi);
+		rdbtnObliSi.setBounds(112, 134, 38, 23);
+		contentPane.add(rdbtnObliSi);
 		
-		JRadioButton rdbtnNo = new JRadioButton("No");
-		rdbtnNo.setBounds(152, 134, 46, 23);
-		contentPane.add(rdbtnNo);
+		JRadioButton rdbtnObliNo = new JRadioButton("No");
+		buttonGroup.add(rdbtnObliNo);
+		rdbtnObliNo.setBounds(152, 134, 46, 23);
+		contentPane.add(rdbtnObliNo);
 	}
 }

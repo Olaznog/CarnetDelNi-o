@@ -19,6 +19,7 @@ import logica.ColeccionNiños;
 import logica.Niño;
 
 import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
 
 public class IngresoNiño extends JFrame {
 	private ColeccionNiños niños;
@@ -31,6 +32,7 @@ public class IngresoNiño extends JFrame {
 	private JRadioButton rdbtnTieneFSi;
 	private JRadioButton rdbtnTieneFNo;
 	private JTextField textServicioMedico;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -129,6 +131,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(fechaNac);
 		
 		JRadioButton rdbtnTieneFSi = new JRadioButton("Si");
+		buttonGroup.add(rdbtnTieneFSi);
 		rdbtnTieneFSi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -137,6 +140,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(rdbtnTieneFSi);
 		
 		JRadioButton rdbtnTieneFNo = new JRadioButton("No");
+		buttonGroup.add(rdbtnTieneFNo);
 		rdbtnTieneFNo.setBounds(251, 372, 67, 23);
 		contentPane.add(rdbtnTieneFNo);
 		
