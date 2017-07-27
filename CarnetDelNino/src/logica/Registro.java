@@ -1,8 +1,9 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public abstract class Registro {
+public abstract class Registro implements Serializable {
 	
 	private Calendar fecha;
 	private String comentario;

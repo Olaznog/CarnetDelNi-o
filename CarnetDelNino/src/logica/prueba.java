@@ -3,6 +3,8 @@ package logica;
 import java.util.Calendar;
 
 import excepciones.hayLugarException;
+import persistencia.PersistirNiño;
+
 import javax.swing.JOptionPane;
 import excepciones.ExisteNinioException;
 
@@ -15,7 +17,7 @@ public class prueba {
    fnac.set(2010, 2, 12);
    Niño n = new Niño("Juan", 12345678, fnac, "medica uruguaya", "Lopez", true);
    Niño n2 = new Niño("Juan", 1522477, fnac, "medica uruguaya", "Lopez", true);
-   Niño n3 = new Niño("Juan", 4523998, fnac, "medica uruguaya", "Lopez", false);
+   //Niño n3 = new Niño("Juan", 4523998, fnac, "medica uruguaya", "Lopez", false);
    col.altaNiño(n);
    
    String [] datos = col.listarNiños();
@@ -41,7 +43,9 @@ public class prueba {
    System.out.println(n.toString());
    //col.altaNiño(n);
    col.altaNiño(n2);
-   col.altaNiño(n3);
+   //col.altaNiño(n3);
+   
+   PersistirNiño.persistir(col, "C://DatosNiño/datos.txt");
    
    //No despliega el mensaje de hayLugarException
 		}catch(ExisteNinioException e)
