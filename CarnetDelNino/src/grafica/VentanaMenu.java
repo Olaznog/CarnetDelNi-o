@@ -65,8 +65,8 @@ public class VentanaMenu extends JFrame {
 		JMenuItem mnVacuna = new JMenuItem("Vacuna");
 		mnVacuna.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IngresoVacuna Vacuna = new IngresoVacuna(n);
-	            Vacuna.setVisible(true);
+				/*IngresoVacuna Vacuna = new IngresoVacuna(n);
+	            Vacuna.setVisible(true);*/
 			}
 		});
 		mnNuevoRegistro.add(mnVacuna);
@@ -83,6 +83,6 @@ public class VentanaMenu extends JFrame {
 		
 		JMenu mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
 		mnConsultar.add(mnConsultaMedicaPor);
-		//ColeccionNiños niños = new ColeccionNiños();//Este objeto es el sistema?
+		
 	}
 }

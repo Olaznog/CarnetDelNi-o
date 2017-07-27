@@ -38,6 +38,7 @@ public class IngresoNiño extends JFrame {
 	private JRadioButton rdbtnTieneFNo_1;
 
 	public IngresoNiño(ColeccionNiños n) {
+		setUndecorated(true);
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 523);

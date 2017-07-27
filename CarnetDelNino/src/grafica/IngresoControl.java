@@ -34,6 +34,7 @@ public class IngresoControl extends JFrame {
 	private JTextField textDocumento;
 
 	public IngresoControl(ColeccionNiños n) {
+		setUndecorated(true);
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 429);
@@ -100,7 +101,7 @@ public class IngresoControl extends JFrame {
 				
 			}
 		});
-		btnIngresar.setBounds(196, 356, 89, 23);
+		btnIngresar.setBounds(112, 358, 115, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");

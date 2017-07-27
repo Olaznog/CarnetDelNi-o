@@ -28,7 +28,7 @@ import java.awt.event.ActionEvent;
 
 public class IngresoVacuna extends JFrame {
 	private ColeccionNiños niños;
-
+    private VentanaMenu Menu;
 	private JPanel contentPane;
 	private JTextField textNombreVac;
 	private JTextField textDosis;
@@ -39,8 +39,10 @@ public class IngresoVacuna extends JFrame {
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField textDocumento;
 
-	public IngresoVacuna(ColeccionNiños n) {
+	public IngresoVacuna(ColeccionNiños n, VentanaMenu menu) {
+		setUndecorated(true);
 		this.niños = n;
+		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 526);
 		contentPane = new JPanel();
@@ -49,7 +51,7 @@ public class IngresoVacuna extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblIngresoVacuna = new JLabel("INGRESO VACUNA");
-		lblIngresoVacuna.setBounds(146, 11, 102, 14);
+		lblIngresoVacuna.setBounds(146, 11, 133, 14);
 		contentPane.add(lblIngresoVacuna);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
@@ -119,7 +121,7 @@ public class IngresoVacuna extends JFrame {
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaMenu Menu = new VentanaMenu(n);
+				
 				Menu.setVisible(true);
 				dispose();
 			}
