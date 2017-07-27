@@ -22,26 +22,8 @@ import java.awt.event.ActionEvent;
 public class VentanaMenu extends JFrame {
 	private ColeccionNiños niños;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaMenu frame = new VentanaMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public VentanaMenu() {
+	public VentanaMenu(ColeccionNiños n) {
+		niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 525, 300);
 		
@@ -54,6 +36,8 @@ public class VentanaMenu extends JFrame {
 		JMenu mnIngresarDatosNiño = new JMenu("Datos del Ni\u00F1o");
 		mnIngresarDatosNiño.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				IngresoNiño Niño = new IngresoNiño(n);
+	            Niño.setVisible(true);
 			}
 		});
 		mnIngresar.add(mnIngresarDatosNiño);
@@ -62,12 +46,30 @@ public class VentanaMenu extends JFrame {
 		mnIngresar.add(mnNuevoRegistro);
 		
 		JMenu mnConsulta = new JMenu("Consulta");
+		mnConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IngresoConsulta Consulta = new IngresoConsulta(n);
+	            Consulta.setVisible(true);
+			}
+		});
 		mnNuevoRegistro.add(mnConsulta);
 		
 		JMenu mnControl = new JMenu("Control");
+		mnControl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IngresoControl Control = new IngresoControl(n);
+	            Control.setVisible(true);
+			}
+		});
 		mnNuevoRegistro.add(mnControl);
 		
 		JMenu mnVacuna = new JMenu("Vacuna");
+		mnVacuna.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IngresoVacuna Vacuna = new IngresoVacuna(n);
+	            Vacuna.setVisible(true);
+			}
+		});
 		mnNuevoRegistro.add(mnVacuna);
 		
 		JMenu mnConsultar = new JMenu("Consultar");
@@ -81,6 +83,6 @@ public class VentanaMenu extends JFrame {
 		
 		JMenu mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
 		mnConsultar.add(mnConsultaMedicaPor);
-		ColeccionNiños niños = new ColeccionNiños();//Este objeto es el sistema?
+		//ColeccionNiños niños = new ColeccionNiños();//Este objeto es el sistema?
 	}
 }

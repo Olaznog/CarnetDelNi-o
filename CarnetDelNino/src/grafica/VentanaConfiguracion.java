@@ -11,24 +11,18 @@ import logica.ColeccionNiños;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaConfiguracion extends JFrame {
 	private ColeccionNiños niños;
-
-	private JPanel contentPane;
+    private JPanel contentPane;
 	private JTextField textCantMaxNiños;
 	private JTextField textCantMaxRegNiños;
 
-	/**
-	 * Launch the application.
-	 */
 	
-	
-
-	/**
-	 * Create the frame.
-	 */
 	public VentanaConfiguracion(ColeccionNiños n) {
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,6 +55,17 @@ public class VentanaConfiguracion extends JFrame {
 		contentPane.add(lblConfiguracinDeSistema);
 		
 		JButton btnIngresar = new JButton("INGRESAR");
+		btnIngresar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Tomar datos ingresados por el usuario
+				int cantMaximaNiños = Integer.parseInt(textCantMaxNiños.getText());
+				int cantMaximaRegistros = Integer.parseInt(textCantMaxRegNiños.getText());
+				//Se llama al metodo configurar de la clase ColeccionNiños
+				n.configurar(cantMaximaNiños, cantMaximaRegistros);
+				VentanaMenu Menu = new VentanaMenu(n);
+	            Menu.setVisible(true);
+			}
+		});
 		btnIngresar.setBounds(145, 164, 89, 23);
 		contentPane.add(btnIngresar);
 		
@@ -68,4 +73,5 @@ public class VentanaConfiguracion extends JFrame {
 		btnSalir.setBounds(244, 164, 89, 23);
 		contentPane.add(btnSalir);
 	}
+	
 }
