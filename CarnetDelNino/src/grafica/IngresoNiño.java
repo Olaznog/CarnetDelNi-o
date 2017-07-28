@@ -28,10 +28,8 @@ public class IngresoNiño extends JFrame {
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textDocumento;
-	private JCalendar  fechaNac;
+	private JCalendar  calendar;
 	private JTextField textMedCabecera;
-/*	private JRadioButton rdbtnTieneFSi;
-	private JRadioButton rdbtnTieneFNo;*/
 	private JTextField textServicioMedico;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JRadioButton rdbtnTieneFSi_1;
@@ -92,7 +90,7 @@ public class IngresoNiño extends JFrame {
 				//Tomar datos ingresados por el usuario
 				String nombre = textNombre.getText();
 				int documento = Integer.parseInt(textDocumento.getText());
-				Calendar fechaNac = Calendar.getInstance();
+				Calendar fechaNac = calendar.getCalendar();
 				String servicioMedico = textServicioMedico.getText();
 				String medicoCabecera = textMedCabecera.getText();
 				boolean tieneFonasa;
@@ -131,9 +129,9 @@ public class IngresoNiño extends JFrame {
 		lblIngresoNio.setBounds(161, 0, 123, 44);
 		contentPane.add(lblIngresoNio);
 		
-		JCalendar fechaNac = new JCalendar();
-		fechaNac.setBounds(181, 135, 184, 153);
-		contentPane.add(fechaNac);
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(181, 135, 184, 153);
+		contentPane.add(calendar);
 		
 		rdbtnTieneFSi_1 = new JRadioButton("Si");
 		buttonGroup.add(rdbtnTieneFSi_1);

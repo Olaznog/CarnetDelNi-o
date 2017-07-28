@@ -19,12 +19,13 @@ import java.awt.event.ActionEvent;
 
 public class ConsultaMedAntesDeFecha extends JFrame {
 	private ColeccionNiños niños;
-
+	private JCalendar calendar;
 	private JPanel contentPane;
 	private JTextField textCantConsultas;
 
 	
 	public ConsultaMedAntesDeFecha(ColeccionNiños n) {
+		setUndecorated(true);
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 411, 361);
@@ -38,16 +39,19 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		contentPane.add(lblConsultasMdicasPor);
 		
 		JLabel lblIngreseFecha = new JLabel("Ingrese Fecha:");
-		lblIngreseFecha.setBounds(10, 49, 87, 14);
+		lblIngreseFecha.setBounds(12, 65, 87, 14);
 		contentPane.add(lblIngreseFecha);
 		
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Calendar fecha = (Calendar.);
+				Calendar fecha = calendar.getCalendar();
+				int cantidad = niños.cuantasConsultasAntesDe(fecha);
+				
+				//cantidad = textCantConsultas.setText(t);
 			}
 		});
-		btnBuscar.setBounds(195, 273, 89, 23);
+		btnBuscar.setBounds(179, 273, 89, 23);
 		contentPane.add(btnBuscar);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -55,11 +59,11 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		contentPane.add(btnVolver);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(104, 49, 184, 153);
+		calendar.setBounds(179, 59, 184, 153);
 		contentPane.add(calendar);
 		
 		JLabel lblNewLabel = new JLabel("Cantidad de Consultas:");
-		lblNewLabel.setBounds(10, 228, 156, 14);
+		lblNewLabel.setBounds(12, 228, 156, 14);
 		contentPane.add(lblNewLabel);
 		
 		textCantConsultas = new JTextField();

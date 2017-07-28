@@ -87,8 +87,7 @@ public class VentanaMenu extends JFrame {
 		JMenuItem mnVacuna = new JMenuItem("Vacuna");
 		mnVacuna.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*IngresoVacuna Vacuna = new IngresoVacuna(n);
-	            Vacuna.setVisible(true);*/
+				mostrarVentVacuna();
 			}
 		});
 		mnNuevoRegistro.add(mnVacuna);
@@ -107,5 +106,10 @@ public class VentanaMenu extends JFrame {
 		mnConsultar.add(mnConsultaMedicaPor);
 		
 		
+	}
+	private void mostrarVentVacuna()
+	{
+		IngresoVacuna Vacuna = new IngresoVacuna(niños, this);
+        Vacuna.setVisible(true);
 	}
 }
