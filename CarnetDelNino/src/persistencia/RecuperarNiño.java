@@ -10,7 +10,7 @@ public class RecuperarNiño {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		FileInputStream fis;
-		try {
+		try {			
 			fis = new FileInputStream("C://DatosNiño/datos.txt");
 			 ObjectInputStream ois = new ObjectInputStream(fis);
 			 ColeccionNiños niño = (ColeccionNiños) ois.readObject();

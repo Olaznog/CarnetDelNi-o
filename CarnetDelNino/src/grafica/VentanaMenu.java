@@ -106,5 +106,6 @@ public class VentanaMenu extends JFrame {
 		JMenu mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
 		mnConsultar.add(mnConsultaMedicaPor);
 		
+		
 	}
 }
