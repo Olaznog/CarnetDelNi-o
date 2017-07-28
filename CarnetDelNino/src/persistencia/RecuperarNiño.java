@@ -11,7 +11,7 @@ public class RecuperarNiño {
 		// TODO Auto-generated method stub
 		FileInputStream fis;
 		try {
-			fis = new FileInputStream("C://lib/datos.txt");
+			fis = new FileInputStream("C://DatosNiño/datos.txt");
 			 ObjectInputStream ois = new ObjectInputStream(fis);
 			 ColeccionNiños niño = (ColeccionNiños) ois.readObject();
 			 ois.close();

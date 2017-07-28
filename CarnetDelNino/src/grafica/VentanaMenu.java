@@ -8,23 +8,45 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import logica.ColeccionNiños;
+import persistencia.PersistirNiño;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class VentanaMenu extends JFrame {
 	private ColeccionNiños niños;
 
 	public VentanaMenu(ColeccionNiños n) {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				int i = JOptionPane.showConfirmDialog(null, "Desea cerrar el sistema?");
+				//el numero que retorna el metodo es el numero de la respuesta del usuario:
+				//YES = 0
+				//NO = 1
+				//CANCEL = 2
+				if(i == 0)
+				{
+					//ACA SE DEBERIA GUARDAR EN PERSISTENCIA LOS DATOS
+					// Y DESPUED< SI< CERRAR LA VENTANA Y CERRAR EL SISTEMA
+					PersistirNiño.persistir(n, "C://DatosNiño/datos.txt");
+					System.exit(0);
+				}
+				//SI HACE FALTA IMPLEMENTAR EL COMPORTAMIENTO SI EL USUARIO SELECCIONA NO O CANECLAR, ESCRIBIR LOS ELSE
+			}
+		});
 		niños = n;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 525, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
