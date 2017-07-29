@@ -155,5 +155,10 @@ public class Niño implements Serializable {
 		return cuantas;
 			
 	}
+	public String toStringListadoNiño() {
+		int Edad = getEdadNiño(fechaNacimiento);
+		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Edad: "+Edad+" Servicio: " +servicioMedico;
+		return retorno;
+	}
 	
 }
