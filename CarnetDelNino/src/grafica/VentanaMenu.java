@@ -105,7 +105,7 @@ public class VentanaMenu extends JFrame {
 				mostrarVentConsultasMedicas();
 			}
 		});
-		//mnConsultar.add(mnConsultaMedicaPor);
+		mnConsultar.add(mnConsultaMedicaPor);
 		
 		
 	}
