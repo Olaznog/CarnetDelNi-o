@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.JButton;
@@ -21,12 +22,13 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 	private ColeccionNiños niños;
 	private JCalendar calendar;
 	private JPanel contentPane;
-	private JTextField textCantConsultas;
-
+    private JLabel lblCantidadConsultas;
+    private VentanaMenu Menu;
 	
-	public ConsultaMedAntesDeFecha(ColeccionNiños n) {
+    public ConsultaMedAntesDeFecha(ColeccionNiños n, VentanaMenu menu) {
 		setUndecorated(true);
 		this.niños = n;
+		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 411, 361);
 		contentPane = new JPanel();
@@ -45,29 +47,29 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				/*Calendar fecha = calendar.getCalendar();
+				Calendar fecha = calendar.getCalendar();
 				int cantidad = niños.cuantasConsultasAntesDe(fecha);
-			    textCantConsultas.setText(Integer.toString(cantidad));*/
+				//String cant = String.valueOf(cantidad);
+			    //lblCantidadConsultas.setText(cant);
+				JOptionPane.showMessageDialog(null, "La cantidad de consultas es: "+cantidad);
+				dispose();
 			}
 		});
-		btnBuscar.setBounds(179, 273, 89, 23);
+		btnBuscar.setBounds(131, 290, 89, 23);
 		contentPane.add(btnBuscar);
 		
 		JButton btnVolver = new JButton("VOLVER");
-		btnVolver.setBounds(294, 273, 89, 23);
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu.setVisible(true);
+				dispose();
+			}
+		});
+		btnVolver.setBounds(287, 290, 89, 23);
 		contentPane.add(btnVolver);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(179, 59, 184, 153);
+		calendar.setBounds(131, 65, 184, 153);
 		contentPane.add(calendar);
-		
-		JLabel lblNewLabel = new JLabel("Cantidad de Consultas:");
-		lblNewLabel.setBounds(12, 228, 156, 14);
-		contentPane.add(lblNewLabel);
-		
-		textCantConsultas = new JTextField();
-		textCantConsultas.setBounds(179, 225, 117, 20);
-		contentPane.add(textCantConsultas);
-		textCantConsultas.setColumns(10);
 	}
 }

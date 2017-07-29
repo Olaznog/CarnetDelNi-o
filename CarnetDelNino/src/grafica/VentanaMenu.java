@@ -100,6 +100,11 @@ public class VentanaMenu extends JFrame {
 		mnConsultar.add(mnNewMenu);
 		
 		JMenu mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
+		mnConsultaMedicaPor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarVentConsultasMedicas();
+			}
+		});
 		mnConsultar.add(mnConsultaMedicaPor);
 		
 		
@@ -123,6 +128,11 @@ public class VentanaMenu extends JFrame {
 	{
 		IngresoNiño Niño = new IngresoNiño(niños, this);
 		Niño.setVisible(true);
+	}
+	private void mostrarVentConsultasMedicas()
+	{
+		ConsultaMedAntesDeFecha CuantasConsultas = new ConsultaMedAntesDeFecha(niños, this);
+		CuantasConsultas.setVisible(true);
 	}
 	
 }
