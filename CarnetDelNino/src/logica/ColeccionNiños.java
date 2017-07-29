@@ -102,7 +102,7 @@ public class ColeccionNiños implements Serializable {
 		//invoco el metodo de niño que le agrega un registro a su coleccion de registros : n.agregarRegistroNiño(r);
 	}
 	
-	public Niño getNiño (int cedula){
+	public Niño getNiño (int cedula)throws ExisteNinioException{
 		boolean existe = false;
 		int i = 0;
 		Niño n = null;

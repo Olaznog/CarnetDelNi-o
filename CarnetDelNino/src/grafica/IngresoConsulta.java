@@ -108,7 +108,7 @@ public class IngresoConsulta extends JFrame {
 				Registro cons = new Consulta(fechaCon,comentario,nomMed,diagnostico,recomendaciones);
 				try {
 					niños.altaRegistro(cons, documento);
-					JOptionPane.showMessageDialog(null, "Se ingreso la vacuna del niño");
+					JOptionPane.showMessageDialog(null, "Se ingreso la consulta del niño");
 					dispose();
 				} catch (ExisteNinioException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMensaje());

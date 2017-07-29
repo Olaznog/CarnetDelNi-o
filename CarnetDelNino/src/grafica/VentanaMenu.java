@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 
 public class VentanaMenu extends JFrame {
 	private ColeccionNiños niños;
+	private DatosNiñoPorCedula DatosNiño;
 
 	public VentanaMenu(ColeccionNiños n) {
 		addWindowListener(new WindowAdapter() {
@@ -39,7 +40,7 @@ public class VentanaMenu extends JFrame {
 				{
 					//ACA SE DEBERIA GUARDAR EN PERSISTENCIA LOS DATOS
 					// Y DESPUED< SI< CERRAR LA VENTANA Y CERRAR EL SISTEMA
-					PersistirNiño.persistir(n, "C://DatosNiño/datos.txt");
+					PersistirNiño.persistir(n, "C://Users/datosNiños.txt");
 					System.exit(0);
 				}
 				//SI HACE FALTA IMPLEMENTAR EL COMPORTAMIENTO SI EL USUARIO SELECCIONA NO O CANECLAR, ESCRIBIR LOS ELSE
@@ -93,20 +94,44 @@ public class VentanaMenu extends JFrame {
 		JMenu mnConsultar = new JMenu("Consultar");
 		menuBar.add(mnConsultar);
 		
-		JMenu mnListadoDeNios = new JMenu("Listado de ni\u00F1os");
+		JMenuItem mntmNewMenuItem = new JMenuItem("Listado de Ni\u00F1os");
+		mnConsultar.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Mostrar datos de un ni\u00F1o");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarVentIngresoCedula();
+			}
+			
+		});
+		mnConsultar.add(mntmNewMenuItem_1);
+		
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Consulta M\u00E9dica por fecha");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarVentConsultasMedicas();
+			}
+		});
+		mnConsultar.add(mntmNewMenuItem_2);
+		
+		/*JMenuItem mnListadoDeNios = new JMenu("Listado de ni\u00F1os");
 		mnConsultar.add(mnListadoDeNios);
 		
-		JMenu mnNewMenu = new JMenu("Mostrar datos de un ni\u00F1o ");
+		JMenuItem mnNewMenu = new JMenu("Mostrar datos de un ni\u00F1o ");
+		mnNewMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarVentDatosNiñosPorCI();
+			}
+		});
 		mnConsultar.add(mnNewMenu);
 		
-		JMenu mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
+		JMenuItem mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
 		mnConsultaMedicaPor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarVentConsultasMedicas();
-				//comentarios
 			}
 		});
-		mnConsultar.add(mnConsultaMedicaPor);
+		mnConsultar.add(mnConsultaMedicaPor);*/
 		
 		
 	}
@@ -134,6 +159,16 @@ public class VentanaMenu extends JFrame {
 	{
 		ConsultaMedAntesDeFecha CuantasConsultas = new ConsultaMedAntesDeFecha(niños, this);
 		CuantasConsultas.setVisible(true);
+	}
+	private void mostrarVentDatosNiñosPorCI()
+	{
+		DatosNiñoPorCedula DatosNiño = new DatosNiñoPorCedula(niños, this);
+		DatosNiño.setVisible(true);
+	}
+	private void mostrarVentIngresoCedula()
+	{
+		IngresoCedula Cedula = new IngresoCedula(niños, this,DatosNiño );
+		Cedula.setVisible(true);
 	}
 	
 }

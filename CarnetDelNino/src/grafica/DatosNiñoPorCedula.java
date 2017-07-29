@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 
 public class DatosNiñoPorCedula extends JFrame {
 	private ColeccionNiños niños;
-
+	 private VentanaMenu Menu;
 	private JPanel contentPane;
 	private JTextField textDocumento;
 	private JTextField textNombre;
@@ -38,9 +38,10 @@ public class DatosNiñoPorCedula extends JFrame {
 	private JTextField textField_2;
 
 	
-	public DatosNiñoPorCedula(ColeccionNiños n) {
+	public DatosNiñoPorCedula(ColeccionNiños n, VentanaMenu menu) {
 		setUndecorated(true);
 		this.niños = n;
+		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 562);
 		contentPane = new JPanel();
@@ -51,15 +52,6 @@ public class DatosNiñoPorCedula extends JFrame {
 		JLabel lblDatosDelNio = new JLabel("DATOS DEL NI\u00D1O POR C\u00C9DULA");
 		lblDatosDelNio.setBounds(119, 11, 176, 14);
 		contentPane.add(lblDatosDelNio);
-		
-		JLabel lblNewLabel = new JLabel("Ingrese c\u00E9dula del ni\u00F1o:");
-		lblNewLabel.setBounds(20, 59, 158, 14);
-		contentPane.add(lblNewLabel);
-		
-		textDocumento = new JTextField();
-		textDocumento.setBounds(164, 56, 100, 20);
-		contentPane.add(textDocumento);
-		textDocumento.setColumns(10);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setBounds(20, 99, 70, 20);
@@ -103,8 +95,7 @@ public class DatosNiñoPorCedula extends JFrame {
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int documento = Integer.parseInt(textDocumento.getText());
-				n.getNiño(documento);
+				
 				
 			}
 		});
@@ -112,6 +103,12 @@ public class DatosNiñoPorCedula extends JFrame {
 		contentPane.add(btnBuscar);
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Menu.setVisible(true);
+				dispose();
+			}
+		});
 		btnVolver.setBounds(248, 499, 89, 23);
 		contentPane.add(btnVolver);
 		
@@ -131,7 +128,11 @@ public class DatosNiñoPorCedula extends JFrame {
 		textField_2.setColumns(10);
 		
 		JList list = new JList();
-		list.setBounds(20, 308, 408, 126);
+		list.setBounds(164, 311, 129, 57);
 		contentPane.add(list);
+		
+		JLabel lblRegistrosDelNio = new JLabel("Registros del ni\u00F1o:");
+		lblRegistrosDelNio.setBounds(20, 312, 116, 16);
+		contentPane.add(lblRegistrosDelNio);
 	}
 }
