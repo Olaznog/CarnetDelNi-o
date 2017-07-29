@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import logica.ColeccionNiños;
 
 public class RecuperarNiño {
-	public static void main(String[] args) {
+	public static void recuperar(String[] args) {
 		// TODO Auto-generated method stub
 		FileInputStream fis;
 		try {			
