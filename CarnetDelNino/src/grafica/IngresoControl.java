@@ -25,7 +25,7 @@ import java.awt.event.ActionEvent;
 
 public class IngresoControl extends JFrame {
 	private ColeccionNiños niños;
-
+	private VentanaMenu Menu;
 	private JPanel contentPane;
 	private JTextField textPeso;
 	private JTextField textAltura;
@@ -33,9 +33,10 @@ public class IngresoControl extends JFrame {
 	private JCalendar  fechaControl;
 	private JTextField textDocumento;
 
-	public IngresoControl(ColeccionNiños n) {
+	public IngresoControl(ColeccionNiños n,  VentanaMenu menu) {
 		setUndecorated(true);
 		this.niños = n;
+		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 429);
 		contentPane = new JPanel();
@@ -107,7 +108,7 @@ public class IngresoControl extends JFrame {
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaMenu Menu = new VentanaMenu(n);
+				
 				Menu.setVisible(true);
 				dispose();
 			}

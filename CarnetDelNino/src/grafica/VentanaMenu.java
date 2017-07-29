@@ -58,8 +58,7 @@ public class VentanaMenu extends JFrame {
 		JMenuItem mnIngresarDatosNiño = new JMenuItem("Datos del Ni\u00F1o");
 		mnIngresarDatosNiño.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IngresoNiño Niño = new IngresoNiño(n);
-	            Niño.setVisible(true);
+				mostrarVentNiño();
 			}
 		});
 		
@@ -69,8 +68,7 @@ public class VentanaMenu extends JFrame {
 		JMenuItem mnConsulta = new JMenuItem("Consulta");
 		mnConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IngresoConsulta Consulta = new IngresoConsulta(n);
-	            Consulta.setVisible(true);
+				mostrarVentConsulta();
 			}
 		});
 		mnNuevoRegistro.add(mnConsulta);
@@ -78,8 +76,7 @@ public class VentanaMenu extends JFrame {
 		JMenuItem mnControl = new JMenuItem("Control");
 		mnControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IngresoControl Control = new IngresoControl(n);
-	            Control.setVisible(true);
+				mostrarVentControl();
 			}
 		});
 		mnNuevoRegistro.add(mnControl);
@@ -112,4 +109,20 @@ public class VentanaMenu extends JFrame {
 		IngresoVacuna Vacuna = new IngresoVacuna(niños, this);
         Vacuna.setVisible(true);
 	}
+	private void mostrarVentControl()
+	{
+		IngresoControl Control = new IngresoControl(niños, this);
+		Control.setVisible(true);
+	}
+	private void mostrarVentConsulta()
+	{
+		IngresoConsulta Consulta = new IngresoConsulta(niños, this);
+		Consulta.setVisible(true);
+	}
+	private void mostrarVentNiño()
+	{
+		IngresoNiño Niño = new IngresoNiño(niños, this);
+		Niño.setVisible(true);
+	}
+	
 }

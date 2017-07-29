@@ -24,7 +24,7 @@ import javax.swing.ButtonGroup;
 
 public class IngresoNiño extends JFrame {
 	private ColeccionNiños niños;
-
+	private VentanaMenu Menu;
 	private JPanel contentPane;
 	private JTextField textNombre;
 	private JTextField textDocumento;
@@ -35,9 +35,10 @@ public class IngresoNiño extends JFrame {
 	private JRadioButton rdbtnTieneFSi_1;
 	private JRadioButton rdbtnTieneFNo_1;
 
-	public IngresoNiño(ColeccionNiños n) {
+	public IngresoNiño(ColeccionNiños n, VentanaMenu menu) {
 		setUndecorated(true);
 		this.niños = n;
+		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 523);
 		contentPane = new JPanel();
@@ -117,7 +118,7 @@ public class IngresoNiño extends JFrame {
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaMenu Menu = new VentanaMenu(n);
+				
 				Menu.setVisible(true);
 				dispose();
 			}

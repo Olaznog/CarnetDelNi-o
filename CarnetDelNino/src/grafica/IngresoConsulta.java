@@ -29,7 +29,7 @@ import logica.Registro;
 
 public class IngresoConsulta extends JFrame {
 	private ColeccionNiños niños;
-
+	private VentanaMenu Menu;
 	private JPanel contentPane;
 	private JTextField textNombreMed;
 	private JTextField textDiagnostico;
@@ -39,9 +39,10 @@ public class IngresoConsulta extends JFrame {
 	private JTextField textDocumento;
 
 	
-	public IngresoConsulta(ColeccionNiños n) {
+	public IngresoConsulta(ColeccionNiños n, VentanaMenu menu) {
 		setUndecorated(true);
 		this.niños = n;
+		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 498);
 		contentPane = new JPanel();
@@ -126,7 +127,7 @@ public class IngresoConsulta extends JFrame {
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaMenu Menu = new VentanaMenu(n);
+				
 				Menu.setVisible(true);
 				dispose();
 			}

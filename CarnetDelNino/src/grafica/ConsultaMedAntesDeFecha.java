@@ -45,10 +45,9 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Calendar fecha = calendar.getCalendar();
+				/*Calendar fecha = calendar.getCalendar();
 				int cantidad = niños.cuantasConsultasAntesDe(fecha);
-				
-				//cantidad = textCantConsultas.setText(t);
+			    textCantConsultas.setText(Integer.toString(cantidad));*/
 			}
 		});
 		btnBuscar.setBounds(179, 273, 89, 23);
