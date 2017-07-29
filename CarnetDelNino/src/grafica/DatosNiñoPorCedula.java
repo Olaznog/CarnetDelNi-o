@@ -25,17 +25,11 @@ public class DatosNiñoPorCedula extends JFrame {
 	private ColeccionNiños niños;
 	 private VentanaMenu Menu;
 	private JPanel contentPane;
-	private JTextField textDocumento;
-	private JTextField textNombre;
 	private JCalendar  fechaNac;
-	private JTextField textMedCabecera;
 	private JTextField textServicioMedico;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JRadioButton rdbtnTieneFSi_1;
 	private JRadioButton rdbtnTieneFNo_1;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
 
 	
 	public DatosNiñoPorCedula(ColeccionNiños n, VentanaMenu menu) {
@@ -77,31 +71,6 @@ public class DatosNiñoPorCedula extends JFrame {
 		lblTieneFonasa.setBounds(20, 263, 103, 20);
 		contentPane.add(lblTieneFonasa);
 		
-		textNombre = new JTextField();
-		textNombre.setBounds(164, 99, 86, 20);
-		contentPane.add(textNombre);
-		textNombre.setColumns(10);
-		
-		textDocumento = new JTextField();
-		textDocumento.setBounds(164, 137, 86, 20);
-		contentPane.add(textDocumento);
-		textDocumento.setColumns(10);
-		
-		textMedCabecera = new JTextField();
-		textMedCabecera.setBounds(164, 197, 86, 20);
-		contentPane.add(textMedCabecera);
-		textMedCabecera.setColumns(10);
-		
-		JButton btnBuscar = new JButton("BUSCAR");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
-		btnBuscar.setBounds(72, 499, 89, 23);
-		contentPane.add(btnBuscar);
-		
 		JButton btnVolver = new JButton("VOLVER");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,23 +78,8 @@ public class DatosNiñoPorCedula extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(248, 499, 89, 23);
+		btnVolver.setBounds(164, 448, 89, 23);
 		contentPane.add(btnVolver);
-		
-		textField = new JTextField();
-		textField.setBounds(164, 166, 116, 22);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(164, 229, 116, 22);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(164, 262, 116, 22);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
 		
 		JList list = new JList();
 		list.setBounds(164, 311, 129, 57);

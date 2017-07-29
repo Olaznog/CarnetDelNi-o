@@ -38,5 +38,4 @@ public class ListadoDeNiños extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 	}
-
 }
