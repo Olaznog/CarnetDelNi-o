@@ -19,8 +19,12 @@ import excepciones.hayLugarException;
 import logica.ColeccionNiños;
 import logica.Niño;
 
+
+
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresoNiño extends JFrame {
 	private ColeccionNiños niños;
@@ -47,41 +51,74 @@ public class IngresoNiño extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 70, 70, 20);
+		lblNombre.setBounds(10, 62, 70, 20);
 		contentPane.add(lblNombre);
 		
 		JLabel lblDocumento = new JLabel("Documento:");
-		lblDocumento.setBounds(10, 101, 70, 20);
+		lblDocumento.setBounds(10, 103, 70, 20);
 		contentPane.add(lblDocumento);
 		
 		JLabel lblFechaNac = new JLabel("Fecha de Nacimiento:");
-		lblFechaNac.setBounds(10, 135, 116, 14);
+		lblFechaNac.setBounds(10, 145, 116, 14);
 		contentPane.add(lblFechaNac);
 		
 		JLabel lblSerMed = new JLabel("Servicio M\u00E9dico:");
-		lblSerMed.setBounds(10, 311, 103, 20);
+		lblSerMed.setBounds(10, 349, 103, 20);
 		contentPane.add(lblSerMed);
 		
 		JLabel lblMedCabecera = new JLabel("M\u00E9dico Cabecera:");
-		lblMedCabecera.setBounds(10, 342, 103, 20);
+		lblMedCabecera.setBounds(10, 380, 103, 20);
 		contentPane.add(lblMedCabecera);
 		
 		JLabel lblTieneFonasa = new JLabel("Tiene Fonasa:");
-		lblTieneFonasa.setBounds(10, 373, 103, 20);
+		lblTieneFonasa.setBounds(10, 424, 103, 20);
 		contentPane.add(lblTieneFonasa);
 		
 		textNombre = new JTextField();
-		textNombre.setBounds(186, 70, 86, 20);
+		textNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada   
+			        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
+			             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+			             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+			}
+			}
+		});
+		textNombre.setBounds(136, 62, 133, 20);
 		contentPane.add(textNombre);
 		textNombre.setColumns(10);
 		
 		textDocumento = new JTextField();
-		textDocumento.setBounds(186, 101, 86, 20);
+		textDocumento.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }
+	     } 	
+		});
+		textDocumento.setBounds(136, 103, 133, 20);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
 		
 		textMedCabecera = new JTextField();
-		textMedCabecera.setBounds(186, 342, 86, 20);
+		textMedCabecera.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada   
+			        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
+			             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+			             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+			}
+			}
+		});
+		textMedCabecera.setBounds(136, 380, 123, 20);
 		contentPane.add(textMedCabecera);
 		textMedCabecera.setColumns(10);
 		
@@ -112,7 +149,7 @@ public class IngresoNiño extends JFrame {
 				}
 			}
 		});
-		btnIngresar.setBounds(186, 450, 110, 23);
+		btnIngresar.setBounds(101, 470, 116, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -123,7 +160,7 @@ public class IngresoNiño extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(316, 450, 108, 23);
+		btnVolver.setBounds(243, 470, 116, 23);
 		contentPane.add(btnVolver);
 		
 		JLabel lblIngresoNio = new JLabel("INGRESO NI\u00D1O");
@@ -131,7 +168,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(lblIngresoNio);
 		
 		calendar = new JCalendar();
-		calendar.setBounds(181, 135, 184, 153);
+		calendar.setBounds(136, 145, 184, 153);
 		contentPane.add(calendar);
 		
 		rdbtnTieneFSi_1 = new JRadioButton("Si");
@@ -140,16 +177,27 @@ public class IngresoNiño extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		rdbtnTieneFSi_1.setBounds(186, 372, 49, 23);
+		rdbtnTieneFSi_1.setBounds(136, 423, 49, 23);
 		contentPane.add(rdbtnTieneFSi_1);
 		
 		rdbtnTieneFNo_1 = new JRadioButton("No");
 		buttonGroup.add(rdbtnTieneFNo_1);
-		rdbtnTieneFNo_1.setBounds(251, 372, 67, 23);
+		rdbtnTieneFNo_1.setBounds(199, 423, 67, 23);
 		contentPane.add(rdbtnTieneFNo_1);
 		
 		textServicioMedico = new JTextField();
-		textServicioMedico.setBounds(186, 311, 86, 20);
+		textServicioMedico.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada   
+			        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
+			             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+			             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+			}
+	}
+		});
+		textServicioMedico.setBounds(136, 349, 123, 20);
 		contentPane.add(textServicioMedico);
 		textServicioMedico.setColumns(10);
 	}

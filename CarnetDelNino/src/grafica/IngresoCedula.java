@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresoCedula extends JFrame {
 	private ColeccionNiños niños;
@@ -41,6 +43,17 @@ public class IngresoCedula extends JFrame {
 		contentPane.add(lblIngresarCi);
 		
 		textDocumento = new JTextField();
+		textDocumento.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }
+	     } 	
+		});
 		textDocumento.setBounds(90, 31, 155, 22);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);

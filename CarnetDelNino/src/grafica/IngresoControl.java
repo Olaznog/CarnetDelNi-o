@@ -22,6 +22,8 @@ import logica.Registro;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresoControl extends JFrame {
 	private ColeccionNiños niños;
@@ -45,20 +47,43 @@ public class IngresoControl extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblPeso = new JLabel("Peso:");
-		lblPeso.setBounds(10, 58, 46, 14);
+		lblPeso.setBounds(10, 84, 46, 14);
 		contentPane.add(lblPeso);
 		
 		textPeso = new JTextField();
-		textPeso.setBounds(98, 55, 86, 20);
+		textPeso.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }
+	          
+	     }
+		});
+		textPeso.setBounds(98, 83, 99, 16);
 		contentPane.add(textPeso);
 		textPeso.setColumns(10);
 		
 		JLabel lblAltura = new JLabel("Altura:");
-		lblAltura.setBounds(10, 99, 46, 14);
+		lblAltura.setBounds(10, 109, 46, 14);
 		contentPane.add(lblAltura);
 		
 		textAltura = new JTextField();
-		textAltura.setBounds(98, 96, 86, 20);
+		textAltura.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }     
+	     }
+		});
+		textAltura.setBounds(98, 107, 99, 17);
 		contentPane.add(textAltura);
 		textAltura.setColumns(10);
 		
@@ -67,11 +92,11 @@ public class IngresoControl extends JFrame {
 		contentPane.add(lblFechaControl);
 		
 		JLabel lblComentario = new JLabel("Comentario:");
-		lblComentario.setBounds(21, 316, 71, 14);
+		lblComentario.setBounds(10, 317, 71, 14);
 		contentPane.add(lblComentario);
 		
 		textComentario = new JTextField();
-		textComentario.setBounds(102, 302, 261, 43);
+		textComentario.setBounds(98, 316, 259, 43);
 		contentPane.add(textComentario);
 		textComentario.setColumns(10);
 		
@@ -102,7 +127,7 @@ public class IngresoControl extends JFrame {
 				
 			}
 		});
-		btnIngresar.setBounds(112, 358, 115, 23);
+		btnIngresar.setBounds(112, 383, 99, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -113,19 +138,31 @@ public class IngresoControl extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(314, 356, 89, 23);
+		btnVolver.setBounds(222, 383, 99, 23);
 		contentPane.add(btnVolver);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(101, 138, 184, 153);
+		calendar.setBounds(98, 143, 184, 153);
 		contentPane.add(calendar);
 		
 		JLabel lblCedula = new JLabel("Cedula:");
-		lblCedula.setBounds(0, 29, 56, 16);
+		lblCedula.setBounds(10, 57, 56, 16);
 		contentPane.add(lblCedula);
 		
 		textDocumento = new JTextField();
-		textDocumento.setBounds(98, 26, 86, 22);
+		textDocumento.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }
+	          
+	     }
+		});
+		textDocumento.setBounds(98, 55, 99, 17);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
 	}

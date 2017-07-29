@@ -55,7 +55,7 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 				dispose();
 			}
 		});
-		btnBuscar.setBounds(131, 290, 89, 23);
+		btnBuscar.setBounds(108, 274, 89, 23);
 		contentPane.add(btnBuscar);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -65,11 +65,11 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(287, 290, 89, 23);
+		btnVolver.setBounds(231, 274, 89, 23);
 		contentPane.add(btnVolver);
 		
 	    calendar = new JCalendar();
-		calendar.setBounds(131, 65, 184, 153);
+		calendar.setBounds(109, 70, 184, 153);
 		contentPane.add(calendar);
 	}
 }

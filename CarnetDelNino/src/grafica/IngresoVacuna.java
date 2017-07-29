@@ -25,6 +25,8 @@ import javax.swing.ButtonGroup;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresoVacuna extends JFrame {
 	private ColeccionNiños niños;
@@ -51,41 +53,52 @@ public class IngresoVacuna extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblIngresoVacuna = new JLabel("INGRESO VACUNA");
-		lblIngresoVacuna.setBounds(146, 11, 133, 14);
+		lblIngresoVacuna.setBounds(149, 11, 133, 14);
 		contentPane.add(lblIngresoVacuna);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 52, 46, 14);
+		lblNombre.setBounds(10, 69, 46, 14);
 		contentPane.add(lblNombre);
 		
 		textNombreVac = new JTextField();
-		textNombreVac.setBounds(112, 49, 86, 20);
+		textNombreVac.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada   
+			        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
+			             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+			             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+			        }
+		}
+		});
+		textNombreVac.setBounds(112, 67, 124, 17);
 		contentPane.add(textNombreVac);
 		textNombreVac.setColumns(10);
 		
 		JLabel lblDsis = new JLabel("Dosis:");
-		lblDsis.setBounds(10, 95, 46, 14);
+		lblDsis.setBounds(10, 125, 46, 14);
 		contentPane.add(lblDsis);
 		
 		textDosis = new JTextField();
-		textDosis.setBounds(112, 92, 86, 20);
+		textDosis.setBounds(112, 123, 124, 17);
 		contentPane.add(textDosis);
 		textDosis.setColumns(10);
 		
 		JLabel lblObligatoria = new JLabel("Obligatoria:");
-		lblObligatoria.setBounds(10, 138, 78, 14);
+		lblObligatoria.setBounds(10, 150, 78, 14);
 		contentPane.add(lblObligatoria);
 		
 		JLabel lblFecha = new JLabel("Fecha:");
-		lblFecha.setBounds(10, 178, 46, 14);
+		lblFecha.setBounds(10, 190, 46, 14);
 		contentPane.add(lblFecha);
 		
 		JLabel lblNewLabel = new JLabel("Comentario:");
-		lblNewLabel.setBounds(10, 340, 78, 14);
+		lblNewLabel.setBounds(10, 387, 78, 14);
 		contentPane.add(lblNewLabel);
 		
 		textComentario = new JTextField();
-		textComentario.setBounds(112, 340, 218, 44);
+		textComentario.setBounds(109, 388, 218, 60);
 		contentPane.add(textComentario);
 		textComentario.setColumns(10);
 		
@@ -115,7 +128,7 @@ public class IngresoVacuna extends JFrame {
 				}
 			}
 		});
-		btnIngresar.setBounds(112, 443, 115, 23);
+		btnIngresar.setBounds(112, 470, 96, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -126,30 +139,30 @@ public class IngresoVacuna extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(273, 443, 89, 23);
+		btnVolver.setBounds(218, 470, 96, 23);
 		contentPane.add(btnVolver);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBounds(112, 178, 184, 153);
+		calendar.setBounds(112, 190, 184, 153);
 		contentPane.add(calendar);
 		
 		JRadioButton rdbtnObliSi = new JRadioButton("Si");
 		buttonGroup.add(rdbtnObliSi);
-		rdbtnObliSi.setBounds(112, 134, 53, 23);
+		rdbtnObliSi.setBounds(112, 146, 53, 23);
 		contentPane.add(rdbtnObliSi);
 		
 		JRadioButton rdbtnObliNo = new JRadioButton("No");
 		buttonGroup.add(rdbtnObliNo);
-		rdbtnObliNo.setBounds(181, 134, 46, 23);
+		rdbtnObliNo.setBounds(179, 146, 46, 23);
 		contentPane.add(rdbtnObliNo);
 		
-		JLabel lblCedula = new JLabel("Cedula:");
-		lblCedula.setBounds(10, 395, 56, 16);
-		contentPane.add(lblCedula);
-		
 		textDocumento = new JTextField();
-		textDocumento.setBounds(112, 392, 116, 22);
-		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
+		textDocumento.setBounds(112, 95, 124, 17);
+		contentPane.add(textDocumento);
+		
+		JLabel label = new JLabel("Cedula:");
+		label.setBounds(10, 98, 56, 16);
+		contentPane.add(label);
 	}
 }

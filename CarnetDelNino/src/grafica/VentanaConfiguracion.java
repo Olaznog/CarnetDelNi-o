@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class VentanaConfiguracion extends JFrame {
 	private ColeccionNiños niños;
@@ -26,27 +28,49 @@ public class VentanaConfiguracion extends JFrame {
 	public VentanaConfiguracion(ColeccionNiños n) {
 		this.niños = n;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 237);
+		setBounds(100, 100, 450, 217);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblCantMaxNiños = new JLabel("Ingrese la cantidad m\u00E1xima de ni\u00F1os:");
-		lblCantMaxNiños.setBounds(10, 91, 237, 22);
+		lblCantMaxNiños.setBounds(10, 66, 237, 22);
 		contentPane.add(lblCantMaxNiños);
 		
 		JLabel lblCantMaxRegNiños = new JLabel("Ingrese la cantidad m\u00E1xima de registros por ni\u00F1o:");
-		lblCantMaxRegNiños.setBounds(10, 124, 299, 22);
+		lblCantMaxRegNiños.setBounds(10, 99, 299, 22);
 		contentPane.add(lblCantMaxRegNiños);
 		
 		textCantMaxNiños = new JTextField();
-		textCantMaxNiños.setBounds(334, 92, 86, 20);
+		textCantMaxNiños.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }
+			}
+		});
+		textCantMaxNiños.setBounds(334, 67, 37, 20);
 		contentPane.add(textCantMaxNiños);
 		textCantMaxNiños.setColumns(10);
 		
 		textCantMaxRegNiños = new JTextField();
-		textCantMaxRegNiños.setBounds(334, 125, 86, 20);
+		textCantMaxRegNiños.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }
+			}
+		});
+		textCantMaxRegNiños.setBounds(334, 100, 37, 20);
 		contentPane.add(textCantMaxRegNiños);
 		textCantMaxRegNiños.setColumns(10);
 		
@@ -67,11 +91,11 @@ public class VentanaConfiguracion extends JFrame {
 	            dispose();
 			}
 		});
-		btnIngresar.setBounds(145, 164, 102, 23);
+		btnIngresar.setBounds(92, 147, 102, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnSalir = new JButton("SALIR");
-		btnSalir.setBounds(282, 164, 89, 23);
+		btnSalir.setBounds(223, 147, 102, 23);
 		contentPane.add(btnSalir);
 	}
 	

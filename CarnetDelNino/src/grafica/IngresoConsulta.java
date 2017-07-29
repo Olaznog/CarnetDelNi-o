@@ -25,6 +25,8 @@ import logica.Consulta;
 import logica.Control;
 import logica.Niño;
 import logica.Registro;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class IngresoConsulta extends JFrame {
@@ -51,6 +53,17 @@ public class IngresoConsulta extends JFrame {
 		contentPane.setLayout(null);
 		
 		textNombreMed = new JTextField();
+		textNombreMed.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada   
+			        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
+			             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+			             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+			        }
+		}
+		});
 		textNombreMed.setBounds(158, 42, 86, 20);
 		contentPane.add(textNombreMed);
 		textNombreMed.setColumns(10);
@@ -64,6 +77,17 @@ public class IngresoConsulta extends JFrame {
 		contentPane.add(lblDiagnstico);
 		
 		textDiagnostico = new JTextField();
+		textDiagnostico.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada   
+			        if (k > 47 && k < 58) {//Si el caracter ingresado es una letra
+			             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+			             JOptionPane.showMessageDialog(null, "No puede ingresar numeros!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+			        }
+		}
+		});
 		textDiagnostico.setBounds(158, 77, 203, 20);
 		contentPane.add(textDiagnostico);
 		textDiagnostico.setColumns(10);
@@ -139,11 +163,23 @@ public class IngresoConsulta extends JFrame {
 		calendar.setBounds(158, 159, 184, 153);
 		contentPane.add(calendar);
 		
-		JLabel lblCedula = new JLabel("Cedula:");
+		JLabel lblCedula = new JLabel("C\u00E9dula:");
 		lblCedula.setBounds(23, 331, 56, 16);
 		contentPane.add(lblCedula);
 		
 		textDocumento = new JTextField();
+		textDocumento.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }
+	          
+	     }
+		});
 		textDocumento.setBounds(158, 325, 116, 22);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
