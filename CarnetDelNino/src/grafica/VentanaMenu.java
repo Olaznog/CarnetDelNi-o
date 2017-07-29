@@ -103,7 +103,7 @@ public class VentanaMenu extends JFrame {
 		mnConsultaMedicaPor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mostrarVentConsultasMedicas();
-				//comentario
+				//comentarios
 			}
 		});
 		mnConsultar.add(mnConsultaMedicaPor);
