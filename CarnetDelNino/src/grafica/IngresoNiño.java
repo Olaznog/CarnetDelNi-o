@@ -130,7 +130,7 @@ public class IngresoNiño extends JFrame {
 		lblIngresoNio.setBounds(161, 0, 123, 44);
 		contentPane.add(lblIngresoNio);
 		
-		JCalendar calendar = new JCalendar();
+		calendar = new JCalendar();
 		calendar.setBounds(181, 135, 184, 153);
 		contentPane.add(calendar);
 		

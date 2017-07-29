@@ -115,10 +115,6 @@ public class DatosNiñoPorCedula extends JFrame {
 		btnVolver.setBounds(248, 499, 89, 23);
 		contentPane.add(btnVolver);
 		
-		JList list = new JList();
-		list.setBounds(29, 415, 375, -114);
-		contentPane.add(list);
-		
 		textField = new JTextField();
 		textField.setBounds(164, 166, 116, 22);
 		contentPane.add(textField);
@@ -133,5 +129,9 @@ public class DatosNiñoPorCedula extends JFrame {
 		textField_2.setBounds(164, 262, 116, 22);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+		
+		JList list = new JList();
+		list.setBounds(20, 308, 408, 126);
+		contentPane.add(list);
 	}
 }
