@@ -54,6 +54,8 @@ public class IngresoCedula extends JFrame {
 				} catch (ExisteNinioException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMensaje());
 				}
+				 
+				DatosNiñoPorCedula DatosNiño= new DatosNiñoPorCedula(niños, Menu);
 				DatosNiño.setVisible(true);
 				dispose();
 			}

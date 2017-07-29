@@ -68,7 +68,7 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		btnVolver.setBounds(287, 290, 89, 23);
 		contentPane.add(btnVolver);
 		
-		JCalendar calendar = new JCalendar();
+	    calendar = new JCalendar();
 		calendar.setBounds(131, 65, 184, 153);
 		contentPane.add(calendar);
 	}
