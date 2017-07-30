@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import com.toedter.calendar.JCalendar;
 import excepciones.ExisteNinioException;
 import excepciones.hayLugarException;
+import excepciones.ninoMayorException;
 import logica.ColeccionNiños;
 import logica.Niño;
 
@@ -43,7 +44,7 @@ public class IngresoNiño extends JFrame {
 		this.niños = n;
 		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 523);
+		setBounds(100, 100, 450, 559);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -144,6 +145,8 @@ public class IngresoNiño extends JFrame {
 				} catch (ExisteNinioException e) {
 					JOptionPane.showMessageDialog(null, e.getMensaje());
 				} catch (hayLugarException e) {
+					JOptionPane.showMessageDialog(null, e.getMensaje());
+				} catch (ninoMayorException e) {
 					JOptionPane.showMessageDialog(null, e.getMensaje());
 				}
 			}

@@ -97,6 +97,7 @@ public class VentanaMenu extends JFrame {
 		JMenuItem mntmNewMenuItem = new JMenuItem("Listado de Ni\u00F1os");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				niños.listarNiños();
 				mostrarVentListadoNiños();
 			}
 		});

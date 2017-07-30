@@ -3,6 +3,7 @@ package logica;
 import java.io.Serializable;
 import java.util.Calendar;
 import excepciones.hayLugarException;
+import excepciones.ninoMayorException;
 import excepciones.ExisteNinioException;
 
 public class ColeccionNiños implements Serializable {
@@ -28,21 +29,25 @@ public class ColeccionNiños implements Serializable {
 	}
 	
 
-	public void altaNiño(Niño n) throws ExisteNinioException, hayLugarException { //hay que lanzar la excepcion hayLugarException		
+	public void altaNiño(Niño n) throws ExisteNinioException, hayLugarException, ninoMayorException { //hay que lanzar la excepcion hayLugarException		
 		//si el niño no esta ingresado ya en el arreglo = if(existeNinio(n)
 		//crear el arreglo de registros del niño, de tamaño maximoRegistros
 		//se lo setean pasandolo como parametro al metodo setRegistros
 		if(existeNinio(n.getDocumento()) == false){
 			if(hayLugar() == true){
+				if(n.getEdadNiño(n.getFechaNacimiento()) <= 5){
 				Registro[]registros = new Registro[maximoRegistros];
 				n.setRegistros(registros);
 				
 		niños[tope] = n;
 		tope++;
 		}else
+			 throw new ninoMayorException("Este niño es mayor de 5 años");
+		}else
 			 throw new hayLugarException("Ya no hay lugar en el arreglo de niños");
 		}else
 			 throw new ExisteNinioException("Ya esta ingresado un niño con ese documento");
+		
 		
 	}
 	
