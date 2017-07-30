@@ -42,6 +42,6 @@ public class ListadoDeNiños extends JFrame {
 		});
 		btnVolver.setBounds(165, 327, 97, 25);
 		contentPane.add(btnVolver);
-		//comentarios
+		
 	}
 }

@@ -5,15 +5,15 @@ import persistencia.RecuperarNiño;
 
 public class Main {
 	public static void main (String[]args){
-		ColeccionNiños n = new ColeccionNiños();
-		boolean conf = n.estaConfigurado();
+		ColeccionNiños niño = new ColeccionNiños();
+		boolean conf = niño.estaConfigurado();
 		if(conf == true){
 			RecuperarNiño.recuperar();
-			VentanaMenu Menu = new VentanaMenu(n);
+			VentanaMenu Menu = new VentanaMenu(niño);
 			Menu.setVisible(true);
 		}
 		else {
-			VentanaConfiguracion vent = new VentanaConfiguracion(n);
+			VentanaConfiguracion vent = new VentanaConfiguracion(niño);
 			vent.setVisible(true);
 		}
 	}

@@ -13,6 +13,7 @@ import com.toedter.calendar.JCalendar;
 import excepciones.ExisteNinioException;
 import logica.ColeccionNiños;
 import logica.Niño;
+import sun.util.resources.cldr.fo.CalendarData_fo_FO;
 
 import javax.swing.JTable;
 import javax.swing.JLabel;
@@ -26,6 +27,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import javax.swing.JTextArea;
+import com.toedter.components.JSpinField;
+import com.toedter.calendar.JDateChooser;
 
 public class DatosNiñoPorCedula extends JFrame {
 	private ColeccionNiños niños;
@@ -37,13 +45,18 @@ public class DatosNiñoPorCedula extends JFrame {
 	private JRadioButton rdbtnTieneFSi_1;
 	private JRadioButton rdbtnTieneFNo_1;
 	private JTextField textDocumento;
+	private JTextField textField;
+	private JTextField textFec;
+	private JTextField textSer;
+	private JTextField textMed;
+	private JTextField textTieneFon;
 
 	
 	public DatosNiñoPorCedula(ColeccionNiños n, VentanaMenu menu) {
 		this.niños = n;
 		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 534);
+		setBounds(100, 100, 450, 457);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,24 +70,20 @@ public class DatosNiñoPorCedula extends JFrame {
 		lblNombre.setBounds(20, 99, 70, 20);
 		contentPane.add(lblNombre);
 		
-		JLabel lblDocumento = new JLabel("Documento:");
-		lblDocumento.setBounds(20, 137, 70, 20);
-		contentPane.add(lblDocumento);
-		
 		JLabel lblFechaNac = new JLabel("Fecha de Nacimiento:");
-		lblFechaNac.setBounds(20, 170, 144, 14);
+		lblFechaNac.setBounds(20, 132, 144, 14);
 		contentPane.add(lblFechaNac);
 		
 		JLabel lblSerMed = new JLabel("Servicio M\u00E9dico:");
-		lblSerMed.setBounds(20, 197, 103, 20);
+		lblSerMed.setBounds(20, 159, 103, 20);
 		contentPane.add(lblSerMed);
 		
 		JLabel lblMedCabecera = new JLabel("M\u00E9dico Cabecera:");
-		lblMedCabecera.setBounds(20, 230, 103, 20);
+		lblMedCabecera.setBounds(20, 192, 103, 20);
 		contentPane.add(lblMedCabecera);
 		
 		JLabel lblTieneFonasa = new JLabel("Tiene Fonasa:");
-		lblTieneFonasa.setBounds(20, 263, 103, 20);
+		lblTieneFonasa.setBounds(20, 225, 103, 20);
 		contentPane.add(lblTieneFonasa);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -84,15 +93,15 @@ public class DatosNiñoPorCedula extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(164, 448, 89, 23);
+		btnVolver.setBounds(164, 358, 89, 23);
 		contentPane.add(btnVolver);
 		
 		JList list = new JList();
-		list.setBounds(164, 311, 129, 57);
+		list.setBounds(164, 257, 129, 57);
 		contentPane.add(list);
 		
 		JLabel lblRegistrosDelNio = new JLabel("Registros del ni\u00F1o:");
-		lblRegistrosDelNio.setBounds(20, 312, 116, 16);
+		lblRegistrosDelNio.setBounds(20, 258, 116, 16);
 		contentPane.add(lblRegistrosDelNio);
 		
 		JLabel lblIngreseCi = new JLabel("Ingrese CI:");
@@ -113,7 +122,7 @@ public class DatosNiñoPorCedula extends JFrame {
 
 			
 		});
-		textDocumento.setBounds(164, 67, 129, 22);
+		textDocumento.setBounds(164, 67, 131, 22);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
 		
@@ -123,7 +132,15 @@ public class DatosNiñoPorCedula extends JFrame {
 				int ci = Integer.parseInt(textDocumento.getText());
 				try {
 					Niño n1 = niños.getNiño(ci);
-					n1.toString();
+					//String datos = n1.toString();
+					textField.setText(n1.getNombre());
+					String doc = String.valueOf(n1.getDocumento());
+					String str = n1.getFechaNacimiento().toString();
+					Calendar fec = n1.getFechaNacimiento();
+					
+					//textFec.setText(format.format(fec));
+					textSer.setText(n1.getServicioMedico());
+					textMed.setText(n1.getMedicoCabecera());
 				} catch (ExisteNinioException e1) {
 				
 					JOptionPane.showMessageDialog(null, e1.getMensaje());
@@ -132,5 +149,30 @@ public class DatosNiñoPorCedula extends JFrame {
 		});
 		btnBuscar.setBounds(305, 66, 97, 25);
 		contentPane.add(btnBuscar);
+		
+		textField = new JTextField();
+		textField.setBounds(164, 98, 131, 22);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textFec = new JTextField();
+		textFec.setBounds(164, 128, 131, 22);
+		contentPane.add(textFec);
+		textFec.setColumns(10);
+		
+		textSer = new JTextField();
+		textSer.setBounds(164, 158, 131, 22);
+		contentPane.add(textSer);
+		textSer.setColumns(10);
+		
+		textMed = new JTextField();
+		textMed.setBounds(164, 192, 131, 22);
+		contentPane.add(textMed);
+		textMed.setColumns(10);
+		
+		textTieneFon = new JTextField();
+		textTieneFon.setBounds(164, 224, 131, 22);
+		contentPane.add(textTieneFon);
+		textTieneFon.setColumns(10);
 	}
 }
