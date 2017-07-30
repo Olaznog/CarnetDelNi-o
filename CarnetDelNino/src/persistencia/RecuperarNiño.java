@@ -11,7 +11,7 @@ public class RecuperarNiño {
 		
 		FileInputStream fis;
 		try {			
-			 fis = new FileInputStream("C://DatosNiño/datos.txt");
+			 fis = new FileInputStream("C://DatosNiño/datos.obj");
 			 ObjectInputStream ois = new ObjectInputStream(fis);
 			 ColeccionNiños niño = (ColeccionNiños) ois.readObject();
 			 ois.close();

@@ -40,7 +40,7 @@ public class VentanaMenu extends JFrame {
 				{
 					//ACA SE DEBERIA GUARDAR EN PERSISTENCIA LOS DATOS
 					// Y DESPUED< SI< CERRAR LA VENTANA Y CERRAR EL SISTEMA
-					PersistirNiño.persistir(n, "C://DatosNiño/datosNiños.txt");
+					PersistirNiño.persistir(n, "C://DatosNiño/datosNiños.obj");
 					System.exit(0);
 				}
 				//SI HACE FALTA IMPLEMENTAR EL COMPORTAMIENTO SI EL USUARIO SELECCIONA NO O CANECLAR, ESCRIBIR LOS ELSE
