@@ -95,6 +95,11 @@ public class VentanaConfiguracion extends JFrame {
 		contentPane.add(btnIngresar);
 		
 		JButton btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
 		btnSalir.setBounds(223, 147, 102, 23);
 		contentPane.add(btnSalir);
 	}
