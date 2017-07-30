@@ -95,12 +95,17 @@ public class VentanaMenu extends JFrame {
 		menuBar.add(mnConsultar);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Listado de Ni\u00F1os");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mostrarVentListadoNiños();
+			}
+		});
 		mnConsultar.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Mostrar datos de un ni\u00F1o");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				mostrarVentDatosNiñosPorCI();
 			}
 			
 		});
@@ -164,6 +169,11 @@ public class VentanaMenu extends JFrame {
 	{
 		DatosNiñoPorCedula DatosNiño = new DatosNiñoPorCedula(niños, this);
 		DatosNiño.setVisible(true);
+	}
+	private void mostrarVentListadoNiños()
+	{
+		ListadoDeNiños ListaNiño = new ListadoDeNiños(niños, this);
+		ListaNiño.setVisible(true);
 	}
 	
 	

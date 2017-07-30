@@ -73,7 +73,7 @@ public class ColeccionNiños implements Serializable {
 		for(int i = 0; i < tope; i++)
 		{
 			if(niños[i]!= null)
-			Lista[i] = niños[i].toString() + "\n";
+			Lista[i] = niños[i].toStringListadoNiño() + "\n";
 		}
 		return Lista;
 	}
