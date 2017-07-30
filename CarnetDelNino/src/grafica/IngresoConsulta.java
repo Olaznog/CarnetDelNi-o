@@ -42,10 +42,9 @@ public class IngresoConsulta extends JFrame {
 
 	
 	public IngresoConsulta(ColeccionNiños n, VentanaMenu menu) {
-		setUndecorated(true);
 		this.niños = n;
 		this.Menu = menu;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 450, 498);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
