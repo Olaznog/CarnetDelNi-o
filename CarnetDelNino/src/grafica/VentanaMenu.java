@@ -25,7 +25,7 @@ import java.awt.event.ActionEvent;
 
 public class VentanaMenu extends JFrame {
 	private ColeccionNiños niños;
-	private DatosNiñoPorCedula DatosNiño;
+	
 
 	public VentanaMenu(ColeccionNiños n) {
 		addWindowListener(new WindowAdapter() {
@@ -40,7 +40,7 @@ public class VentanaMenu extends JFrame {
 				{
 					//ACA SE DEBERIA GUARDAR EN PERSISTENCIA LOS DATOS
 					// Y DESPUED< SI< CERRAR LA VENTANA Y CERRAR EL SISTEMA
-					PersistirNiño.persistir(n, "C://Users/datosNiños.txt");
+					PersistirNiño.persistir(n, "C://DatosNiño/datosNiños.txt");
 					System.exit(0);
 				}
 				//SI HACE FALTA IMPLEMENTAR EL COMPORTAMIENTO SI EL USUARIO SELECCIONA NO O CANECLAR, ESCRIBIR LOS ELSE
@@ -100,7 +100,7 @@ public class VentanaMenu extends JFrame {
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Mostrar datos de un ni\u00F1o");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mostrarVentIngresoCedula();
+				
 			}
 			
 		});
@@ -165,10 +165,6 @@ public class VentanaMenu extends JFrame {
 		DatosNiñoPorCedula DatosNiño = new DatosNiñoPorCedula(niños, this);
 		DatosNiño.setVisible(true);
 	}
-	private void mostrarVentIngresoCedula()
-	{
-		IngresoCedula Cedula = new IngresoCedula(niños, this,DatosNiño );
-		Cedula.setVisible(true);
-	}
+	
 	
 }
