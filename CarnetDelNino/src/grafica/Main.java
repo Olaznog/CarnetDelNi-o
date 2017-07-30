@@ -4,7 +4,10 @@ import logica.ColeccionNiños;
 import persistencia.RecuperarNiño;
 
 public class Main {
-	public static void main (String[]args){
+	
+	private ColeccionNiños niños;
+	
+	public static void main (String[] args){
 		ColeccionNiños n = new ColeccionNiños();
 		boolean conf = n.estaConfigurado();
 		if(conf == true){
