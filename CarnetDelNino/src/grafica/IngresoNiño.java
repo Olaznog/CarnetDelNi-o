@@ -126,7 +126,11 @@ public class IngresoNiño extends JFrame {
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Tomar datos ingresados por el usuario
-				String nombre = textNombre.getText();
+				String nombre="";
+				if(textNombre.getText().length()==0){
+					JOptionPane.showMessageDialog(null, "Ingrese un nombre ");			
+				}else
+				 nombre = textNombre.getText();
 				int documento = Integer.parseInt(textDocumento.getText());
 				Calendar fechaNac = calendar.getCalendar();
 				String servicioMedico = textServicioMedico.getText();
