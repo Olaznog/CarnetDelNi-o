@@ -113,9 +113,12 @@ public class IngresoVacuna extends JFrame {
 						obligatoria = true;
 					else
 						obligatoria = false;
-				Calendar fechaVac = Calendar.getInstance();
+				
+				//Cambio la variable FechaVac a diaVac como tipo Calendar para usar getCalendar
+					//Pero sigue dando NullPointerException en linea 112. grafica.IngresoVacuna$2.actionPerformed
+				Calendar diaVac = fechaVac.getCalendar();
 				String comentarioVac = textComentario.getText();
-				Registro v = new Vacuna(fechaVac,comentarioVac,nomVac,dosis,obligatoria);
+				Registro v = new Vacuna(diaVac,comentarioVac,nomVac,dosis,obligatoria);
 				try {
 					niños.altaRegistro(v, documento);
 					JOptionPane.showMessageDialog(null, "Se ingreso la vacuna del niño");
