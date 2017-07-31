@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -34,6 +35,7 @@ import java.util.Calendar;
 import javax.swing.JTextArea;
 import com.toedter.components.JSpinField;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JScrollPane;
 
 public class DatosNiñoPorCedula extends JFrame {
 	private ColeccionNiños niños;
@@ -93,12 +95,8 @@ public class DatosNiñoPorCedula extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(164, 358, 89, 23);
+		btnVolver.setBounds(165, 370, 89, 23);
 		contentPane.add(btnVolver);
-		
-		JList list = new JList();
-		list.setBounds(164, 257, 129, 57);
-		contentPane.add(list);
 		
 		JLabel lblRegistrosDelNio = new JLabel("Registros del ni\u00F1o:");
 		lblRegistrosDelNio.setBounds(20, 258, 116, 16);
@@ -126,6 +124,13 @@ public class DatosNiñoPorCedula extends JFrame {
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(20, 280, 404, 79);
+		contentPane.add(scrollPane);
+		
+		JList listaRegistros = new JList();
+		scrollPane.setViewportView(listaRegistros);
+		
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -134,13 +139,27 @@ public class DatosNiñoPorCedula extends JFrame {
 					Niño n1 = niños.getNiño(ci);
 					//String datos = n1.toString();
 					textField.setText(n1.getNombre());
-					String doc = String.valueOf(n1.getDocumento());
-					String str = n1.getFechaNacimiento().toString();
+					//String doc = String.valueOf(n1.getDocumento());
+					//String str = n1.getFechaNacimiento().toString();
 					Calendar fec = n1.getFechaNacimiento();
+						
 					
-					//textFec.setText(format.format(fec));
+					SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
+					String formattedDate = myDateFormat.format(fec.getTime());
+					textFec.setText(formattedDate);
 					textSer.setText(n1.getServicioMedico());
 					textMed.setText(n1.getMedicoCabecera());
+					
+					//cargo lista con ninos
+					DefaultListModel listModel = new DefaultListModel();
+					for(int x = 0; x < n1.getRegistros().length ; x = x + 1) {
+						if(n1.getRegistros()[x] != null){
+						    listModel.addElement(n1.getRegistros()[x].toString());
+						}
+				      }
+					
+					listaRegistros.setModel(listModel);
+					
 				} catch (ExisteNinioException e1) {
 				
 					JOptionPane.showMessageDialog(null, e1.getMensaje());
@@ -174,5 +193,10 @@ public class DatosNiñoPorCedula extends JFrame {
 		textTieneFon.setBounds(164, 224, 131, 22);
 		contentPane.add(textTieneFon);
 		textTieneFon.setColumns(10);
+		
+		
+		
+	
 	}
+	
 }

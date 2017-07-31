@@ -5,6 +5,8 @@ import java.util.Calendar;
 
 public abstract class Registro implements Serializable {
 	
+	//private static final long serialVersionUID = 100L;
+	
 	private Calendar fecha;
 	private String comentario;
 	

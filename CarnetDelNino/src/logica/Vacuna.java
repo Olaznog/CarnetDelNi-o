@@ -39,7 +39,7 @@ public class Vacuna extends Registro {
 		this.obligatoria = obligatoria;
 	}
 	public String toString() {
-		String retorno = "Nombre:" + nombre + "Dosis: " +dosis+ "Obligatoria: " + obligatoria;
+		String retorno = "VACUNA - Nombre:" + nombre + "Dosis: " +dosis+ "Obligatoria: " + obligatoria;
 		return retorno;
 	}
 	

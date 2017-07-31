@@ -34,7 +34,7 @@ public class Control extends Registro {
 	}
 	
 	public String toString() {
-		String retorno = "Peso:" + peso + "Altura: " +altura;
+		String retorno = "CONTROL - Peso: " + peso + ", Altura: " +altura;
 		return retorno;
 	}
 

@@ -1,15 +1,16 @@
 package grafica;
 
+import java.io.IOException;
+
 import logica.ColeccionNiños;
+import logica.Sistema;
 import persistencia.RecuperarNiño;
 
 public class Main {
-	public static void main (String[] args){
+	
+	public static void main (String[] args) throws ClassNotFoundException, IOException{
 		ColeccionNiños n = new ColeccionNiños();
-		boolean conf = n.estaConfigurado();
-
-		if(conf == true){
-			RecuperarNiño.recuperar();
+		if(!n.SolicitarConfiguracionSistema()){	
 			VentanaMenu Menu = new VentanaMenu(n);
 			Menu.setVisible(true);
 		}
@@ -18,5 +19,7 @@ public class Main {
 			vent.setVisible(true);
 		}
 	}
+	
+
 
 }

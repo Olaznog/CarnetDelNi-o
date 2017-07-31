@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import logica.ColeccionNiños;
+import logica.Sistema;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -84,6 +85,7 @@ public class VentanaConfiguracion extends JFrame {
 				//Tomar datos ingresados por el usuario
 				int cantMaximaNiños = Integer.parseInt(textCantMaxNiños.getText());
 				int cantMaximaRegistros = Integer.parseInt(textCantMaxRegNiños.getText());
+
 				//Se llama al metodo configurar de la clase ColeccionNiños
 				n.configurar(cantMaximaNiños, cantMaximaRegistros);
 				VentanaMenu Menu = new VentanaMenu(n);

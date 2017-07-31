@@ -40,7 +40,7 @@ public class Consulta extends Registro {
 	}
 	
 	public String toString() {
-		String retorno = "Medico:" + medico + "Diagnostico: " +diagnostico+ "Recomendaciones: " + recomendaciones;
+		String retorno = "CONSULTA - Medico: " + medico + ", Diagnostico: " +diagnostico+ ", Recomendaciones: " + recomendaciones;
 		return retorno;
 	}
 	

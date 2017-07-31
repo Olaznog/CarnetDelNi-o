@@ -7,6 +7,8 @@ import excepciones.hayLugarException;
 
 public class Niño implements Serializable {
 	
+	//private static final long serialVersionUID = 100L;
+	
 	private String nombre;
 	private int documento;
 	private Calendar fechaNacimiento;

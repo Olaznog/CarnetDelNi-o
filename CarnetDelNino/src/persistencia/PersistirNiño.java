@@ -12,10 +12,14 @@ import logica.ColeccionNiños;
 import logica.Niño;
 
 public class PersistirNiño {
-	public static void persistir(ColeccionNiños coleccion, String ruta)
+	
+	private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
+
+	
+	public static void persistir(ColeccionNiños coleccion)
 	{
 		 try {
-				FileOutputStream fos = new FileOutputStream(ruta);
+				FileOutputStream fos = new FileOutputStream(rutaPersistenciaNinos);
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				oos.writeObject(coleccion);
 				oos.close();

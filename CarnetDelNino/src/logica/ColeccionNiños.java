@@ -1,31 +1,39 @@
 package logica;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.Calendar;
 import excepciones.hayLugarException;
 import excepciones.ninoMayorException;
+import persistencia.RecuperarNiño;
 import excepciones.ExisteNinioException;
 
 public class ColeccionNiños implements Serializable {
+	
+	//private static final long serialVersionUID = 100L;
 	
 	private Niño[] niños;
 	private int tope;
 	private int maximoNiños;
 	private int maximoRegistros;
-	
-	public ColeccionNiños() {
+
+	public ColeccionNiños() throws ClassNotFoundException, IOException {	
 		super();
 		this.niños = null;
 		this.tope = 0;
 		this.maximoNiños = 0;
 		this.maximoRegistros = 0;
-		
+		this.LoadData();
 	}
+	
 	
 	public void configurar(int maximoNiños, int maximoRegistros) {
 		this.maximoNiños = maximoNiños;
 		this.maximoRegistros = maximoRegistros;
-		niños = new Niño[maximoNiños];
+		niños = new Niño[maximoNiños];	
 	}
 	
 
@@ -134,12 +142,38 @@ public class ColeccionNiños implements Serializable {
 			
 	}
 	
-	public boolean estaConfigurado() {
-		boolean resultado = false;
-		if(niños != null)
-			resultado = true;	
-		return resultado;
+	
+	/* Se crea un metodo para cargar a memoria la pesistencia de archivo.
+	 * Esto se hace para seguir trabajando en memoria y no tener que modificar los metodos ya configurados.
+	 */
+	private void LoadData() throws ClassNotFoundException, IOException {
+			ColeccionNiños aux = RecuperarNiño.recuperar();
+			if(aux != null)
+			{
+				 this.niños = aux.niños;
+				 this.tope = aux.tope;
+				 this.maximoNiños = aux.maximoNiños;
+				 this.maximoRegistros = aux.maximoRegistros;
+			}
+		
 	}
 	
+	public boolean SolicitarConfiguracionSistema()
+	{
+		return this.niños == null;
+	}
+
+	public int getMaximoNiños() {
+		return maximoNiños;
+	}
+
+
+	public int getMaximoRegistros() {
+		return maximoRegistros;
+	}
 	
+	public Niño[] getNinos() {
+		return this.niños;
+	}
+		
 }
