@@ -135,8 +135,8 @@ public class ColeccionNiños implements Serializable {
 		int cuantas = 0;
 		for(int i = 0; i < tope; i++)
 		{
-			niños[i].cuantasConsultasAntesDe(fecha);
-			cuantas++;
+			//niños[i].cuantasConsultasAntesDe(fecha);
+			cuantas = cuantas + niños[i].cuantasConsultasAntesDe(fecha);
 		}
 		return cuantas;
 			
