@@ -33,7 +33,7 @@ public abstract class Registro implements Serializable {
 	}
 	
 	public String toString() {
-		String retorno = "Fecha:" + fecha + "Comentario: " +comentario;
+		String retorno = "Fecha: " + fecha + "Comentario: " +comentario;
 		return retorno;
 	}
 	

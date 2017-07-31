@@ -143,7 +143,7 @@ public class Niño implements Serializable {
 		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
 		int mes = fechaNacimiento.get(Calendar.MONTH);
 		int año = fechaNacimiento.get(Calendar.YEAR);
-		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Fecha Nacimiento: "+dia+"/"+mes+"/"+año +" Servicio: " +servicioMedico + " Medico Cabecera: " +medicoCabecera + " Tiene Fonasa: " +tieneFonasa  + " Registros: " +registros + " Cantidad Registros: " +cantRegistrosIngresados;
+		String retorno = "Nombre: " + nombre + " Documento: " +documento +" Fecha Nacimiento: "+dia+"/"+mes+"/"+año +" Servicio: " +servicioMedico + " Medico Cabecera: " +medicoCabecera + " Tiene Fonasa: " +tieneFonasa  + " Registros: " +registros + " Cantidad Registros: " +cantRegistrosIngresados;
 		return retorno;
 	}
 	public int cuantasConsultasAntesDe(Calendar fecha) {
@@ -159,7 +159,7 @@ public class Niño implements Serializable {
 	}
 	public String toStringListadoNiño() {
 		int Edad = getEdadNiño(fechaNacimiento);
-		String retorno = "Nombre:" + nombre + " Documento: " +documento +" Edad: "+Edad+" Servicio: " +servicioMedico;
+		String retorno = "Nombre: " + nombre + " Documento: " +documento +" Edad: "+Edad+" Servicio: " +servicioMedico;
 		return retorno;
 	}
 	
