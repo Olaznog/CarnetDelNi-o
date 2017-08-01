@@ -126,11 +126,9 @@ public class IngresoNiño extends JFrame {
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Tomar datos ingresados por el usuario
-				String nombre="";
-				if(textNombre.getText().length()==0){
-					JOptionPane.showMessageDialog(null, "Ingrese un nombre ");			
-				}else
-				 nombre = textNombre.getText();
+				try {
+					if(!textDocumento.getText().isEmpty()){
+				String nombre = textNombre.getText();
 				int documento = Integer.parseInt(textDocumento.getText());
 				Calendar fechaNac = calendar.getCalendar();
 				String servicioMedico = textServicioMedico.getText();
@@ -141,11 +139,18 @@ public class IngresoNiño extends JFrame {
 				else
 					tieneFonasa = false;
 				Niño n = new Niño(nombre, documento, fechaNac, servicioMedico, medicoCabecera, tieneFonasa);
+					
 				//ColeccionNiños coleccion = new ColeccionNiños();
-				try {
+				if(nombre.isEmpty() || servicioMedico.isEmpty() || medicoCabecera.isEmpty()){
+					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");			
+				}else {
 					niños.altaNiño(n);
 					JOptionPane.showMessageDialog(null, "Se ingreso el niño ");
 					dispose();
+				}
+					}else {
+						JOptionPane.showMessageDialog(null, "Debe llenar la cedula ");	
+					}
 				} catch (ExisteNinioException e) {
 					JOptionPane.showMessageDialog(null, e.getMensaje());
 				} catch (hayLugarException e) {
