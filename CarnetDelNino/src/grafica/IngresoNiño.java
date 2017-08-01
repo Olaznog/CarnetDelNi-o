@@ -59,7 +59,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(lblDocumento);
 		
 		JLabel lblFechaNac = new JLabel("Fecha de Nacimiento:");
-		lblFechaNac.setBounds(10, 145, 116, 14);
+		lblFechaNac.setBounds(10, 145, 139, 14);
 		contentPane.add(lblFechaNac);
 		
 		JLabel lblSerMed = new JLabel("Servicio M\u00E9dico:");
@@ -180,7 +180,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(lblIngresoNio);
 		
 		calendar = new JCalendar();
-		calendar.setBounds(136, 145, 184, 153);
+		calendar.setBounds(136, 140, 184, 153);
 		contentPane.add(calendar);
 		
 		rdbtnTieneFSi_1 = new JRadioButton("Si");
