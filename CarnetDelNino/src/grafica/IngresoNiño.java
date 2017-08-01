@@ -178,6 +178,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(calendar);
 		
 		rdbtnTieneFSi_1 = new JRadioButton("Si");
+		rdbtnTieneFSi_1.setSelected(true);
 		buttonGroup.add(rdbtnTieneFSi_1);
 		rdbtnTieneFSi_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

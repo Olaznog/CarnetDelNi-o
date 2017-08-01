@@ -56,7 +56,7 @@ public class IngresoVacuna extends JFrame {
 		contentPane.add(lblIngresoVacuna);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 69, 46, 14);
+		lblNombre.setBounds(10, 69, 78, 14);
 		contentPane.add(lblNombre);
 		
 		textNombreVac = new JTextField();
@@ -159,6 +159,7 @@ public class IngresoVacuna extends JFrame {
 		contentPane.add(calendar);
 		
 		JRadioButton rdbtnObliSi = new JRadioButton("Si");
+		rdbtnObliSi.setSelected(true);
 		buttonGroup.add(rdbtnObliSi);
 		rdbtnObliSi.setBounds(112, 146, 53, 23);
 		contentPane.add(rdbtnObliSi);
