@@ -1,5 +1,6 @@
 package persistencia;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,30 +10,34 @@ import logica.Niño;
 
 public class RecuperarNiño {
 	//RUTA DESDE DONDE RECUPERA EL ARCHIVO
-	private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
-		
+	//private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
+	private static String rutaPersistenciaNinos = "/home/gsenatore/Documentos/datosNiños.obj";
+	
 	public static ColeccionNiños recuperar() {
 		
 		ColeccionNiños data = null;
 		
 		FileInputStream fis;
-		try {			
-			 fis = new FileInputStream(rutaPersistenciaNinos);
-			 ObjectInputStream ois = new ObjectInputStream(fis);
-			 data = (ColeccionNiños) ois.readObject();
-			 ois.close();
-			 fis.close();
-		} catch (FileNotFoundException e) {			
-			e.printStackTrace();
-		} catch (IOException e) {		
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {		
-			e.printStackTrace();
+		//Se instancia un objeto de tipo File para controlar la excepción si existe el archivo por primera vez.
+		File file = new File(rutaPersistenciaNinos);
+		
+		if(file.exists()) {
+			try {			
+				fis = new FileInputStream(file);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				data = (ColeccionNiños) ois.readObject();
+				ois.close();
+				fis.close();
+			} catch (FileNotFoundException e) {			
+				e.printStackTrace();
+			} catch (IOException e) {		
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {		
+				e.printStackTrace();
+			}
 		}
 		return data;
 		
 	}
 	
 }
-
-

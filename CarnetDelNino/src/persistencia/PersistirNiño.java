@@ -13,8 +13,9 @@ import logica.Niño;
 
 public class PersistirNiño {
 	//RUTA DONDE SE VA A CREAR EL ARCHIVO DE LA PERSISTENCIA DE DATOS
-	private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
-		
+	//private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
+	private static String rutaPersistenciaNinos = "/home/gsenatore/Documentos/datosNiños.obj";
+	
 	public static void persistir(ColeccionNiños coleccion)
 	{
 		 try {
