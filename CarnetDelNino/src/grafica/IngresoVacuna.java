@@ -148,12 +148,12 @@ public class IngresoVacuna extends JFrame {
 		fechaVac.setBounds(112, 190, 184, 153);
 		contentPane.add(fechaVac);
 		
-		JRadioButton rdbtnObliSi = new JRadioButton("Si");
+		rdbtnObliSi = new JRadioButton("Si");
 		buttonGroup.add(rdbtnObliSi);
 		rdbtnObliSi.setBounds(112, 146, 53, 23);
 		contentPane.add(rdbtnObliSi);
 		
-		JRadioButton rdbtnObliNo = new JRadioButton("No");
+		rdbtnObliNo = new JRadioButton("No");
 		buttonGroup.add(rdbtnObliNo);
 		rdbtnObliNo.setBounds(179, 146, 46, 23);
 		contentPane.add(rdbtnObliNo);
