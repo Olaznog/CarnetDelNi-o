@@ -39,7 +39,7 @@ public class IngresoControl extends JFrame {
 		this.niños = n;
 		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 429);
+		setBounds(100, 100, 450, 464);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

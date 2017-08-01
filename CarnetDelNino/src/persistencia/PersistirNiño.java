@@ -13,8 +13,8 @@ import logica.Niño;
 
 public class PersistirNiño {
 	
-	//private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
-	private static String rutaPersistenciaNinos = "/home/gsenatore/Documentos/datosNiños.obj";
+	private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
+
 	
 	public static void persistir(ColeccionNiños coleccion)
 	{

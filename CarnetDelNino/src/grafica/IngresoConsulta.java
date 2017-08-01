@@ -63,7 +63,7 @@ public class IngresoConsulta extends JFrame {
 			        }
 		}
 		});
-		textNombreMed.setBounds(158, 42, 86, 20);
+		textNombreMed.setBounds(158, 42, 203, 20);
 		contentPane.add(textNombreMed);
 		textNombreMed.setColumns(10);
 		
@@ -87,7 +87,7 @@ public class IngresoConsulta extends JFrame {
 			        }
 		}
 		});
-		textDiagnostico.setBounds(158, 77, 203, 20);
+		textDiagnostico.setBounds(158, 77, 203, 28);
 		contentPane.add(textDiagnostico);
 		textDiagnostico.setColumns(10);
 		
@@ -109,7 +109,7 @@ public class IngresoConsulta extends JFrame {
 		contentPane.add(lblComentario);
 		
 		textComentario = new JTextField();
-		textComentario.setBounds(158, 360, 203, 28);
+		textComentario.setBounds(158, 360, 203, 20);
 		contentPane.add(textComentario);
 		textComentario.setColumns(10);
 		
@@ -141,7 +141,7 @@ public class IngresoConsulta extends JFrame {
 				
 			}
 		});
-		btnIngresar.setBounds(158, 389, 89, 28);
+		btnIngresar.setBounds(146, 403, 98, 23);
 
 		btnIngresar.setBounds(227, 389, 89, 23);
 
@@ -155,7 +155,7 @@ public class IngresoConsulta extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(313, 389, 89, 23);
+		btnVolver.setBounds(335, 391, 89, 23);
 		contentPane.add(btnVolver);
 		
 		JCalendar calendar = new JCalendar();
@@ -179,7 +179,7 @@ public class IngresoConsulta extends JFrame {
 	          
 	     }
 		});
-		textDocumento.setBounds(158, 325, 116, 22);
+		textDocumento.setBounds(158, 333, 116, 20);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
 	}
