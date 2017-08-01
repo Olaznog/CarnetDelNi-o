@@ -2,7 +2,6 @@ package logica;
 
 // Se crea la clase sistema para tener la configuración del programa (Cantidad de registros y Cantidad de Niños)
  
- 
 public class Sistema {
 
 	private String rutaPersistencia;

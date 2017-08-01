@@ -126,24 +126,24 @@ public class DatosNiñoPorCedula extends JFrame {
 		JList listaRegistros = new JList();
 		scrollPane.setViewportView(listaRegistros);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO GETNIÑO() CON LA CI COMO PARÁMETRO.
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int ci = Integer.parseInt(textDocumento.getText());
 				try {
+					if(!textDocumento.getText().isEmpty()){
+				int ci = Integer.parseInt(textDocumento.getText());
+				
 					Niño n1 = niños.getNiño(ci);
-					//String datos = n1.toString();
 					textField.setText(n1.getNombre());
-					//String doc = String.valueOf(n1.getDocumento());
-					//String str = n1.getFechaNacimiento().toString();
 					Calendar fec = n1.getFechaNacimiento();
-						
-					
 					SimpleDateFormat myDateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
 					String formattedDate = myDateFormat.format(fec.getTime());
 					textFec.setText(formattedDate);
 					textSer.setText(n1.getServicioMedico());
 					textMed.setText(n1.getMedicoCabecera());
+					String tf = String.valueOf(n1.isTieneFonasa());
+					textTieneFon.setText(tf);
 					
 					//cargo lista con ninos
 					DefaultListModel listModel = new DefaultListModel();
@@ -152,9 +152,10 @@ public class DatosNiñoPorCedula extends JFrame {
 						    listModel.addElement(n1.getRegistros()[x].toString());
 						}
 				      }
-					
-					listaRegistros.setModel(listModel);
-					
+					listaRegistros.setModel(listModel);		
+					}else {
+					JOptionPane.showMessageDialog(null, "Debe llenar la cedula ");	
+				}								
 				} catch (ExisteNinioException e1) {
 				
 					JOptionPane.showMessageDialog(null, e1.getMensaje());

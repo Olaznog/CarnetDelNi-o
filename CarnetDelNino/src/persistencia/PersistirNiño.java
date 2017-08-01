@@ -12,7 +12,7 @@ import logica.ColeccionNiños;
 import logica.Niño;
 
 public class PersistirNiño {
-	
+	//RUTA DONDE SE VA A CREAR EL ARCHIVO DE LA PERSISTENCIA DE DATOS
 	private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
 
 	

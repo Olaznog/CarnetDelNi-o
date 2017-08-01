@@ -49,9 +49,9 @@ public class IngresoConsulta extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		textNombreMed = new JTextField();
+		textNombreMed.setBounds(158, 42, 203, 20);
 		textNombreMed.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent evt) {
@@ -63,7 +63,7 @@ public class IngresoConsulta extends JFrame {
 			        }
 		}
 		});
-		textNombreMed.setBounds(158, 42, 203, 20);
+		contentPane.setLayout(null);
 		contentPane.add(textNombreMed);
 		textNombreMed.setColumns(10);
 		
@@ -76,6 +76,7 @@ public class IngresoConsulta extends JFrame {
 		contentPane.add(lblDiagnstico);
 		
 		textDiagnostico = new JTextField();
+		textDiagnostico.setBounds(158, 77, 203, 28);
 		textDiagnostico.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent evt) {
@@ -87,7 +88,6 @@ public class IngresoConsulta extends JFrame {
 			        }
 		}
 		});
-		textDiagnostico.setBounds(158, 77, 203, 28);
 		contentPane.add(textDiagnostico);
 		textDiagnostico.setColumns(10);
 		
@@ -117,22 +117,33 @@ public class IngresoConsulta extends JFrame {
 		lblIngresoConsulta.setBounds(146, 11, 151, 14);
 		contentPane.add(lblIngresoConsulta);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO ALTAREGISTRO()
 		JButton btnIngresar = new JButton("INGRESAR");
+		btnIngresar.setBounds(132, 406, 109, 23);
 
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Tomar datos ingresados por el usuario
+				try {
+					if(!textDocumento.getText().isEmpty()){
 				int documento = Integer.parseInt(textDocumento.getText());
 				String nomMed = textNombreMed.getText();
 				String diagnostico = textDiagnostico.getText();
 				String recomendaciones = textRecomenda.getText();
-				Calendar fechaCon = Calendar.getCalendar();
+				Calendar calendar = fechaCon.getCalendar();
 				String comentario = textComentario.getText();
-				Registro cons = new Consulta(fechaCon,comentario,nomMed,diagnostico,recomendaciones);
-				try {
+				Registro cons = new Consulta(calendar,comentario,nomMed,diagnostico,recomendaciones);
+				
+				if(nomMed.isEmpty() || diagnostico.isEmpty() || recomendaciones.isEmpty()){
+					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");
+				}else {
 					niños.altaRegistro(cons, documento);
 					JOptionPane.showMessageDialog(null, "Se ingreso la consulta del niño");
 					dispose();
+				}	
+				}else {
+					JOptionPane.showMessageDialog(null, "Debe llenar la cedula ");	
+				}
 				} catch (ExisteNinioException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMensaje());
 				} catch (hayLugarException e1) {
@@ -141,13 +152,11 @@ public class IngresoConsulta extends JFrame {
 				
 			}
 		});
-		btnIngresar.setBounds(146, 403, 98, 23);
-
-		btnIngresar.setBounds(227, 389, 89, 23);
 
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setBounds(259, 406, 116, 23);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -155,7 +164,6 @@ public class IngresoConsulta extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(335, 391, 89, 23);
 		contentPane.add(btnVolver);
 		
 		fechaCon = new JCalendar();
@@ -167,6 +175,7 @@ public class IngresoConsulta extends JFrame {
 		contentPane.add(lblCedula);
 		
 		textDocumento = new JTextField();
+		textDocumento.setBounds(158, 333, 116, 20);
 		textDocumento.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent evt) {
@@ -179,7 +188,6 @@ public class IngresoConsulta extends JFrame {
 	          
 	     }
 		});
-		textDocumento.setBounds(158, 333, 116, 20);
 		contentPane.add(textDocumento);
 		textDocumento.setColumns(10);
 	}

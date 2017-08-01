@@ -8,7 +8,7 @@ import logica.ColeccionNiños;
 import logica.Niño;
 
 public class RecuperarNiño {
-	
+	//RUTA DESDE DONDE RECUPERA EL ARCHIVO
 	private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
 	
 	

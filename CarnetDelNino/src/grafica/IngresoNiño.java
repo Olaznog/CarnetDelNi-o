@@ -122,6 +122,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(textMedCabecera);
 		textMedCabecera.setColumns(10);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO ALTANIÑO()
 		JButton btnIngresar = new JButton("INGRESAR");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

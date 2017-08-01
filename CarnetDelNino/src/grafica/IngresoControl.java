@@ -39,7 +39,7 @@ public class IngresoControl extends JFrame {
 		this.niños = n;
 		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 464);
+		setBounds(100, 100, 450, 475);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -103,20 +103,29 @@ public class IngresoControl extends JFrame {
 		lblIngresoControl.setBounds(151, 11, 134, 14);
 		contentPane.add(lblIngresoControl);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO ALTA REGISTRO()
 		JButton btnIngresar = new JButton("INGRESAR");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try{
+					if(!textDocumento.getText().isEmpty()){
 				//Tomar datos ingresados por el usuario
 				int documento = Integer.parseInt(textDocumento.getText());
                 int peso = Integer.parseInt(textPeso.getText());
 				int altura = Integer.parseInt(textAltura.getText());
-				Calendar fechaCon = Calendar.getInstance();
+				Calendar calendar = fechaControl.getCalendar();
 				String comentario = textComentario.getText();
-				Registro cont = new Control(fechaCon,comentario,peso, altura);
-				try{
-					  niños.altaRegistro(cont, documento);
+				Registro cont = new Control(calendar,comentario,peso, altura);
+				if(textPeso.getText().isEmpty() || textAltura.getText().isEmpty()){
+					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");		
+				}else {
+					niños.altaRegistro(cont, documento);
 						JOptionPane.showMessageDialog(null, "Se ingreso el control del niño");
 						dispose();
+				}
+				}else {
+					JOptionPane.showMessageDialog(null, "Debe llenar la cedula ");	
+				}
 					} catch (ExisteNinioException e) {
 						JOptionPane.showMessageDialog(null, e.getMensaje());
 					} catch (hayLugarException e) {
@@ -140,9 +149,9 @@ public class IngresoControl extends JFrame {
 		btnVolver.setBounds(222, 383, 99, 23);
 		contentPane.add(btnVolver);
 		
-		JCalendar calendar = new JCalendar();
-		calendar.setBounds(98, 143, 184, 153);
-		contentPane.add(calendar);
+		fechaControl = new JCalendar();
+		fechaControl.setBounds(98, 143, 184, 153);
+		contentPane.add(fechaControl);
 		
 		JLabel lblCedula = new JLabel("Cedula:");
 		lblCedula.setBounds(10, 57, 56, 16);

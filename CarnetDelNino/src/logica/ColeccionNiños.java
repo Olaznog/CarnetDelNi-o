@@ -92,6 +92,10 @@ public class ColeccionNiños implements Serializable {
 	}
 	
 	public void altaRegistro(Registro r, int cedulaNiño)throws ExisteNinioException, hayLugarException {
+		//se busca el niño con esa cedula
+		//si el niño no existe, aviso error
+		//sino
+		//invoco el metodo de niño que le agrega un registro a su coleccion de registros : n.agregarRegistroNiño(r);
 	    if(existeNinio(cedulaNiño) == false)
 	    	throw new ExisteNinioException("No existe un niño con ese documento");
 	    else
@@ -104,15 +108,7 @@ public class ColeccionNiños implements Serializable {
 	    		throw new hayLugarException(e.getMensaje());
 	    	}
 	    }
-	    
-		/*Si se encuentra el niño, se invoca el método de la clase niño que agrega el registro
-		en la lista de registros del mismo. SI ya no hay lugar para más registros de ese niño, se
-		emite otro mensaje.*/
 		
-		//se busca el niño con esa cedula
-		//si el niño no existe, aviso error
-		//sino
-		//invoco el metodo de niño que le agrega un registro a su coleccion de registros : n.agregarRegistroNiño(r);
 	}
 	
 	public Niño getNiño (int cedula)throws ExisteNinioException{
@@ -135,7 +131,6 @@ public class ColeccionNiños implements Serializable {
 		int cuantas = 0;
 		for(int i = 0; i < tope; i++)
 		{
-			//niños[i].cuantasConsultasAntesDe(fecha);
 			cuantas = cuantas + niños[i].cuantasConsultasAntesDe(fecha);
 		}
 		return cuantas;

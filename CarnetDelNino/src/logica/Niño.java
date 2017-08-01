@@ -7,7 +7,7 @@ import excepciones.hayLugarException;
 
 public class Niño implements Serializable {
 	
-	//private static final long serialVersionUID = 100L;
+	
 	
 	private String nombre;
 	private int documento;
@@ -108,6 +108,7 @@ public class Niño implements Serializable {
 		this.cantRegistrosIngresados = cantRegistrosIngresados;
 	}
 
+	//RECIBE UNA FECHA COMO PARÁMETRO Y LA SEPARA ENTRE AÑO, DÍA Y MES Y CALCULA LA FECHA DE NAC. DEL NIÑO.
 	public int getEdadNiño(Calendar FechaNacimiento) {
         Calendar hoy = Calendar.getInstance();
         int año = hoy.get(Calendar.YEAR) - FechaNacimiento.get(Calendar.YEAR);
@@ -139,7 +140,6 @@ public class Niño implements Serializable {
 	}
 	
 	public String toString() {
-		//No sabemos como mostrar los registros en este metodo
 		int dia = fechaNacimiento.get(Calendar.DAY_OF_MONTH);
 		int mes = fechaNacimiento.get(Calendar.MONTH);
 		int año = fechaNacimiento.get(Calendar.YEAR);
@@ -159,7 +159,7 @@ public class Niño implements Serializable {
 	}
 	public String toStringListadoNiño() {
 		int Edad = getEdadNiño(fechaNacimiento);
-		String retorno = "Nombre: " + nombre + " Documento: " +documento +" Edad: "+Edad+" Servicio: " +servicioMedico;
+		String retorno = "Nombre: " + nombre + " Documento: " +documento +" Edad: "+Edad+" Servicio Medico: " +servicioMedico;
 		return retorno;
 	}
 	

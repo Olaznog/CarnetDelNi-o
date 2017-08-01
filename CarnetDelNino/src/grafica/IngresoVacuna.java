@@ -112,10 +112,13 @@ public class IngresoVacuna extends JFrame {
 		contentPane.add(textComentario);
 		textComentario.setColumns(10);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO ALTAREGISTRO()
 		JButton btnIngresar = new JButton("INGRESAR");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Tomar datos ingresados por el usuario
+				try {
+					if(!textDocumento.getText().isEmpty()){
 				int documento = Integer.parseInt(textDocumento.getText());
 				String nomVac = textNombreVac.getText();
 				 int dosis = Integer.parseInt(textDosis.getText()); 
@@ -129,10 +132,16 @@ public class IngresoVacuna extends JFrame {
 				Calendar calendar = fechaVac.getCalendar();
 				String comentarioVac = textComentario.getText();
 				Registro v = new Vacuna(calendar,comentarioVac,nomVac,dosis,obligatoria);
-				try {
+				if(nomVac.isEmpty() || textDosis.getText().isEmpty()){
+					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");			
+				}else {
 					niños.altaRegistro(v, documento);
 					JOptionPane.showMessageDialog(null, "Se ingreso la vacuna del niño");
 					dispose();
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Debe llenar la cedula ");	
+				}
 				} catch (ExisteNinioException e) {
 					JOptionPane.showMessageDialog(null, e.getMensaje());
 				} catch (hayLugarException e) {

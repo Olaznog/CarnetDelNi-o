@@ -84,7 +84,7 @@ public class ListadoDeNiños extends JFrame {
 		list_ninos = new JList();
 		scrollPane_1.setViewportView(list_ninos);
 		
-		//cargo lista con ninos
+		//cargo lista con niños
 		DefaultListModel listModel = new DefaultListModel();
 		for(int x = 0; x < n.listarNiños().length ; x = x + 1) {
 			listModel.addElement(n.listarNiños()[x]);
