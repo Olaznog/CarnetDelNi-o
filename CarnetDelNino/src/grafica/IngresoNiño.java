@@ -140,8 +140,6 @@ public class IngresoNiño extends JFrame {
 				else
 					tieneFonasa = false;
 				Niño n = new Niño(nombre, documento, fechaNac, servicioMedico, medicoCabecera, tieneFonasa);
-					
-				//ColeccionNiños coleccion = new ColeccionNiños();
 				if(nombre.isEmpty() || servicioMedico.isEmpty() || medicoCabecera.isEmpty()){
 					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");			
 				}else {

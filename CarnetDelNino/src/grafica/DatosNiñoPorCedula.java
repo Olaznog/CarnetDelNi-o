@@ -133,7 +133,7 @@ public class DatosNiñoPorCedula extends JFrame {
 				try {
 					if(!textDocumento.getText().isEmpty()){
 				int ci = Integer.parseInt(textDocumento.getText());
-				
+				    if(niños.existeNinio(ci) == true){
 					Niño n1 = niños.getNiño(ci);
 					textField.setText(n1.getNombre());
 					Calendar fec = n1.getFechaNacimiento();
@@ -153,14 +153,19 @@ public class DatosNiñoPorCedula extends JFrame {
 						}
 				      }
 					listaRegistros.setModel(listModel);		
-					}else {
-					JOptionPane.showMessageDialog(null, "Debe llenar la cedula ");	
-				}								
+				    }else {
+						JOptionPane.showMessageDialog(null, "No existe un niño con esa cedula");
+				    }
+				    }else {
+				    	JOptionPane.showMessageDialog(null, "Debe ingresar una cedula");
+				    }
 				} catch (ExisteNinioException e1) {
 				
 					JOptionPane.showMessageDialog(null, e1.getMensaje());
 				}
+				
 			}
+			
 		});
 		btnBuscar.setBounds(305, 66, 97, 25);
 		contentPane.add(btnBuscar);
