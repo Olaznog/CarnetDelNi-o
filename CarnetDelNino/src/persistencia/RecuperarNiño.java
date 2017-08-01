@@ -10,9 +10,8 @@ import logica.Niño;
 
 public class RecuperarNiño {
 	//RUTA DESDE DONDE RECUPERA EL ARCHIVO
-	//private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
-	private static String rutaPersistenciaNinos = "/home/gsenatore/Documentos/datosNiños.obj";
-	
+	private static String rutaPersistenciaNinos = "C://DatosNiño/datosNiños.obj";
+		
 	public static ColeccionNiños recuperar() {
 		
 		ColeccionNiños data = null;
