@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import logica.ColeccionNiños;
-import logica.Sistema;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;

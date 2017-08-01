@@ -3,7 +3,6 @@ package grafica;
 import java.io.IOException;
 
 import logica.ColeccionNiños;
-import logica.Sistema;
 import persistencia.RecuperarNiño;
 
 public class Main {
