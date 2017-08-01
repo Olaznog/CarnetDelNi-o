@@ -126,7 +126,7 @@ public class IngresoConsulta extends JFrame {
 				String nomMed = textNombreMed.getText();
 				String diagnostico = textDiagnostico.getText();
 				String recomendaciones = textRecomenda.getText();
-				Calendar fechaCon = Calendar.getInstance();
+				Calendar fechaCon = Calendar.getCalendar();
 				String comentario = textComentario.getText();
 				Registro cons = new Consulta(fechaCon,comentario,nomMed,diagnostico,recomendaciones);
 				try {
@@ -158,9 +158,9 @@ public class IngresoConsulta extends JFrame {
 		btnVolver.setBounds(335, 391, 89, 23);
 		contentPane.add(btnVolver);
 		
-		JCalendar calendar = new JCalendar();
-		calendar.setBounds(158, 159, 184, 153);
-		contentPane.add(calendar);
+		fechaCon = new JCalendar();
+		fechaCon.setBounds(158, 159, 184, 153);
+		contentPane.add(fechaCon);
 		
 		JLabel lblCedula = new JLabel("C\u00E9dula:");
 		lblCedula.setBounds(23, 331, 56, 16);

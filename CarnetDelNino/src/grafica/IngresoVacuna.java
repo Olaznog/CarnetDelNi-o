@@ -126,9 +126,9 @@ public class IngresoVacuna extends JFrame {
 						obligatoria = false;
 				
 				
-				Calendar diaVac = fechaVac.getCalendar();
+				Calendar calendar = fechaVac.getCalendar();
 				String comentarioVac = textComentario.getText();
-				Registro v = new Vacuna(diaVac,comentarioVac,nomVac,dosis,obligatoria);
+				Registro v = new Vacuna(calendar,comentarioVac,nomVac,dosis,obligatoria);
 				try {
 					niños.altaRegistro(v, documento);
 					JOptionPane.showMessageDialog(null, "Se ingreso la vacuna del niño");
@@ -154,17 +154,17 @@ public class IngresoVacuna extends JFrame {
 		btnVolver.setBounds(219, 445, 96, 23);
 		contentPane.add(btnVolver);
 		
-		JCalendar calendar = new JCalendar();
-		calendar.setBounds(112, 190, 184, 153);
-		contentPane.add(calendar);
+	    fechaVac = new JCalendar();
+	    fechaVac.setBounds(112, 190, 184, 153);
+		contentPane.add(fechaVac);
 		
-		JRadioButton rdbtnObliSi = new JRadioButton("Si");
+	    rdbtnObliSi = new JRadioButton("Si");
 		rdbtnObliSi.setSelected(true);
 		buttonGroup.add(rdbtnObliSi);
 		rdbtnObliSi.setBounds(112, 146, 53, 23);
 		contentPane.add(rdbtnObliSi);
 		
-		JRadioButton rdbtnObliNo = new JRadioButton("No");
+		rdbtnObliNo = new JRadioButton("No");
 		buttonGroup.add(rdbtnObliNo);
 		rdbtnObliNo.setBounds(179, 146, 46, 23);
 		contentPane.add(rdbtnObliNo);

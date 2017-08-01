@@ -39,13 +39,8 @@ import javax.swing.JScrollPane;
 
 public class DatosNiñoPorCedula extends JFrame {
 	private ColeccionNiños niños;
-	 private VentanaMenu Menu;
+	private VentanaMenu Menu;
 	private JPanel contentPane;
-	private JCalendar  fechaNac;
-	private JTextField textServicioMedico;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JRadioButton rdbtnTieneFSi_1;
-	private JRadioButton rdbtnTieneFNo_1;
 	private JTextField textDocumento;
 	private JTextField textField;
 	private JTextField textFec;
