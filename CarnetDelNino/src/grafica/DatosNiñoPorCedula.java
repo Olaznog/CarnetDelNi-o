@@ -39,7 +39,7 @@ import javax.swing.JScrollPane;
 
 public class DatosNiñoPorCedula extends JFrame {
 	private ColeccionNiños niños;
-	 private VentanaMenu Menu;
+	private VentanaMenu Menu;
 	private JPanel contentPane;
 	private JCalendar  fechaNac;
 	private JTextField textServicioMedico;
@@ -194,9 +194,6 @@ public class DatosNiñoPorCedula extends JFrame {
 		contentPane.add(textTieneFon);
 		textTieneFon.setColumns(10);
 		
-		
-		
-	
 	}
 	
 }
