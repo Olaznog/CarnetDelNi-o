@@ -59,7 +59,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(lblDocumento);
 		
 		JLabel lblFechaNac = new JLabel("Fecha de Nacimiento:");
-		lblFechaNac.setBounds(10, 145, 116, 14);
+		lblFechaNac.setBounds(10, 145, 139, 14);
 		contentPane.add(lblFechaNac);
 		
 		JLabel lblSerMed = new JLabel("Servicio M\u00E9dico:");
@@ -122,6 +122,7 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(textMedCabecera);
 		textMedCabecera.setColumns(10);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO ALTANIÑO()
 		JButton btnIngresar = new JButton("INGRESAR");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -139,8 +140,11 @@ public class IngresoNiño extends JFrame {
 				else
 					tieneFonasa = false;
 				Niño n = new Niño(nombre, documento, fechaNac, servicioMedico, medicoCabecera, tieneFonasa);
+<<<<<<< HEAD
 					
 				//ColeccionNiños coleccion = new ColeccionNiños();
+=======
+>>>>>>> branch 'master' of https://github.com/Olaznog/CarnetDelNino.git
 				if(nombre.isEmpty() || servicioMedico.isEmpty() || medicoCabecera.isEmpty()){
 					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");			
 				}else {
@@ -179,10 +183,11 @@ public class IngresoNiño extends JFrame {
 		contentPane.add(lblIngresoNio);
 		
 		calendar = new JCalendar();
-		calendar.setBounds(136, 145, 184, 153);
+		calendar.setBounds(136, 140, 184, 153);
 		contentPane.add(calendar);
 		
 		rdbtnTieneFSi_1 = new JRadioButton("Si");
+		rdbtnTieneFSi_1.setSelected(true);
 		buttonGroup.add(rdbtnTieneFSi_1);
 		rdbtnTieneFSi_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

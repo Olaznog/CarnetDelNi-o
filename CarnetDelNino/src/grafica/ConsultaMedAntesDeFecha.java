@@ -22,7 +22,6 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 	private ColeccionNiños niños;
 	private JCalendar calendar;
 	private JPanel contentPane;
-    private JLabel lblCantidadConsultas;
     private VentanaMenu Menu;
 	
     public ConsultaMedAntesDeFecha(ColeccionNiños n, VentanaMenu menu) {
@@ -43,13 +42,12 @@ public class ConsultaMedAntesDeFecha extends JFrame {
 		lblIngreseFecha.setBounds(12, 65, 87, 14);
 		contentPane.add(lblIngreseFecha);
 		
+		//ACÁ INVOCAMOS EL MÉTODO DE LA CLASE COLECCIÓN NIÑOS
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Calendar fecha = calendar.getCalendar();
 				int cantidad = niños.cuantasConsultasAntesDe(fecha);
-				//String cant = String.valueOf(cantidad);
-			    //lblCantidadConsultas.setText(cant);
 				JOptionPane.showMessageDialog(null, "La cantidad de consultas es: "+cantidad);
 				dispose();
 			}

@@ -32,23 +32,12 @@ public class VentanaMenu extends JFrame {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				int i = JOptionPane.showConfirmDialog(null, "Desea cerrar el sistema?");
-				//el numero que retorna el metodo es el numero de la respuesta del usuario:
-				//YES = 0
-				//NO = 1
-				//CANCEL = 2
 				if(i == 0)
 				{
-					//ACA SE DEBERIA GUARDAR EN PERSISTENCIA LOS DATOS
-					// Y DESPUED< SI< CERRAR LA VENTANA Y CERRAR EL SISTEMA
+					//ACA SE GUARDA EL ARCHIVO
 					PersistirNiño.persistir(n);
-					
-					//ACA SE GUARDA LA CONFIGURACION DEL SISTEMA (tamanos de los arreglos)
-					//PersistirSistema.persistir(n);
-				
-					
 					System.exit(0);
 				}
-				//SI HACE FALTA IMPLEMENTAR EL COMPORTAMIENTO SI EL USUARIO SELECCIONA NO O CANECLAR, ESCRIBIR LOS ELSE
 			}
 		});
 		niños = n;
@@ -99,6 +88,7 @@ public class VentanaMenu extends JFrame {
 		JMenu mnConsultar = new JMenu("Consultar");
 		menuBar.add(mnConsultar);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO LISTARNIÑOS() Y POR ÚLTIMO UTILIZAMOS EL MÉTODO QUE MUESTRA LA VENTANA CON LA LISTA.
 		JMenuItem mntmNewMenuItem = new JMenuItem("Listado de Ni\u00F1os");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -124,28 +114,8 @@ public class VentanaMenu extends JFrame {
 			}
 		});
 		mnConsultar.add(mntmNewMenuItem_2);
-		
-		/*JMenuItem mnListadoDeNios = new JMenu("Listado de ni\u00F1os");
-		mnConsultar.add(mnListadoDeNios);
-		
-		JMenuItem mnNewMenu = new JMenu("Mostrar datos de un ni\u00F1o ");
-		mnNewMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarVentDatosNiñosPorCI();
-			}
-		});
-		mnConsultar.add(mnNewMenu);
-		
-		JMenuItem mnConsultaMedicaPor = new JMenu("Consulta M\u00E9dica por Fecha");
-		mnConsultaMedicaPor.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mostrarVentConsultasMedicas();
-			}
-		});
-		mnConsultar.add(mnConsultaMedicaPor);*/
-		
-		
 	}
+	//ESTOS METODOS SE INVONCAN EN LOS EVENTOS DE LOS BOTONES PARA VISUALIZAR LAS VENTANAS CORRESPONDIENTES
 	private void mostrarVentVacuna()
 	{
 		IngresoVacuna Vacuna = new IngresoVacuna(niños, this);

@@ -45,7 +45,7 @@ public class IngresoVacuna extends JFrame {
 		this.niños = n;
 		this.Menu = menu;
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 526);
+		setBounds(100, 100, 401, 526);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -56,7 +56,7 @@ public class IngresoVacuna extends JFrame {
 		contentPane.add(lblIngresoVacuna);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 69, 46, 14);
+		lblNombre.setBounds(10, 69, 78, 14);
 		contentPane.add(lblNombre);
 		
 		textNombreVac = new JTextField();
@@ -80,6 +80,17 @@ public class IngresoVacuna extends JFrame {
 		contentPane.add(lblDsis);
 		
 		textDosis = new JTextField();
+		textDosis.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }    
+	     }
+		});
 		textDosis.setBounds(112, 123, 124, 17);
 		contentPane.add(textDosis);
 		textDosis.setColumns(10);
@@ -93,18 +104,21 @@ public class IngresoVacuna extends JFrame {
 		contentPane.add(lblFecha);
 		
 		JLabel lblNewLabel = new JLabel("Comentario:");
-		lblNewLabel.setBounds(10, 387, 78, 14);
+		lblNewLabel.setBounds(10, 374, 78, 14);
 		contentPane.add(lblNewLabel);
 		
 		textComentario = new JTextField();
-		textComentario.setBounds(109, 388, 218, 60);
+		textComentario.setBounds(112, 374, 218, 60);
 		contentPane.add(textComentario);
 		textComentario.setColumns(10);
 		
+		//ACÁ UTILIZAMOS EL MÉTODO ALTAREGISTRO()
 		JButton btnIngresar = new JButton("INGRESAR");
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Tomar datos ingresados por el usuario
+				try {
+					if(!textDocumento.getText().isEmpty()){
 				int documento = Integer.parseInt(textDocumento.getText());
 				String nomVac = textNombreVac.getText();
 				 int dosis = Integer.parseInt(textDosis.getText()); 
@@ -114,15 +128,29 @@ public class IngresoVacuna extends JFrame {
 					else
 						obligatoria = false;
 				
+<<<<<<< HEAD
 				//Cambio la variable FechaVac a diaVac como tipo Calendar para usar getCalendar
 					//Pero sigue dando NullPointerException en linea 112. grafica.IngresoVacuna$2.actionPerformed
+=======
+				
+>>>>>>> branch 'master' of https://github.com/Olaznog/CarnetDelNino.git
 				Calendar calendar = fechaVac.getCalendar();
 				String comentarioVac = textComentario.getText();
 				Registro v = new Vacuna(calendar,comentarioVac,nomVac,dosis,obligatoria);
+<<<<<<< HEAD
 				try {
+=======
+				if(nomVac.isEmpty() || textDosis.getText().isEmpty()){
+					JOptionPane.showMessageDialog(null, "Debe llenar todos los campos ");			
+				}else {
+>>>>>>> branch 'master' of https://github.com/Olaznog/CarnetDelNino.git
 					niños.altaRegistro(v, documento);
 					JOptionPane.showMessageDialog(null, "Se ingreso la vacuna del niño");
 					dispose();
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Debe llenar la cedula ");	
+				}
 				} catch (ExisteNinioException e) {
 					JOptionPane.showMessageDialog(null, e.getMensaje());
 				} catch (hayLugarException e) {
@@ -130,7 +158,7 @@ public class IngresoVacuna extends JFrame {
 				}
 			}
 		});
-		btnIngresar.setBounds(112, 470, 96, 23);
+		btnIngresar.setBounds(100, 445, 96, 23);
 		contentPane.add(btnIngresar);
 		
 		JButton btnVolver = new JButton("VOLVER");
@@ -141,14 +169,24 @@ public class IngresoVacuna extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(218, 470, 96, 23);
+		btnVolver.setBounds(219, 445, 96, 23);
 		contentPane.add(btnVolver);
 		
+<<<<<<< HEAD
 		fechaVac = new JCalendar();
 		fechaVac.setBounds(112, 190, 184, 153);
+=======
+	    fechaVac = new JCalendar();
+	    fechaVac.setBounds(112, 190, 184, 153);
+>>>>>>> branch 'master' of https://github.com/Olaznog/CarnetDelNino.git
 		contentPane.add(fechaVac);
 		
+<<<<<<< HEAD
 		rdbtnObliSi = new JRadioButton("Si");
+=======
+	    rdbtnObliSi = new JRadioButton("Si");
+		rdbtnObliSi.setSelected(true);
+>>>>>>> branch 'master' of https://github.com/Olaznog/CarnetDelNino.git
 		buttonGroup.add(rdbtnObliSi);
 		rdbtnObliSi.setBounds(112, 146, 53, 23);
 		contentPane.add(rdbtnObliSi);
@@ -159,6 +197,17 @@ public class IngresoVacuna extends JFrame {
 		contentPane.add(rdbtnObliNo);
 		
 		textDocumento = new JTextField();
+		textDocumento.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				 int k = (int) evt.getKeyChar();//k = al valor de la tecla presionada    
+		         if (k >= 97 && k <= 122 || k >= 65 && k <= 90) {//Si el caracter ingresado es una letra
+		             evt.setKeyChar((char) KeyEvent.VK_CLEAR);//Limpiar el caracter ingresado
+		             JOptionPane.showMessageDialog(null, "No puede ingresar letras!!!", "Validando Datos",
+		                     JOptionPane.ERROR_MESSAGE);
+		        }    
+	     }
+		});
 		textDocumento.setColumns(10);
 		textDocumento.setBounds(112, 95, 124, 17);
 		contentPane.add(textDocumento);
